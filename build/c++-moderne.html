@@ -1,0 +1,4013 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Asciidoctor 2.0.12">
+<meta name="description" content="C&#43;&#43; moderne">
+<meta name="keywords" content="C&#43;&#43; moderne C&#43;&#43;11 C&#43;&#43;14 C&#43;&#43;17">
+<meta name="author" content="Thierry Vaira">
+<title>C&#43;&#43; moderne</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
+<style>
+/* Asciidoctor default stylesheet | MIT License | https://asciidoctor.org */
+/* Uncomment @import statement to use as custom stylesheet */
+/*@import "https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700";*/
+article,aside,details,figcaption,figure,footer,header,hgroup,main,nav,section{display:block}
+audio,video{display:inline-block}
+audio:not([controls]){display:none;height:0}
+html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}
+a{background:none}
+a:focus{outline:thin dotted}
+a:active,a:hover{outline:0}
+h1{font-size:2em;margin:.67em 0}
+abbr[title]{border-bottom:1px dotted}
+b,strong{font-weight:bold}
+dfn{font-style:italic}
+hr{-moz-box-sizing:content-box;box-sizing:content-box;height:0}
+mark{background:#ff0;color:#000}
+code,kbd,pre,samp{font-family:monospace;font-size:1em}
+pre{white-space:pre-wrap}
+q{quotes:"\201C" "\201D" "\2018" "\2019"}
+small{font-size:80%}
+sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}
+sup{top:-.5em}
+sub{bottom:-.25em}
+img{border:0}
+svg:not(:root){overflow:hidden}
+figure{margin:0}
+fieldset{border:1px solid silver;margin:0 2px;padding:.35em .625em .75em}
+legend{border:0;padding:0}
+button,input,select,textarea{font-family:inherit;font-size:100%;margin:0}
+button,input{line-height:normal}
+button,select{text-transform:none}
+button,html input[type="button"],input[type="reset"],input[type="submit"]{-webkit-appearance:button;cursor:pointer}
+button[disabled],html input[disabled]{cursor:default}
+input[type="checkbox"],input[type="radio"]{box-sizing:border-box;padding:0}
+button::-moz-focus-inner,input::-moz-focus-inner{border:0;padding:0}
+textarea{overflow:auto;vertical-align:top}
+table{border-collapse:collapse;border-spacing:0}
+*,*::before,*::after{-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box}
+html,body{font-size:100%}
+body{background:#fff;color:rgba(0,0,0,.8);padding:0;margin:0;font-family:"Noto Serif","DejaVu Serif",serif;font-weight:400;font-style:normal;line-height:1;position:relative;cursor:auto;tab-size:4;word-wrap:anywhere;-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased}
+a:hover{cursor:pointer}
+img,object,embed{max-width:100%;height:auto}
+object,embed{height:100%}
+img{-ms-interpolation-mode:bicubic}
+.left{float:left!important}
+.right{float:right!important}
+.text-left{text-align:left!important}
+.text-right{text-align:right!important}
+.text-center{text-align:center!important}
+.text-justify{text-align:justify!important}
+.hide{display:none}
+img,object,svg{display:inline-block;vertical-align:middle}
+textarea{height:auto;min-height:50px}
+select{width:100%}
+.subheader,.admonitionblock td.content>.title,.audioblock>.title,.exampleblock>.title,.imageblock>.title,.listingblock>.title,.literalblock>.title,.stemblock>.title,.openblock>.title,.paragraph>.title,.quoteblock>.title,table.tableblock>.title,.verseblock>.title,.videoblock>.title,.dlist>.title,.olist>.title,.ulist>.title,.qlist>.title,.hdlist>.title{line-height:1.45;color:#7a2518;font-weight:400;margin-top:0;margin-bottom:.25em}
+div,dl,dt,dd,ul,ol,li,h1,h2,h3,#toctitle,.sidebarblock>.content>.title,h4,h5,h6,pre,form,p,blockquote,th,td{margin:0;padding:0}
+a{color:#2156a5;text-decoration:underline;line-height:inherit}
+a:hover,a:focus{color:#1d4b8f}
+a img{border:0}
+p{font-family:inherit;font-weight:400;font-size:1em;line-height:1.6;margin-bottom:1.25em;text-rendering:optimizeLegibility}
+p aside{font-size:.875em;line-height:1.35;font-style:italic}
+h1,h2,h3,#toctitle,.sidebarblock>.content>.title,h4,h5,h6{font-family:"Open Sans","DejaVu Sans",sans-serif;font-weight:300;font-style:normal;color:#ba3925;text-rendering:optimizeLegibility;margin-top:1em;margin-bottom:.5em;line-height:1.0125em}
+h1 small,h2 small,h3 small,#toctitle small,.sidebarblock>.content>.title small,h4 small,h5 small,h6 small{font-size:60%;color:#e99b8f;line-height:0}
+h1{font-size:2.125em}
+h2{font-size:1.6875em}
+h3,#toctitle,.sidebarblock>.content>.title{font-size:1.375em}
+h4,h5{font-size:1.125em}
+h6{font-size:1em}
+hr{border:solid #dddddf;border-width:1px 0 0;clear:both;margin:1.25em 0 1.1875em;height:0}
+em,i{font-style:italic;line-height:inherit}
+strong,b{font-weight:bold;line-height:inherit}
+small{font-size:60%;line-height:inherit}
+code{font-family:"Droid Sans Mono","DejaVu Sans Mono",monospace;font-weight:400;color:rgba(0,0,0,.9)}
+ul,ol,dl{font-size:1em;line-height:1.6;margin-bottom:1.25em;list-style-position:outside;font-family:inherit}
+ul,ol{margin-left:1.5em}
+ul li ul,ul li ol{margin-left:1.25em;margin-bottom:0;font-size:1em}
+ul.square li ul,ul.circle li ul,ul.disc li ul{list-style:inherit}
+ul.square{list-style-type:square}
+ul.circle{list-style-type:circle}
+ul.disc{list-style-type:disc}
+ol li ul,ol li ol{margin-left:1.25em;margin-bottom:0}
+dl dt{margin-bottom:.3125em;font-weight:bold}
+dl dd{margin-bottom:1.25em}
+abbr,acronym{text-transform:uppercase;font-size:90%;color:rgba(0,0,0,.8);border-bottom:1px dotted #ddd;cursor:help}
+abbr{text-transform:none}
+blockquote{margin:0 0 1.25em;padding:.5625em 1.25em 0 1.1875em;border-left:1px solid #ddd}
+blockquote cite{display:block;font-size:.9375em;color:rgba(0,0,0,.6)}
+blockquote cite::before{content:"\2014 \0020"}
+blockquote cite a,blockquote cite a:visited{color:rgba(0,0,0,.6)}
+blockquote,blockquote p{line-height:1.6;color:rgba(0,0,0,.85)}
+@media screen and (min-width:768px){h1,h2,h3,#toctitle,.sidebarblock>.content>.title,h4,h5,h6{line-height:1.2}
+h1{font-size:2.75em}
+h2{font-size:2.3125em}
+h3,#toctitle,.sidebarblock>.content>.title{font-size:1.6875em}
+h4{font-size:1.4375em}}
+table{background:#fff;margin-bottom:1.25em;border:solid 1px #dedede;word-wrap:normal}
+table thead,table tfoot{background:#f7f8f7}
+table thead tr th,table thead tr td,table tfoot tr th,table tfoot tr td{padding:.5em .625em .625em;font-size:inherit;color:rgba(0,0,0,.8);text-align:left}
+table tr th,table tr td{padding:.5625em .625em;font-size:inherit;color:rgba(0,0,0,.8)}
+table tr.even,table tr.alt{background:#f8f8f7}
+table thead tr th,table tfoot tr th,table tbody tr td,table tr td,table tfoot tr td{line-height:1.6}
+h1,h2,h3,#toctitle,.sidebarblock>.content>.title,h4,h5,h6{line-height:1.2;word-spacing:-.05em}
+h1 strong,h2 strong,h3 strong,#toctitle strong,.sidebarblock>.content>.title strong,h4 strong,h5 strong,h6 strong{font-weight:400}
+.center{margin-left:auto;margin-right:auto}
+.stretch{width:100%}
+.clearfix::before,.clearfix::after,.float-group::before,.float-group::after{content:" ";display:table}
+.clearfix::after,.float-group::after{clear:both}
+:not(pre).nobreak{word-wrap:normal}
+:not(pre).nowrap{white-space:nowrap}
+:not(pre).pre-wrap{white-space:pre-wrap}
+:not(pre):not([class^=L])>code{font-size:.9375em;font-style:normal!important;letter-spacing:0;padding:.1em .5ex;word-spacing:-.15em;background:#f7f7f8;-webkit-border-radius:4px;border-radius:4px;line-height:1.45;text-rendering:optimizeSpeed}
+pre{color:rgba(0,0,0,.9);font-family:"Droid Sans Mono","DejaVu Sans Mono",monospace;line-height:1.45;text-rendering:optimizeSpeed}
+pre code,pre pre{color:inherit;font-size:inherit;line-height:inherit}
+pre>code{display:block}
+pre.nowrap,pre.nowrap pre{white-space:pre;word-wrap:normal}
+em em{font-style:normal}
+strong strong{font-weight:400}
+.keyseq{color:rgba(51,51,51,.8)}
+kbd{font-family:"Droid Sans Mono","DejaVu Sans Mono",monospace;display:inline-block;color:rgba(0,0,0,.8);font-size:.65em;line-height:1.45;background:#f7f7f7;border:1px solid #ccc;-webkit-border-radius:3px;border-radius:3px;-webkit-box-shadow:0 1px 0 rgba(0,0,0,.2),0 0 0 .1em white inset;box-shadow:0 1px 0 rgba(0,0,0,.2),0 0 0 .1em #fff inset;margin:0 .15em;padding:.2em .5em;vertical-align:middle;position:relative;top:-.1em;white-space:nowrap}
+.keyseq kbd:first-child{margin-left:0}
+.keyseq kbd:last-child{margin-right:0}
+.menuseq,.menuref{color:#000}
+.menuseq b:not(.caret),.menuref{font-weight:inherit}
+.menuseq{word-spacing:-.02em}
+.menuseq b.caret{font-size:1.25em;line-height:.8}
+.menuseq i.caret{font-weight:bold;text-align:center;width:.45em}
+b.button::before,b.button::after{position:relative;top:-1px;font-weight:400}
+b.button::before{content:"[";padding:0 3px 0 2px}
+b.button::after{content:"]";padding:0 2px 0 3px}
+p a>code:hover{color:rgba(0,0,0,.9)}
+#header,#content,#footnotes,#footer{width:100%;margin-left:auto;margin-right:auto;margin-top:0;margin-bottom:0;max-width:62.5em;*zoom:1;position:relative;padding-left:.9375em;padding-right:.9375em}
+#header::before,#header::after,#content::before,#content::after,#footnotes::before,#footnotes::after,#footer::before,#footer::after{content:" ";display:table}
+#header::after,#content::after,#footnotes::after,#footer::after{clear:both}
+#content{margin-top:1.25em}
+#content::before{content:none}
+#header>h1:first-child{color:rgba(0,0,0,.85);margin-top:2.25rem;margin-bottom:0}
+#header>h1:first-child+#toc{margin-top:8px;border-top:1px solid #dddddf}
+#header>h1:only-child,body.toc2 #header>h1:nth-last-child(2){border-bottom:1px solid #dddddf;padding-bottom:8px}
+#header .details{border-bottom:1px solid #dddddf;line-height:1.45;padding-top:.25em;padding-bottom:.25em;padding-left:.25em;color:rgba(0,0,0,.6);display:-ms-flexbox;display:-webkit-flex;display:flex;-ms-flex-flow:row wrap;-webkit-flex-flow:row wrap;flex-flow:row wrap}
+#header .details span:first-child{margin-left:-.125em}
+#header .details span.email a{color:rgba(0,0,0,.85)}
+#header .details br{display:none}
+#header .details br+span::before{content:"\00a0\2013\00a0"}
+#header .details br+span.author::before{content:"\00a0\22c5\00a0";color:rgba(0,0,0,.85)}
+#header .details br+span#revremark::before{content:"\00a0|\00a0"}
+#header #revnumber{text-transform:capitalize}
+#header #revnumber::after{content:"\00a0"}
+#content>h1:first-child:not([class]){color:rgba(0,0,0,.85);border-bottom:1px solid #dddddf;padding-bottom:8px;margin-top:0;padding-top:1rem;margin-bottom:1.25rem}
+#toc{border-bottom:1px solid #e7e7e9;padding-bottom:.5em}
+#toc>ul{margin-left:.125em}
+#toc ul.sectlevel0>li>a{font-style:italic}
+#toc ul.sectlevel0 ul.sectlevel1{margin:.5em 0}
+#toc ul{font-family:"Open Sans","DejaVu Sans",sans-serif;list-style-type:none}
+#toc li{line-height:1.3334;margin-top:.3334em}
+#toc a{text-decoration:none}
+#toc a:active{text-decoration:underline}
+#toctitle{color:#7a2518;font-size:1.2em}
+@media screen and (min-width:768px){#toctitle{font-size:1.375em}
+body.toc2{padding-left:15em;padding-right:0}
+#toc.toc2{margin-top:0!important;background:#f8f8f7;position:fixed;width:15em;left:0;top:0;border-right:1px solid #e7e7e9;border-top-width:0!important;border-bottom-width:0!important;z-index:1000;padding:1.25em 1em;height:100%;overflow:auto}
+#toc.toc2 #toctitle{margin-top:0;margin-bottom:.8rem;font-size:1.2em}
+#toc.toc2>ul{font-size:.9em;margin-bottom:0}
+#toc.toc2 ul ul{margin-left:0;padding-left:1em}
+#toc.toc2 ul.sectlevel0 ul.sectlevel1{padding-left:0;margin-top:.5em;margin-bottom:.5em}
+body.toc2.toc-right{padding-left:0;padding-right:15em}
+body.toc2.toc-right #toc.toc2{border-right-width:0;border-left:1px solid #e7e7e9;left:auto;right:0}}
+@media screen and (min-width:1280px){body.toc2{padding-left:20em;padding-right:0}
+#toc.toc2{width:20em}
+#toc.toc2 #toctitle{font-size:1.375em}
+#toc.toc2>ul{font-size:.95em}
+#toc.toc2 ul ul{padding-left:1.25em}
+body.toc2.toc-right{padding-left:0;padding-right:20em}}
+#content #toc{border-style:solid;border-width:1px;border-color:#e0e0dc;margin-bottom:1.25em;padding:1.25em;background:#f8f8f7;-webkit-border-radius:4px;border-radius:4px}
+#content #toc>:first-child{margin-top:0}
+#content #toc>:last-child{margin-bottom:0}
+#footer{max-width:none;background:rgba(0,0,0,.8);padding:1.25em}
+#footer-text{color:rgba(255,255,255,.8);line-height:1.44}
+#content{margin-bottom:.625em}
+.sect1{padding-bottom:.625em}
+@media screen and (min-width:768px){#content{margin-bottom:1.25em}
+.sect1{padding-bottom:1.25em}}
+.sect1:last-child{padding-bottom:0}
+.sect1+.sect1{border-top:1px solid #e7e7e9}
+#content h1>a.anchor,h2>a.anchor,h3>a.anchor,#toctitle>a.anchor,.sidebarblock>.content>.title>a.anchor,h4>a.anchor,h5>a.anchor,h6>a.anchor{position:absolute;z-index:1001;width:1.5ex;margin-left:-1.5ex;display:block;text-decoration:none!important;visibility:hidden;text-align:center;font-weight:400}
+#content h1>a.anchor::before,h2>a.anchor::before,h3>a.anchor::before,#toctitle>a.anchor::before,.sidebarblock>.content>.title>a.anchor::before,h4>a.anchor::before,h5>a.anchor::before,h6>a.anchor::before{content:"\00A7";font-size:.85em;display:block;padding-top:.1em}
+#content h1:hover>a.anchor,#content h1>a.anchor:hover,h2:hover>a.anchor,h2>a.anchor:hover,h3:hover>a.anchor,#toctitle:hover>a.anchor,.sidebarblock>.content>.title:hover>a.anchor,h3>a.anchor:hover,#toctitle>a.anchor:hover,.sidebarblock>.content>.title>a.anchor:hover,h4:hover>a.anchor,h4>a.anchor:hover,h5:hover>a.anchor,h5>a.anchor:hover,h6:hover>a.anchor,h6>a.anchor:hover{visibility:visible}
+#content h1>a.link,h2>a.link,h3>a.link,#toctitle>a.link,.sidebarblock>.content>.title>a.link,h4>a.link,h5>a.link,h6>a.link{color:#ba3925;text-decoration:none}
+#content h1>a.link:hover,h2>a.link:hover,h3>a.link:hover,#toctitle>a.link:hover,.sidebarblock>.content>.title>a.link:hover,h4>a.link:hover,h5>a.link:hover,h6>a.link:hover{color:#a53221}
+details,.audioblock,.imageblock,.literalblock,.listingblock,.stemblock,.videoblock{margin-bottom:1.25em}
+details>summary:first-of-type{cursor:pointer;display:list-item;outline:none;margin-bottom:.75em}
+.admonitionblock td.content>.title,.audioblock>.title,.exampleblock>.title,.imageblock>.title,.listingblock>.title,.literalblock>.title,.stemblock>.title,.openblock>.title,.paragraph>.title,.quoteblock>.title,table.tableblock>.title,.verseblock>.title,.videoblock>.title,.dlist>.title,.olist>.title,.ulist>.title,.qlist>.title,.hdlist>.title{text-rendering:optimizeLegibility;text-align:left;font-family:"Noto Serif","DejaVu Serif",serif;font-size:1rem;font-style:italic}
+table.tableblock.fit-content>caption.title{white-space:nowrap;width:0}
+.paragraph.lead>p,#preamble>.sectionbody>[class="paragraph"]:first-of-type p{font-size:1.21875em;line-height:1.6;color:rgba(0,0,0,.85)}
+table.tableblock #preamble>.sectionbody>[class="paragraph"]:first-of-type p{font-size:inherit}
+.admonitionblock>table{border-collapse:separate;border:0;background:none;width:100%}
+.admonitionblock>table td.icon{text-align:center;width:80px}
+.admonitionblock>table td.icon img{max-width:none}
+.admonitionblock>table td.icon .title{font-weight:bold;font-family:"Open Sans","DejaVu Sans",sans-serif;text-transform:uppercase}
+.admonitionblock>table td.content{padding-left:1.125em;padding-right:1.25em;border-left:1px solid #dddddf;color:rgba(0,0,0,.6);word-wrap:anywhere}
+.admonitionblock>table td.content>:last-child>:last-child{margin-bottom:0}
+.exampleblock>.content{border-style:solid;border-width:1px;border-color:#e6e6e6;margin-bottom:1.25em;padding:1.25em;background:#fff;-webkit-border-radius:4px;border-radius:4px}
+.exampleblock>.content>:first-child{margin-top:0}
+.exampleblock>.content>:last-child{margin-bottom:0}
+.sidebarblock{border-style:solid;border-width:1px;border-color:#dbdbd6;margin-bottom:1.25em;padding:1.25em;background:#f3f3f2;-webkit-border-radius:4px;border-radius:4px}
+.sidebarblock>:first-child{margin-top:0}
+.sidebarblock>:last-child{margin-bottom:0}
+.sidebarblock>.content>.title{color:#7a2518;margin-top:0;text-align:center}
+.exampleblock>.content>:last-child>:last-child,.exampleblock>.content .olist>ol>li:last-child>:last-child,.exampleblock>.content .ulist>ul>li:last-child>:last-child,.exampleblock>.content .qlist>ol>li:last-child>:last-child,.sidebarblock>.content>:last-child>:last-child,.sidebarblock>.content .olist>ol>li:last-child>:last-child,.sidebarblock>.content .ulist>ul>li:last-child>:last-child,.sidebarblock>.content .qlist>ol>li:last-child>:last-child{margin-bottom:0}
+.literalblock pre,.listingblock>.content>pre{-webkit-border-radius:4px;border-radius:4px;overflow-x:auto;padding:1em;font-size:.8125em}
+@media screen and (min-width:768px){.literalblock pre,.listingblock>.content>pre{font-size:.90625em}}
+@media screen and (min-width:1280px){.literalblock pre,.listingblock>.content>pre{font-size:1em}}
+.literalblock pre,.listingblock>.content>pre:not(.highlight),.listingblock>.content>pre[class="highlight"],.listingblock>.content>pre[class^="highlight "]{background:#f7f7f8}
+.literalblock.output pre{color:#f7f7f8;background:rgba(0,0,0,.9)}
+.listingblock>.content{position:relative}
+.listingblock code[data-lang]::before{display:none;content:attr(data-lang);position:absolute;font-size:.75em;top:.425rem;right:.5rem;line-height:1;text-transform:uppercase;color:inherit;opacity:.5}
+.listingblock:hover code[data-lang]::before{display:block}
+.listingblock.terminal pre .command::before{content:attr(data-prompt);padding-right:.5em;color:inherit;opacity:.5}
+.listingblock.terminal pre .command:not([data-prompt])::before{content:"$"}
+.listingblock pre.highlightjs{padding:0}
+.listingblock pre.highlightjs>code{padding:1em;-webkit-border-radius:4px;border-radius:4px}
+.listingblock pre.prettyprint{border-width:0}
+.prettyprint{background:#f7f7f8}
+pre.prettyprint .linenums{line-height:1.45;margin-left:2em}
+pre.prettyprint li{background:none;list-style-type:inherit;padding-left:0}
+pre.prettyprint li code[data-lang]::before{opacity:1}
+pre.prettyprint li:not(:first-child) code[data-lang]::before{display:none}
+table.linenotable{border-collapse:separate;border:0;margin-bottom:0;background:none}
+table.linenotable td[class]{color:inherit;vertical-align:top;padding:0;line-height:inherit;white-space:normal}
+table.linenotable td.code{padding-left:.75em}
+table.linenotable td.linenos{border-right:1px solid currentColor;opacity:.35;padding-right:.5em}
+pre.pygments .lineno{border-right:1px solid currentColor;opacity:.35;display:inline-block;margin-right:.75em}
+pre.pygments .lineno::before{content:"";margin-right:-.125em}
+.quoteblock{margin:0 1em 1.25em 1.5em;display:table}
+.quoteblock:not(.excerpt)>.title{margin-left:-1.5em;margin-bottom:.75em}
+.quoteblock blockquote,.quoteblock p{color:rgba(0,0,0,.85);font-size:1.15rem;line-height:1.75;word-spacing:.1em;letter-spacing:0;font-style:italic;text-align:justify}
+.quoteblock blockquote{margin:0;padding:0;border:0}
+.quoteblock blockquote::before{content:"\201c";float:left;font-size:2.75em;font-weight:bold;line-height:.6em;margin-left:-.6em;color:#7a2518;text-shadow:0 1px 2px rgba(0,0,0,.1)}
+.quoteblock blockquote>.paragraph:last-child p{margin-bottom:0}
+.quoteblock .attribution{margin-top:.75em;margin-right:.5ex;text-align:right}
+.verseblock{margin:0 1em 1.25em}
+.verseblock pre{font-family:"Open Sans","DejaVu Sans",sans;font-size:1.15rem;color:rgba(0,0,0,.85);font-weight:300;text-rendering:optimizeLegibility}
+.verseblock pre strong{font-weight:400}
+.verseblock .attribution{margin-top:1.25rem;margin-left:.5ex}
+.quoteblock .attribution,.verseblock .attribution{font-size:.9375em;line-height:1.45;font-style:italic}
+.quoteblock .attribution br,.verseblock .attribution br{display:none}
+.quoteblock .attribution cite,.verseblock .attribution cite{display:block;letter-spacing:-.025em;color:rgba(0,0,0,.6)}
+.quoteblock.abstract blockquote::before,.quoteblock.excerpt blockquote::before,.quoteblock .quoteblock blockquote::before{display:none}
+.quoteblock.abstract blockquote,.quoteblock.abstract p,.quoteblock.excerpt blockquote,.quoteblock.excerpt p,.quoteblock .quoteblock blockquote,.quoteblock .quoteblock p{line-height:1.6;word-spacing:0}
+.quoteblock.abstract{margin:0 1em 1.25em;display:block}
+.quoteblock.abstract>.title{margin:0 0 .375em;font-size:1.15em;text-align:center}
+.quoteblock.excerpt>blockquote,.quoteblock .quoteblock{padding:0 0 .25em 1em;border-left:.25em solid #dddddf}
+.quoteblock.excerpt,.quoteblock .quoteblock{margin-left:0}
+.quoteblock.excerpt blockquote,.quoteblock.excerpt p,.quoteblock .quoteblock blockquote,.quoteblock .quoteblock p{color:inherit;font-size:1.0625rem}
+.quoteblock.excerpt .attribution,.quoteblock .quoteblock .attribution{color:inherit;text-align:left;margin-right:0}
+p.tableblock:last-child{margin-bottom:0}
+td.tableblock>.content{margin-bottom:1.25em;word-wrap:anywhere}
+td.tableblock>.content>:last-child{margin-bottom:-1.25em}
+table.tableblock,th.tableblock,td.tableblock{border:0 solid #dedede}
+table.grid-all>*>tr>*{border-width:1px}
+table.grid-cols>*>tr>*{border-width:0 1px}
+table.grid-rows>*>tr>*{border-width:1px 0}
+table.frame-all{border-width:1px}
+table.frame-ends{border-width:1px 0}
+table.frame-sides{border-width:0 1px}
+table.frame-none>colgroup+*>:first-child>*,table.frame-sides>colgroup+*>:first-child>*{border-top-width:0}
+table.frame-none>:last-child>:last-child>*,table.frame-sides>:last-child>:last-child>*{border-bottom-width:0}
+table.frame-none>*>tr>:first-child,table.frame-ends>*>tr>:first-child{border-left-width:0}
+table.frame-none>*>tr>:last-child,table.frame-ends>*>tr>:last-child{border-right-width:0}
+table.stripes-all tr,table.stripes-odd tr:nth-of-type(odd),table.stripes-even tr:nth-of-type(even),table.stripes-hover tr:hover{background:#f8f8f7}
+th.halign-left,td.halign-left{text-align:left}
+th.halign-right,td.halign-right{text-align:right}
+th.halign-center,td.halign-center{text-align:center}
+th.valign-top,td.valign-top{vertical-align:top}
+th.valign-bottom,td.valign-bottom{vertical-align:bottom}
+th.valign-middle,td.valign-middle{vertical-align:middle}
+table thead th,table tfoot th{font-weight:bold}
+tbody tr th{background:#f7f8f7}
+tbody tr th,tbody tr th p,tfoot tr th,tfoot tr th p{color:rgba(0,0,0,.8);font-weight:bold}
+p.tableblock>code:only-child{background:none;padding:0}
+p.tableblock{font-size:1em}
+ol{margin-left:1.75em}
+ul li ol{margin-left:1.5em}
+dl dd{margin-left:1.125em}
+dl dd:last-child,dl dd:last-child>:last-child{margin-bottom:0}
+ol>li p,ul>li p,ul dd,ol dd,.olist .olist,.ulist .ulist,.ulist .olist,.olist .ulist{margin-bottom:.625em}
+ul.checklist,ul.none,ol.none,ul.no-bullet,ol.no-bullet,ol.unnumbered,ul.unstyled,ol.unstyled{list-style-type:none}
+ul.no-bullet,ol.no-bullet,ol.unnumbered{margin-left:.625em}
+ul.unstyled,ol.unstyled{margin-left:0}
+ul.checklist{margin-left:.625em}
+ul.checklist li>p:first-child>.fa-square-o:first-child,ul.checklist li>p:first-child>.fa-check-square-o:first-child{width:1.25em;font-size:.8em;position:relative;bottom:.125em}
+ul.checklist li>p:first-child>input[type="checkbox"]:first-child{margin-right:.25em}
+ul.inline{display:-ms-flexbox;display:-webkit-box;display:flex;-ms-flex-flow:row wrap;-webkit-flex-flow:row wrap;flex-flow:row wrap;list-style:none;margin:0 0 .625em -1.25em}
+ul.inline>li{margin-left:1.25em}
+.unstyled dl dt{font-weight:400;font-style:normal}
+ol.arabic{list-style-type:decimal}
+ol.decimal{list-style-type:decimal-leading-zero}
+ol.loweralpha{list-style-type:lower-alpha}
+ol.upperalpha{list-style-type:upper-alpha}
+ol.lowerroman{list-style-type:lower-roman}
+ol.upperroman{list-style-type:upper-roman}
+ol.lowergreek{list-style-type:lower-greek}
+.hdlist>table,.colist>table{border:0;background:none}
+.hdlist>table>tbody>tr,.colist>table>tbody>tr{background:none}
+td.hdlist1,td.hdlist2{vertical-align:top;padding:0 .625em}
+td.hdlist1{font-weight:bold;padding-bottom:1.25em}
+td.hdlist2{word-wrap:anywhere}
+.literalblock+.colist,.listingblock+.colist{margin-top:-.5em}
+.colist td:not([class]):first-child{padding:.4em .75em 0;line-height:1;vertical-align:top}
+.colist td:not([class]):first-child img{max-width:none}
+.colist td:not([class]):last-child{padding:.25em 0}
+.thumb,.th{line-height:0;display:inline-block;border:solid 4px #fff;-webkit-box-shadow:0 0 0 1px #ddd;box-shadow:0 0 0 1px #ddd}
+.imageblock.left{margin:.25em .625em 1.25em 0}
+.imageblock.right{margin:.25em 0 1.25em .625em}
+.imageblock>.title{margin-bottom:0}
+.imageblock.thumb,.imageblock.th{border-width:6px}
+.imageblock.thumb>.title,.imageblock.th>.title{padding:0 .125em}
+.image.left,.image.right{margin-top:.25em;margin-bottom:.25em;display:inline-block;line-height:0}
+.image.left{margin-right:.625em}
+.image.right{margin-left:.625em}
+a.image{text-decoration:none;display:inline-block}
+a.image object{pointer-events:none}
+sup.footnote,sup.footnoteref{font-size:.875em;position:static;vertical-align:super}
+sup.footnote a,sup.footnoteref a{text-decoration:none}
+sup.footnote a:active,sup.footnoteref a:active{text-decoration:underline}
+#footnotes{padding-top:.75em;padding-bottom:.75em;margin-bottom:.625em}
+#footnotes hr{width:20%;min-width:6.25em;margin:-.25em 0 .75em;border-width:1px 0 0}
+#footnotes .footnote{padding:0 .375em 0 .225em;line-height:1.3334;font-size:.875em;margin-left:1.2em;margin-bottom:.2em}
+#footnotes .footnote a:first-of-type{font-weight:bold;text-decoration:none;margin-left:-1.05em}
+#footnotes .footnote:last-of-type{margin-bottom:0}
+#content #footnotes{margin-top:-.625em;margin-bottom:0;padding:.75em 0}
+.gist .file-data>table{border:0;background:#fff;width:100%;margin-bottom:0}
+.gist .file-data>table td.line-data{width:99%}
+div.unbreakable{page-break-inside:avoid}
+.big{font-size:larger}
+.small{font-size:smaller}
+.underline{text-decoration:underline}
+.overline{text-decoration:overline}
+.line-through{text-decoration:line-through}
+.aqua{color:#00bfbf}
+.aqua-background{background:#00fafa}
+.black{color:#000}
+.black-background{background:#000}
+.blue{color:#0000bf}
+.blue-background{background:#0000fa}
+.fuchsia{color:#bf00bf}
+.fuchsia-background{background:#fa00fa}
+.gray{color:#606060}
+.gray-background{background:#7d7d7d}
+.green{color:#006000}
+.green-background{background:#007d00}
+.lime{color:#00bf00}
+.lime-background{background:#00fa00}
+.maroon{color:#600000}
+.maroon-background{background:#7d0000}
+.navy{color:#000060}
+.navy-background{background:#00007d}
+.olive{color:#606000}
+.olive-background{background:#7d7d00}
+.purple{color:#600060}
+.purple-background{background:#7d007d}
+.red{color:#bf0000}
+.red-background{background:#fa0000}
+.silver{color:#909090}
+.silver-background{background:#bcbcbc}
+.teal{color:#006060}
+.teal-background{background:#007d7d}
+.white{color:#bfbfbf}
+.white-background{background:#fafafa}
+.yellow{color:#bfbf00}
+.yellow-background{background:#fafa00}
+span.icon>.fa{cursor:default}
+a span.icon>.fa{cursor:inherit}
+.admonitionblock td.icon [class^="fa icon-"]{font-size:2.5em;text-shadow:1px 1px 2px rgba(0,0,0,.5);cursor:default}
+.admonitionblock td.icon .icon-note::before{content:"\f05a";color:#19407c}
+.admonitionblock td.icon .icon-tip::before{content:"\f0eb";text-shadow:1px 1px 2px rgba(155,155,0,.8);color:#111}
+.admonitionblock td.icon .icon-warning::before{content:"\f071";color:#bf6900}
+.admonitionblock td.icon .icon-caution::before{content:"\f06d";color:#bf3400}
+.admonitionblock td.icon .icon-important::before{content:"\f06a";color:#bf0000}
+.conum[data-value]{display:inline-block;color:#fff!important;background:rgba(0,0,0,.8);-webkit-border-radius:50%;border-radius:50%;text-align:center;font-size:.75em;width:1.67em;height:1.67em;line-height:1.67em;font-family:"Open Sans","DejaVu Sans",sans-serif;font-style:normal;font-weight:bold}
+.conum[data-value] *{color:#fff!important}
+.conum[data-value]+b{display:none}
+.conum[data-value]::after{content:attr(data-value)}
+pre .conum[data-value]{position:relative;top:-.125em}
+b.conum *{color:inherit!important}
+.conum:not([data-value]):empty{display:none}
+dt,th.tableblock,td.content,div.footnote{text-rendering:optimizeLegibility}
+h1,h2,p,td.content,span.alt{letter-spacing:-.01em}
+p strong,td.content strong,div.footnote strong{letter-spacing:-.005em}
+p,blockquote,dt,td.content,span.alt{font-size:1.0625rem}
+p{margin-bottom:1.25rem}
+.sidebarblock p,.sidebarblock dt,.sidebarblock td.content,p.tableblock{font-size:1em}
+.exampleblock>.content{background:#fffef7;border-color:#e0e0dc;-webkit-box-shadow:0 1px 4px #e0e0dc;box-shadow:0 1px 4px #e0e0dc}
+.print-only{display:none!important}
+@page{margin:1.25cm .75cm}
+@media print{*{-webkit-box-shadow:none!important;box-shadow:none!important;text-shadow:none!important}
+html{font-size:80%}
+a{color:inherit!important;text-decoration:underline!important}
+a.bare,a[href^="#"],a[href^="mailto:"]{text-decoration:none!important}
+a[href^="http:"]:not(.bare)::after,a[href^="https:"]:not(.bare)::after{content:"(" attr(href) ")";display:inline-block;font-size:.875em;padding-left:.25em}
+abbr[title]::after{content:" (" attr(title) ")"}
+pre,blockquote,tr,img,object,svg{page-break-inside:avoid}
+thead{display:table-header-group}
+svg{max-width:100%}
+p,blockquote,dt,td.content{font-size:1em;orphans:3;widows:3}
+h2,h3,#toctitle,.sidebarblock>.content>.title{page-break-after:avoid}
+#header,#content,#footnotes,#footer{max-width:none}
+#toc,.sidebarblock,.exampleblock>.content{background:none!important}
+#toc{border-bottom:1px solid #dddddf!important;padding-bottom:0!important}
+body.book #header{text-align:center}
+body.book #header>h1:first-child{border:0!important;margin:2.5em 0 1em}
+body.book #header .details{border:0!important;display:block;padding:0!important}
+body.book #header .details span:first-child{margin-left:0!important}
+body.book #header .details br{display:block}
+body.book #header .details br+span::before{content:none!important}
+body.book #toc{border:0!important;text-align:left!important;padding:0!important;margin:0!important}
+body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-break-before:always}
+.listingblock code[data-lang]::before{display:block}
+#footer{padding:0 .9375em}
+.hide-on-print{display:none!important}
+.print-only{display:block!important}
+.hide-for-print{display:none!important}
+.show-for-print{display:inherit!important}}
+@media print,amzn-kf8{#header>h1:first-child{margin-top:1.25rem}
+.sect1{padding:0!important}
+.sect1+.sect1{border:0}
+#footer{background:none}
+#footer-text{color:rgba(0,0,0,.6);font-size:.9em}}
+@media amzn-kf8{#header,#content,#footnotes,#footer{padding:0}}
+</style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.3/styles/rainbow.min.css">
+</head>
+<body class="article toc2 toc-left">
+<div id="header">
+<h1>C&#43;&#43; moderne</h1>
+<div class="details">
+<span id="author" class="author">Thierry Vaira</span><br>
+<span id="email" class="email"><a href="mailto:tvaira@free.fr">tvaira@free.fr</a></span><br>
+<span id="revnumber">version v1.6,</span>
+<span id="revdate">28/12/2020</span>
+<br><span id="revremark"></span>
+</div>
+<div id="toc" class="toc2">
+<div id="toctitle">Sommaire</div>
+<ul class="sectlevel1">
+<li><a href="#_c">1. C&#43;&#43;</a></li>
+<li><a href="#_c_moderne">2. C&#43;&#43; moderne</a></li>
+<li><a href="#_les_exemples">3. Les exemples</a></li>
+<li><a href="#_c11">4. C&#43;&#43;11</a>
+<ul class="sectlevel2">
+<li><a href="#_les_types_etlesvariables">4.1. Les types et les variables</a></li>
+<li><a href="#_initialisation">4.2. Initialisation</a></li>
+<li><a href="#_auto">4.3. auto</a></li>
+<li><a href="#_membre_mutable">4.4. Membre mutable</a></li>
+<li><a href="#_les_pointeurs">4.5. Les pointeurs</a></li>
+<li><a href="#_les_pointeurs_intelligents">4.6. Les pointeurs intelligents</a></li>
+<li><a href="#_les_énumérations">4.7. Les énumérations</a></li>
+<li><a href="#_decltype">4.8. decltype</a></li>
+<li><a href="#_les_littéraux_utilisateur">4.9. Les littéraux utilisateur</a></li>
+<li><a href="#_range_for">4.10. Range-for</a></li>
+<li><a href="#_les_expressions_rationnelles">4.11. Les expressions rationnelles</a></li>
+<li><a href="#_délégation_du_constructeur">4.12. Délégation du constructeur</a></li>
+<li><a href="#_héritage_des_constructeurs">4.13. Héritage des constructeurs</a></li>
+<li><a href="#_liste_dinitialiseurs">4.14. Liste d&#8217;initialiseurs</a></li>
+<li><a href="#_constexpr">4.15. constexpr</a></li>
+<li><a href="#_les_nouveaux_spécificateurs_de_classe_override_default_delete_final">4.16. Les nouveaux spécificateurs de classe (override, default, delete, final)</a></li>
+<li><a href="#_référence_sur_rvalue">4.17. Référence sur rvalue</a></li>
+<li><a href="#_la_fonction_move">4.18. La fonction move()</a></li>
+<li><a href="#_déplacement_constructeur_et_opérateur">4.19. Déplacement (constructeur et opérateur)</a></li>
+<li><a href="#_threads">4.20. Threads</a></li>
+<li><a href="#_stdfuture_et_stdasync">4.21. std::future et std::async</a></li>
+<li><a href="#_mutex">4.22. Mutex</a></li>
+<li><a href="#_stdref">4.23. std::ref</a></li>
+<li><a href="#_les_tableaux_à_taille_fixe_array">4.24. Les tableaux à taille fixe array</a></li>
+<li><a href="#_les_listes_simplement_chaînée">4.25. Les listes simplement chaînée</a></li>
+<li><a href="#_le_type_tuple">4.26. Le type Tuple</a></li>
+<li><a href="#_tables_de_hachage">4.27. Tables de hachage</a></li>
+<li><a href="#_nombres_pseudo_aléatoires">4.28. Nombres pseudo-aléatoires</a></li>
+<li><a href="#_fonction_lambda">4.29. Fonction lambda</a></li>
+<li><a href="#_stdfunction_et_stdmem_fn">4.30. std::function et std::mem_fn</a></li>
+</ul>
+</li>
+<li><a href="#_c14">5. C&#43;&#43;14</a>
+<ul class="sectlevel2">
+<li><a href="#_nombres_binaires">5.1. Nombres binaires</a></li>
+<li><a href="#_séparateur_de_chiffres">5.2. Séparateur de chiffres</a></li>
+</ul>
+</li>
+<li><a href="#_c17">6. C&#43;&#43;17</a>
+<ul class="sectlevel2">
+<li><a href="#_le_type_byte">6.1. Le type byte</a></li>
+<li><a href="#_stdinvoke">6.2. std::invoke</a></li>
+<li><a href="#_stdoptional">6.3. std::optional</a></li>
+<li><a href="#_stdany">6.4. std::any</a></li>
+</ul>
+</li>
+<li><a href="#_c20">7. C&#43;&#43;20</a></li>
+<li><a href="#_wikipédia">8. Wikipédia</a></li>
+<li><a href="#_voir_aussi">9. Voir aussi</a></li>
+</ul>
+</div>
+</div>
+<div id="content">
+<div id="preamble">
+<div class="sectionbody">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</div>
+</div>
+<div class="sect1">
+<h2 id="_c">1. C&#43;&#43;</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><a href="https://fr.wikipedia.org/wiki/C%2B%2B">C&#43;&#43;</a> est un langage de
+programmation compilé permettant la programmation sous de multiples
+paradigmes (comme la programmation procédurale, <strong>orientée objet</strong> ou
+générique). Ses bonnes performances, et sa compatibilité avec le C en
+font un des langages de programmation les plus utilisés dans les
+applications où la performance est critique.</p>
+</div>
+<div class="paragraph">
+<p>Créé initialement par <strong>Bjarne Stroustrup</strong> dans les années 1980, le
+langage C&#43;&#43; est aujourd&#8217;hui normalisé par l&#8217;ISO. Sa première
+normalisation date de <strong>1998</strong> (ISO/CEI 14882:1998), ensuite amendée par
+l&#8217;erratum technique de <strong>2003</strong> (ISO/CEI 14882:2003). Une importante mise
+à jour a été ratifiée et publiée par l&#8217;ISO en septembre 2011 sous le
+nom de ISO/IEC 14882:2011, ou C&#43;&#43;11. Depuis, des mises à jour sont
+publiées régulièrement : en 2014 (ISO/CEI 14882:2014 ou C&#43;&#43;14) puis
+en 2017 (ISO/CEI 14882:2017 ou C&#43;&#43;17). [source :
+<a href="https://fr.wikipedia.org/wiki/C%2B%2B">wikipedia.org</a>]</p>
+</div>
+<div class="paragraph">
+<p>Les changements du langage C&#43;&#43; concernent aussi bien le langage initial
+que la bibliothèque standard.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>La bibliothèque standard du C&#43;&#43; (<em>C&#43;&#43; Standard Library</em>)
+est une bibliothèque de classes et de fonctions standardisées selon la
+norme ISO pour le langage C&#43;&#43;. Elle contient aussi la bibliothèque
+standard du C. Une des principales briques de la bibliothèque standard
+du C&#43;&#43; est sans aucun doute la <strong>STL</strong> (<em>Standard Template Library</em>), à
+tel point qu&#8217;il y a souvent confusion entre les deux.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Dans l&#8217;index de popularité des langages
+<a href="https://www.tiobe.com/tiobe-index/">TIOBE</a>, le C représente 16,2 %
+(première place) et le C&#43;&#43; 7,6 % (quatrième place) en novembre 2020.</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADqCAIAAADbFrXuAAAACXBIWXMAAC4jAAAuIwF4pT92AAAAB3RJTUUH5AsIByswpoMxigAAIABJREFUeNrsvVmQZOd1Jvadc/57M7O2rt67ATR2gAAIggAJrhIpU9RIpmeocYxC47Fsh+wJR0yEH+wX248OR/jBD/aDwxGjsBzjccSMRsvYVsgSLZHUQgZ3SgBI7PvS3egdXXtVZt77n/P54c/Mru6uJhpEdaMB1B+IZnUxuyrz3u+e5TvnfEeCxM7ZOTfwSbJzDXbOjX105xLsnB2M7pyds4PRnbOD0Z2zc3YwunN2zg5Gd84ORnfOztnB6M7ZwejOAQAQAQIESSLKN4MgynfKiwKIIEAEQXL8egAgnZMfNTp5/NMdiMl/JMBLXrlzLj3CnVro5TClQwSAQAuGIADgcIMREASoBCFZYADW1odvnvezax7aZgccHWVKNjVdH9pte2a6FdhCEyBBKFtIBQHh4gYBFTsVvx2MvgM7WtwLAVCEI4fDgBTPEwQAFQISEXFqhU+9vvjcicVzK77a5+qgSZU0ItOddNt8994DnU/cOnfzodmOBGAuNBQLnUbgJ1xoOyDdweg7gSnAEWQoxYwGoVJM6RhOZxfXHnt15Zlj6wtr7XojTQxaMIeJUBjQSjwnkaSdqsa+mfr+m7qP3DF79+E5AkKMMRko1noHojsYvdoTpAikOHSCBgXpAgMcMA8/ubTxty8sf/+l1ZfWlm+1KVdp1StohIdpwDRoiFZBqgaBIFmp1FX7ySN7Pv3Rg/fs69ZVgiAiiypIEdu59jsYvVqQRsBVFTQICMAhBJTAW0vD7z6z+IOXzi4P2mWtJFW7fdiqOEVEjTCQZIhSiEAFI6lAX8OoFFsfrO+q/JHbDvy7jxy+/VANseLud+zoDkbfqS2liAVL7oQMDNebn55a+/ELZ9447WeHERh2E6fr6aWm6Yp0oJkUkZaRVIQVpRVaBnvQRjJzlRPgw+Rh3Xq1be/a3/vC3bs/ddu+vbNpJxrdweg7SuopwgioKhAAzm/ghTeWf/DKmRdP9M8P01wHAzSzdWfOuQA4tCYMOURIVjAAjWShhYZRSHaAxoQurfetmuohB3C8UYnmi4enHrl19/337r5lvrtz8XcwulVyJJGhBkiQKgIQIdDCNJ1e2nj11ZXvvLHx4umNNeUc0TEAUcFaoBHUhBEuEBEHRMr1VJKBrFBAARURIChOejewLPUcM01VdG19fZh6d+ybfuTW7ifunL9z/zSUBo65LZEAdGTXJ2b+Q0Vsf8jtaBAuMFDHKXzImKp848z6n/309F+/urLhci9ioWtTHF0uCQ9Tik5RXFC+6cCmizmywZvAFCICBZvcqXSVVTVc7VTdBabdKTaadjn0s7fMfeVj8w/fsRum8ICVMHWU9ZeQdfQIfZhQ+uHFaCGAKABdxMAWYggdaj59rv+Xzy09dXR5uMEW4tIm1QA60ExxgYZDQbJL9RG9PwKoiGyCKXBZAam8LFQ0SFKrGp5DxZrIFj3Tu26a/dUHD9x7y3RHPSKJjogqjslUyI4d/eAGmhdjKIMCMaIVVMWBvnSu/1dPnnry9cW1RrSqOpAqPFsKZACJ4tAMJpCkiFTBphCocnnOswVGSSkG1cBGJAKVgGSoCRUOwjsUJn/wlqnP3bfv4TtmEw3qEVBNpS4FwD5MSVb6EMeiKYtXgKACsDjAa6+f+cuXF4+fHYZjyoQQpbdqHmpiJdmnugUwRmSoXBkqW5TgRUhq4aeUKqbqraoNSEjQ3Kh9ZIE9dnx9fW24uHrw4dt27ZmvTIstocEiAP0QmdIPsx0dRaQLa+3rp5b+6oXV548trKruq6pjzjsrINIQkqQZImmpViICoaoWI+cucjXWTEmOIKsQCoCaHEJJr03bKPlQkBwIO14nRFXj/Ma6NPnwoT1f+ti+T946e9NcF1r6BAD5EHFVH954NCJOLzQ/Pb70+GsLb57rv9VE1an3i3jWdUSVAIBCKtWTwb1Eg2RJhwo6x4n81s/DFWIAKMMhJYVClPqV1qEb6kmpTmHy5Ma2QUfb4WLrdx2a/+xtsx870rv9wK46CeEfnrrUhxejz7+5/vXHT/3d8eVhQK06kHydnJLUh7cq3aSeYdSM3GXKEgb6JuNFMon4u7PrYhIRCiUlVIwBIFGzhDKE1lFrJC+FbAwGPcGdh3p/7/69v/TAIdOtDelVm/YdjL6HqfrFf6fEyFhBSRcx0l87ufE3z5998tigPxi2ZLfTacIBJEgEUtK2bVVVVS/0i17be39pdkUyVEQk59xq1dN+1+smS6vtbC0fPbznMx/Zff9tM91kgghXtVHcQpXSjUWof1CyjQ8QRseNnqVQNOmv80J40iXkyRMr33tm6fmzK+t9wpuUqhBRTaRPgCgi7q6q76FZKr/XBRFRSXK2UEOYMyPEhKmOe+e7n7t/z8fv2TNbVUSADAlFNW7RCiDABLlQldjB6A1hREkXEUARoBAipR95ZTB49tjyt59be/nMenZPVilbaqkDYdwkepHJnORY1w2pl2d1m361krSgqrZgEy4hN8/Zl+6bf/T+vbuneyIBKgVyoXErHGIhpWj1/o0B3vcY3ZydRISoCluwokKQSVvZ8L97Y+G7z5x+4czGrFZtZSLoOlvVsd0siPRL4LgZrO8VRgEEooKSdMBFASg8IkysG1jx9sCu7ufv3/2Fuw/sntNKCSYCMvInQroI+X4W9vrgYDQLKnipj4Noojm52rzw2soPX1164kTe1/PGqmjzlAopSZjHFXCSqiValQLTy0F5PZ3+JUitYC08I8rNErFKkCNXEFcKq5VodCg37+l97s4999/dvWNPt5cqobiSpIkCYGTV9D7Nqz5Q8ehofE2EgSdeOvOHj7312un1PV1d6dQYtvsrZEXrlaq2WiUfTGjwgtHJ/bvc3V//p26TOReKK1REJJykqpHhkI5y6J2u5q7F2tDPtJiZ4X/08KEvPHTTTMqQCgiElIrD6PJc94+zg9GL41ECgWdOr/74xbeeeWP9/EAT+6ikAz8fncMpnHkdlbGqos2mcVElKLa8edfZgk4I14uiUilzo6qKYuUBuHgnLExXHVNcnraZBjjf8FDPHzi06xP3zD94x+7pSmU0Qhhg2sHoe3yGTTx+YvEHLy69eWp1sa8RcaCjpwO98DCpIEYMyFoSSWg4ZFwBGuVMm43oZqBcz3j08l9kIVlixFKQCqUQgGUTtk1lTWDKKYYQ6SFOO2u3PV2742DnkXv2PHJkfn5KKQB37Og1ZzsDQBl8m7T+lDHitRw/eWX5O88tnzq/fq5xmvYkukLAHIlsy10pFe/YAnZbNyjd4CcQehmjZGCLSugRWckw2T/f/fK9e3/x7l3Ts4YwaPH7IQ6aAiEXXQElS76FGwfJNy5Gc6GgR6PuQZpAQLqGQRACJaGrq4PHXln4q2dXTi+vU5WmCaJkAlzg2Dq4/EDWYwAYQLJVEUcvMQ8HS+ikjv7KfXO/dt/Bg/u6BiKEShm1zEYJJoonCapKufZ64/Ss3Mh21F3UID5qo0BIBKJCBSDaONXfePy1pcdfWDt6dl06qqhFqMwAQpQkhSJSejg+JMdGNzUtaIbGdCQNUc9DhdXdX7qr9wsfPXD7LqsqARQkYGUCARj5JkGQdLEbp0Z1Y/t6gBIBKgwIoUMqBNdz/u7zi3/807Pnl9v9nWoYrVlVyKMyXwzABfbh60QwQKgmzNF4qpzaye10jX5u1zxqTqHCl++f/tWHb9oz2yvN3S08wVCKc6Ukd4PNqN64GOXIKUF4oX/CvXnqzY3vvr74xom1laXhslWduta2MTPASSSMQs8yYDTOfy7y8u/HvOHqMdoXrSXUg0SmIEmOwbyhZReIk17tAT9x6/Rn7px+6LbZqtczQMIppaTmELvRNCluXIwGoRIkISZEf9j85MzGc8+t/PDNxYV+zFpMVypa9du2Ce90OkaNyDQlQ0grKZBZ4eQ/PBidPJkSkSmpk6wdCqu1xEREoNv4ksp0hYcOdu67bd8n7p0/MFWV6w2ApVa3Y0evFqUkRJZWm8ffXHr8taUTJ/uv92VfJUmiknYgaQitIrpW0aGASziQyzBGmY9T6Idp9MeATLZJe21Tqy1HhJmIqEeVEaZinDIsDamwttmY7u46fFge2Df7ix/Ze8ueBASlknGOv4PRq4Lp4mr+xtNn//r58+f6AvXbExeZTOoKTSOaaR20IiIRQ3WFGSVRS7qahYVQ/PBgVMlG1CQSoUgNo4Tp2VJiTpQhCCDBSO8rpij9dtho+vK9e/69j++/dd/UDfihrh9GSeJi0o1g0agZiYAhxqPoILm0PvjeM4tff2mp7TddZQPLAne3G6b//B2GDboFxXkDHHd6qqbz+kxP7r71wK8+uP/WPT1LIEJCqEJCZSTGxhFNNWGsJjpAwfFf3892lOBIOAlAwrjLk5FFtZDz5WVvrbR//uzZJ99YemHR90nuIdqqqmJoqbvREElqAkAZyJx8faNl8VtRsPoeAvRK4yvz2j/XznUlBjFsTGbBT9655ysf23vk0KwwQ5RFxXLEltAoo0BgovtHJQHh+x6jDloxmBSIRFH8GukkjP6nP/BXzix998XzP3nTl9aHUzV2qVDsZD/qpLsrb+J9k+u8Iyv7HtYUamki9dYHbdJql2ysZ6ylzqOHep+6Z/f9t83un6oAjciqGPf1x6V1qdH4//sfoxfftgA0IlQDSA72h/7CifXHnz/70+MLR4e8faqLEBEZkAbQcVJsWmK3tc7qAxZEvrdUw1nU0z6oO8maSEJV9nO76tOV9e8+MPXlBw49fPP0nrk0nmtwF1WWtobJew6MyIT3OUaJViJBpNQzHFQQ0PMrG08cXXv69ZXHj64Pwb0p16kjdFfruwaaTmVdpkXmcJ1V5h0RtW19GFpGFh4yrEdaDZlGE5I6bNfpknUl5N7DM5+7a9dDt83dtqczEq4adUyXDooCI/3g2NEyuwGwVNvPvLX6b3+y9L2Xl1Z8eKjjqlNDt64OLSRLXaGtTNac4jqbMGA/aa8Jvt/t3+XX/D3kayu4U4bQXi0VsdZmqHUin0L3niqfGw5Pt2mvxkdv7v79T9z08dt2y4gWHOkITzSvPxgYDSAQVkzpm0v5Ry8t/eilc6srQzNrpDJkwB1VFT5U9oFdYplCUumqkgkDROSSbKl87dcRl6OvSyoRl4Jsc7HgcghOqrWXXPn3BKaFImnV2kBXIhAALNAiNfBdQKj0gyRhtsv84dvnf+G+3ffcNGtwMkEgDGDU+3eFSaz3Gz/aMI4tDr/z5Llnjq+fXd7odioX9sRaSgaNACIjRLQmENKY1PRm1C1mNd23rUinV36WrvT6uASjJDdzYVe4mLopCkfp+L9BCl0GZPGAVREJmsFWDXBFaf4TYQirUJKZbmvZj8zwzoO7P/vggYdu7naUIhaRVdIlff7bGGS/C4yOxdw4aeoscfR4ywEkQAVaSFVefuLU6p/+9NSTx/tD0JKkgbeaSPeIuqoARMS2Dw0HQiihZgTpm4QbLpVfLKV9pcdlw3cuMAECSQQxkQghAKNlOMB2tGVpRPEmIosCyPDS+WYs/y8rmJAukSliFSJ3EAOhQi2E4gAcUhT5Cqd2UYeholi7US+sMFEA5O3OvSaXrhfugg2VnrMTzTI5iOrO/ek3P3X4k7fvhUoLJpbLZpOncZx1SOlGFYwlXt9hEetd2tFR1ByghUJK+0d2iEUp9pgIHByuNS+c2/jec+d/dPR8x+oKssKY0i6lNcqk7/1aZLiXjP9OUlELceWkFb/83kQMCwIYk39ugMJcJcMjohJV0iQFPG8SiUhjmdwyvWkSdJZ/Xj5gJs2qiExL7l4JlBRqmGZ4UiZqGwwVAFWUdpgQ0UknFwANTgKGzU/RuxRNufxkRIKW4qqqkhKRe5WuuNSMLvJio7cdmvrK/bseuGVu32yXppP58TFMy36fkUaVjCUp36kBejcYHbfCFxs6ehMOJhcROClJ9Mxa//ljw7956a2Xj60lDe9UGTJHdEwGORs8iyZN7o5Nw+wUblffZ2nSk/AQDTWFCcvvKvjBplFQASIiF1seiBFXTUkc+essE3evZVraBZVMDLOS7uKUnKICkIpthrnKWNkhSCnLRi48SKbiAGKMhgglwATNkIQRLoWai9yphPGCqZOxZc/XgGcVGYVhXZE1Rk1ftwTHvPlq1reGw4dv6v3S3fvuvXXPLbuqlEqjvwdMwDLmv5lP3RRN6XWyo2WHhlAUYBkg9ggJlUTB0ZOLf/zY0o/feGvVsXuqMydDCWmtU+5uY1FTy+LCLWfNtvGUQZFMqiaSSdhwNGw50QQt7yFRW/j4Yk5kwll0yETMBaRHRIIUG2mqLRmjET5NxaezzRihs0Bz4rVJ0tSIJKLBiKCJQ1qGqgqjgjo0IsTKs6oXx8pKSmJACbA0dE8M7XbV24oFDZWayCQUVY7FkKqWRBgxJdJy0EcXjtWNwYO3zv7mo/vuOzJfWYKWJj8hwoHRhMoYo6OG9euAUQKgC6z4d1BGTd1QIM6cG/7Fywt/99KpPEwDRhXsVZ2VFnMaFN8AKig1oWzXJFW13ONrB1YlAVaiLQOQVkWLWu3IK+nY6MZEVGfS10dTDQGipUeQWZwyZGRjPcxuoxjUVFW1RjGVDMew3JDIKGFsm1OlyURVazURExFVbZm7Hm3SHFETxb+7QINlvn58QUb3NRFZQPHxtIGVB2kbhw4CoUhAEWOzDFpuRGTOrI9Q1GuOHP1dNTbY0ba/Xum+yh4+Mv+l+3bffvOMyYhDHc+fjI0aFO9wWOrnx2gJh2XscKBCRAafO97/4UuLL51YWtiQpm2nK5HUbWLQFV0DpykkXevkmeKuMtFJLCO5m2VtticeHQ/+AlGpJEjLaEFFiggRqSAAWngEAK0tGgZFRaR0TLt7m/OqJw12k+6eSvtmqj1TtntK56emZntaVVJVkZKmlMwq1REuSfOWw5brw2HT+kaOjfVmaQPLa4PF9WZliOVhHoCdhG5KqlrkoUt+JhQXHUKELQARVFBAM+kRGT6DJEagJKlKuoGT4HVbrptQMlji7yGoqlXQiKE6oC2sCk9Ma9rMAQ3TsntPsGeqPrK/94sf2fvwLTPdzuTHlQ7/QFH4jwsNGtuJ0cuaEnKEiioAIYJ4+s2l7zxz7vSJtbNtOlbxZjZmncioILk0yyESdFPCiCrg26OpdKXZzkuS94gIMQkgOUUiqY7EmNVzwFsbgrN1RW82mqZVm056YNru2DNzy6HZfbvrg/PdnmldqSpqg1iRAYMUpYVx+zpJESdFyoPMspaZ7mw0Wpcmy/pGLC0Pzq/nY2fXTy8Pjy6snOoLRedT7iYZaE1yTjOgTqUjC0QoJhagozIDvPXGqbAqdNQLMcn23r2vbxEUJaWDEOEQalQASg8xl9BgEhHqUCHMNZMi1oEmomL+yM3zX7h3z6N3z/eqkkjZBQ/5Tvr837Ed3ap9JtaG+dlja995ZuHJU8tL0NtMNxA99fVICVUSH4IdiCMpW4AhCQhllC8uVwd5h3i9Uj/RBeAakCkB7XtTd1INNKDl4mobEXFqZBky14wND5ru6XVv3dW9a19918Hpw/tnDk1bqtWRbTS8opMKddE4KRvrim0GxyngRRc7hOVdjZvc6G3w7HI+t9S8dmrl9bf6ry6254Z5OMw1ZNp0VgGTsZpfFMdedui0IalWC5KaKUAUuBRzsD3VCkXtaFVcULu4CqUVVi5eBUPUhUIq1IWAVMEszJIOiKz48BT46HTnlx448NH7D+zrQcb+1kEgDLZ9GGWZcFVBOEQ5ToWVQl1c92ePLn7zhYVnT68egZrZuUp6HkZRolW0auJ5HPZtJ520SddOMN7UUUCTQaDkNAQkUyiFpOy22tasJfcHJDQSes5m3cOyd7U7O8Nb5qfuPjhz/6He7QdmpnpJS0sLnERJilQLkyIiZW+9blkU8Bgn/zKSXyiIlRhzFwqObF6RSGkkbH2I106tH1/IPz21dGLVFxfXh4GuVqaojEmQoAPGQBhkRbrKlNRKb1WQSxjNy6tc16GvKlHXzROtZkwRx4FZtIAOB3H3wenP3DP/sTvnbpmfGrWihlJbsBoJG46kAmLLHelvj1ECEmXdeiAYYgKH2GDQ/OT19W8/ffbZs/0WXtWaKDOQDYRYWnOtTKpoS/IbrCnNtSuUF4KwZO52MXGYhR1UA6ERIpwSrkcagjVzBR+I9Yd6eErvODB97y1T998yc2TvlCnAFiKZQZpQRUSkISkwHaV6GP+ZJ/zrlWqbFyFmUqwaK6KNagfCDAKaRMuE+/mleP7E0o+Or54+t9bvYy23kSqKd6k9tValH4I2Jw1AKyXJTGyWWikGeGTar0/1P9gIcmUzQ1/TUMDMdKPJhl1zM1/8yN4v3z87O9ud4JJohYpxsWrLtT5X4+sD1ABUgsjCuiD9z544/wc/eFUiTdVk1YHrRnjHpOsuSRdyW6VUu4iYIbfjAtK2M/OlNFWozhgzeeUOuZRFiWUtnVQaIVITGxyoziwO+7HS37Or++Dt+379o/O3HZ6zOhAhIoRGICQKT0oWqT3brN4RY3OVRkvtsbkMUcztlgVSQYZIxEV5ekSQUj4IlTlQiZqMFJlfObP+3SfP/ej1hZfW0Uk8XPdSFeZOF1W1YFhuqIGoIEVp/5LA6TrYUZdRB0WrEoEqXFVbhQkjY5ExA76R299+6Ob/5HOHq2Qokv4BagRoNMJHG35/HoxCM5B81H1N8muPnfnaswttf7lXz24EKoE6hminkzU5kkJoIjL0TE0U30ZO5ErBax5N6ohNFJmpLUa0uQjEJQkH9EEWHwxv3TPzqbvnH7xjdt+cHprpQiRoGsw64krhoTJS8HBQqZPbPAlDedlO78lrIvKmv+oltNom2xajT6EUN1KoVMUwBCodOiCt6OpqPre2/tzx5vk33nrmzcWzWu2d6e5FdFyWDQ5LHtCEaC6n7a5PA3WR96dLaHSZVtRnWx+YTkNWTVLLrrDJbOr6S/fMfvVTh/ZNVw43SFBFQorwDLdYJnQ1vj5kVNQCgIHjW4+99ftPHIuI2bpj1H60Q0UPmtyjqobeKtCVLukNR5FoBduuWH5z4XRiSgvDahcGpsSBspe2CVd41yqSKw7x9r79c5/9yK6Hj8zv2ZVS0jE5GoQ6c0JCRNnxLWLlV4kIkCcE2aQof5UdUptjj1Fee9E4tY9ts47ovHEJz5knRCOgA8dgbeO1U+vfem79hydXTXzOPFsn52bekkseRjVWsr4Uo9cBpoVSdXFSjbH5TmmVmKVwQYPWP3vX3D/70pHOVNmLri5UTMzYpf727RVT6COCqaSip5c2/vKVc56lV3cyJYPQuocgPVvHstdWZ+SWLUGzihQXZm5bwjSh+idXP4mIahvhIr1UZfe1tkkppcqyewd52nXd2xZ148PPH5GvfOLm+2+bAtqRNjkm7S9ISBTAVCbR5rhNkkgjgunygvAVnqWf8c2Le/lGKxds1I8JagggIUnTeBUDSHZMurvqT8x1Du6dmX7CfvrqmZW2mmI7V9VODjwNhd1x9WFU0d3uKOtn0iuJdCXahG7IgGKgJqjrhltFn6okN+7GV04tPnN676N3zoIKycbEUewkP6cdZUBFASysDv7l35x46sRaldCqdTybpEa0CjfhEAbkCtaq1w4XFoo+FLbdvr6k82U9QxIx1T4jIsTDzDpmHl7aLxqTfkQAnzm064sPHHjojqmA15ogKEEnHZoKAzBq1RntObwyh3ctvOeoWXjTINuY9B6R3Q5GpoqbmUMiy6tn1r7/0tJ3nj/bupiqVTol1kcWj80Pw/WZRaEQoTTWri2cQmilwYysgVDpigyj3Yu0YLq4ke+e7/3nf+/wvYd3BWghEFxJxucq+dEAtJ/bf/39N7/x1Op8d1S56SAakbGyUirS64lpIG5EKDXYgQ3hierKbcTohJu0sbZt27YwK01D4hEIMxt646weOTj75Yf2fuyuuVoQAUgWmIg1jAoMtqZ1hKpMduVMdj+MJgSxfdIyVySDR4qVAaRJ7/R4CXQuuRnds0agqhAqDkYWO36m+dZTZ3/w6ltDR6fXAST76PncvOhsYq2vZUgqIrSQbIFABuHoJu2maj3alnlAdKyaCpzeaB9/6eijh6f+l3/2+dv2zbpQGVfainYVdrQ83PTXzw/+hz9+OQZunZQErWrpq7i4521LLn1bOuvGibOwggrVVVpGAg3UoEhak2GNqmX01BzpxZW1m3r1bz1y6Jcf3T9jRGRaHRTVFrygXZhzTindyOo6E1hvFkRX1RaiCIsBMPW9lxd/79uvvL4it8zV0xqDbCbswyrkoaWamDRFlJaaELnSkr4r5QBbrgmYPAmlLWvcWlBoNS/7rgB1b3uVznS6p9cHP3nj5NPH3sTaAEh/9F9+6Te//JEyyB4sRUu843h0ZIFFXnhttcpcm6nYIgEao0LfVp9z2x7Wy6FTQQeEmSTPpsgEiY6opIgwca+r5EN4s/i5g/u++tCeR+6e65q6ElozU9UZpd1ICkOkqje4/NMlb2/Memql4cCAPePgc3dOz3bu+8YT5350fHlDMNuJNTGKG6TnFJEsBeJUlRjvlfzZQcuW0q0TUuKSf5uFEBdWJmnQrnXqWiQ1uSGlqtSsNvLp06ePv3HqmYUNNIbpLjbyHz15/Cufv2ump8QVC/hv8ySRFAIqJ5fX/8VfvPrqYmtmijSEdMArMerbgtEtLx9Ji7JO3pNIIyClZpgExTacfdVe28wmfPajh371wd1756cSIjcNjGadcKp4RE0Lg0xMy3XLKt7lBbnomrAVMToCJgrVALCy4X/9/MJ3nl5cGPYBmaIMJBAqRt3k7iYs8lXegs1fjNew8JJigQsKazfq2Bwr+E+lemWwdvbc8lOnl06eOleWoaMzg9yHQyz99X/75S994giogHMrfvQq7o0KiJNnB2kjJ+0m7bbMu344JA0kAAAgAElEQVSWFsN2ckyT7rjxu9VG1FQBtBHJrCtU1WXRFpyzKrex2sbn7znwG585fHC+BiNcU6VJLSCiBjEzpE2bmS4fkbthrenmTEjEgpRkZq6MiHD3uSn56sMH/+mnpwDJOVq1GRGrVZEkQiImP2TUbPoOndjknxeYlme7OCLjhfUsgIYzJe1OdZYG/RdeO/f1546fPHMGtSHVUEPbQGtUyoY/fGGBWQleKUe9mogkk+n/+NaJn7z41tAM3jZ1msqyqanxGlqOiy+WAuggGqNkN+n0g4roqayRJrHatnfOTP3jR29+8M7ZTs9K86JMsmWWtvC34YzeL4eTfudxFdFdAKjJoBkeP9v+0Y/efPHNRe/0YGkuCA33SCmFSM65RLQTTF29Z1PVnPPEiJhZcf1JEBERdGjVMYgO+vnZo288cWoFg3WowCqQaAOdCk0LMUgg8OiRmT/6b37tjkPzV0JSuoqCeJKIM2trzwluZVuZdUJbzZO+z2tdz9jcYAUgSTUY9jt1PcgUQzfozKR0Mh463PmNX7r9lr3TgSaYKbXBITZ6QIXjMrsCH4D97zqmrxMELUSUmpElenV17y2d//of3POHf3fyT59a0GhT0jaZlszp52qNmNgLdy9fmxnJnHNVVRFRQiZX1poWVtZePnH2qeOnmQV1oO6gIRhAwBIGGUnAjBBI97Ezy4ur63ccmr8S2Zfe3sgTEJ22tB8+yzQQBHIZa70EmtdikuYShVsAS+hHnYYiklzboVT1sLVz/faXH9r3T75wc7djGUPLnSZyXTNDUlDUgVRWERviAyKPW0TdRBhFOSREyJSMgEdm0+34f/qFw7fM9X7v28dO5XaXiomUmZnJ8O3V3YUy9RWby3sFoO4uIk1uzEwr61S9jbX1x1589anj55AD0aIzBTEwIzWICqlGm2GjlmeYI3O2gbk5IsnW+tHpKsw7CWlD92tnlY2FlMdl0gh3vVkYWASMuVZp0T2fte0vfenuI7/yyUPdThXeqhiZO4lgacsoIwMQIo1oipCtesDeX8tGRGSc02YVEyoIUUDgLsrkDkv44j27zi4d/pOnTmzkdipVKP0sqoXVjknj4BXvvl3ISyRIppTMrG3bNucqJVWFwlRbx+mTZ59+/eRrby0gHJ0e0EV2RAMRoIIFWofoeF2EAo7kG9oJaCrlaNkiuU9XUW5WkWjycAntNFRN2igNFqMW9+twXydpjWpKjln1RjAMrcnEwZc/feTXH56fnrYiTF6ac3OEmZdmZEOFC95dr8TIvw8FyBUYbz2VEWBFxMzb8GQdyW1nKv+jLxw+uLv6Nz8+bYyaXI9QqQwsLV3AZBz+Ysta+ofgY9EAtjmbJqe3g9ZCpqpOVRtVV/obr5868/rxlTcX3oIpTNDpoWmgBg2UDSV+YSsklHAHCCSIeDQcjTCobJUnpKv0KmYWpKpF+NhjxLUzlpcU8TYPwQGswFZk1YcHa/n1Tx7+4sf3TkknmMfNH7h6dvoDdkq7FsRSkkYyRVLudA1ffmjfTbvwv33z/LoMTFThVdCFpZFvqzozS+MfEARVS/opVgldg96d7qji/OrasRNnXz69eGZpBZLQ6wGEAm0LtQtFoK2frzQpEW2aV1BcPfe0mekoLEOKC5p12z4Zd7n9Lr0jl7DHQLSJG1UagsNm8Ok75n/l4zd1LJXhyEKClD+vT6fPDULvb/7TjVBKSAepoybiIiGIB27b9xsfnzsz6G9k64oEGhMqnZtkLDbHqTK6pElVY1xwjghAe92uVnp6efVvXzz+vRdPnFlahyk6CQh4OwKl6SiZCUHIeCnZ5D9DEA5MFOaufK/SVV4CoRa6267XzolSzzCziaMvEbo4+t4Om+E/eejIP/z0rabMEaa8rA3ePgyG8/KE1WBAUEcJlZmNlGyBz3z8wH+V9F/88MTyEDMz05LbAbRTpEUupvlU1elNOwSQzMwsGGampqJyfmH16eOnXzy3hOEAVUJkgIgAAymBATM4AIUZttQ5FMGEB3w7U/IOtpklSIuoRXkts6XNxls2tZnlnJWsqipTltb6X/7ITf/gkwdmp1tnZQywQxDgh8F2vk0MHYBOMsIySFC2CEm3I7/yyAEF/tdvnx5ubByoOpQApdBGE4kDADnnbkpVpQD7bSapSeuqOre49NzR08+dPIsoCkMCNkj1CIgpjfqN6ZAELYGHlO15m94hsSk1eFuG4R2QZRHFOF0/Hzoh3opBner1AB4f9A/Od770sb275pUK8UzpTDwFP/QKupRNlyAIhEhMzJUgPnnX3Bdvr5o2rYO7xSZUlLvHpm3pTaChZ0GVEk0h6Y0zC0++fPK5Y+fgRAXUgBlSFw6ojhBZ6u4yxpXpBThe7oGDuAo12XdiR4mNMQgmIprX1IUVujillHM2sza3q2trd8x2/+mX7nzw1u5Ijq3KiAwUnqGYEfmgrqy9elIZQpKiVoZ7QIg4oe6Y39X77V+++/w3Xnn2xDpme7rpWpmNxgC7KTURlVVUGbb+2umzr5x+6/TZBUiFrgA1EMgEHGJICR7QsV3MGWpAwGWE0aL4cCkcy3ISxdtlDunnxhC2dRx5K84L7l7qwgBqlbX1jfm5uf/si0cevWMKHJApxBQJkhF2uUv4ECJ1pFKPTdFeiewJRZkZDAT37ar/i1+7/X/685PHTq/snUmbh0k4JvlFsboxOHVm+dk3T55b3gAUUzOAQzLCodUo+g3CMzQAgwhaR0oIgoFUjya4N/v3i95ujIlSbI+vH256bYhcC1BuDrACqZY6g+5eqXrkt3J735F9j96zixSiFzRmhhNMm/yIXpLnvvMTF3mjrYOH8WuK0tkm1zX+9qYfwskfwHigfqsfGNtiRAs+L/s+IQFkU3MIJN8yX//WQ3O9SuAuJoFw0QgVkY7pTNVZOL/44yef/fZTz5xb7aNboZdQVhe1ASdyWWMUYAYDoReSISeIUXXeBCabsnm58AUAGzGmZUqMVwjV0o3gmy6hRUc0h0Qg11pZbjKgw/zokX3/+JMzF7EN16QGq5sWZahcmGwqkg0j+cVyTV080cYQFCHAoIpAAxAUubU0CkDKGgAQLiqZgGgasS6uVE5m8a5JTYEukoIBOlgh1j7xkd1fPb32u08t3G3VLvElBLtVj3b0zPJzJ14+vby+NuijU0NZxhcRhAUkjZ48EsFR6FlcuU5a4gHEhah0Us2afLorpA1bfuR0Q7inrd5ZFW5aZW9XRA0yV3f+w8/eenBvPXn9tWv63DxH6e6kq5X0NEVoJqygKWBqZAhaIhGq2goMFLpDouidEYC4BAF1JZiTKZDEA+EEocmNk1Gaa9UrKFXkQWiVqb2IkKkq6Vc/ffPTS/rS2QVW1kn2xrnzLx89/dqZNXgDGKzIc/kFApMJOlYW25RgXerKy/YRzQAgii0nLi+7e/Luff11MKibwRpSuXvdEUt4c725/9a5e2/u8to/VEQ74auLXq5ZJTCgdveIbAIGJLsgU1pVJWoRNQWYSBEJSaZadqONaxBKIFJAow4n2gGiocBpKKHcpibiKwVC7+Y4KKajgWwVSOscTM/W//CemYM9bJgunV98+dmjr715DjFEMnQIFahCK5RnFIBP1r7JhUrSJIwJQjjCmsnPZubfCel5gzF8YzOpZDuQaFpBg0cP9P7RZw+LOiKKf7yG7wfVRKlZVYk2IgSmEcYcooIIFSgU4jmvt8MmJ3EdDJq1gfedHmjEM1gnmeqmuarbTanqSGVRV55gpMKEFIGFZ2oRQNCJ9M0kxd7GYxSyTtpQGmdKUQE53A8dnmqXBt944qV6Y2lNE+oeDEAuW8YRCTAgwIAUFf5x/n6p7dSf41q/PzBaBqs3C5mUojyAlNLSYLjLqt/+3E2H59SpJj9jQGV7TkSR0Cm/QgWVIKRI/UtSomlieS0WBu3Jxfb4mZWjyxvLa9Zvhht5uN6mYQ5KFq0rsQQkDmcT9s30Zqc789N668H523br3l3duS7rOolCzaIMnIGXO5Pt/IASkrNUEVSDemy8seI/+P6xf/7nT//47CJMkWqYIooSUwWUViQHAxdmSmUUmF7xt+hFAYDKVeSCdsPb0bJoXi6m9xBt0p7TB/j8A3P33jIFDQ9LopdnWtuL1EnNmswRQZqIhrjBHOmtpfzc0eXvvbT82MnlxVa6SfdVTctkZpKs6loPSWkaVA5FJKwauL20kmOpaXPm0+dnkt2xv/vwkblH79l/60EkDVAxntjExc2d2/jRWniVDKgpzM5v/+35/+4PHv/hc8cxV2k9PSvDZSvcewsLIKENqICBZBgFpQqPt0EUN6VKEzL/3SmAvPcYvcQuBqL0EE5lW2iH0zPVLzywr65rZk8qwQ1B7zoMqJSBIZKwEFjbyNNHl545tfL0ycHCen/Q9575dLfXE4R250LVEAwLUtkIEmxookGQYj4DVkisrI+83OLF8+3p9cXH3li466be/TdNPXzXvplKVKsJTDc/rtv1YStUEEQbjz9z/ve+/fy3n3z16aU+9nYOW32KWE4J3iAMasgNEpGAUEiCj3kLFcRmIxpbAPRixu1tY/+JM8WVNTfS1Zq6C2pNHAUo20Tgl75CJZlUKBLiYVXlZCb9P/7Y3gdunQHbgaXaQakuEUvahlvoERLBZAZkp5qCQwLQjviw4WOvLH/zhfMvnl5mQ0Cltl5HuloBoFODrsxBABksKyiyRE2U2o4QEMkICGrY/g5EpIn8+lJ7dKn97ivrt72w8smbdn3+o3sOzHSCISLBBgBYlzeY2SioSBjtkh0JqQQLHRllyzpCDAxKaE6SCmMfAVEViKP9v7576m9+/Ow3nz539FxG6mOqB9VT7kh5lLMngQSY4DqqXsYYnU4EYAKfZNoXwzAEycAYL2Uo8eZonyi2UAAxwCEClj1WuBJO33s7qlBXUioN9xjJg9BlaSMf3tN95L4DIS2oXWVIqFbbZUPH8kIOS9q0hJSWsdIrnOhttN9/evmbLy+/dm4lQqe6GikpTBEC5CBJGysxbZVHX/FkhJnOdjsRcMFzb66/eNq/8cLiV++Z/8WP7Z+b0yZSUjAPU9VBtBYWNFeHiYkychZLoIqCSBQyBMGAi5plRONR6J+ctF4dtH/5/eP/5w9f+NpzJ7C0hu4s9nQQLZKhGUASRBAckf8EyoO1xeaP0f4lRFGivuRGcsR6xqbS0RYl0C2y5hvd1ycqyVAGgjRRrxIHDfuMR2+ZOby3JrzNZgxTuIzFmLYDpAIpm8kjoRIHq4CDQ5XOEM2Pn1375uOnf7Lc7p6d2a2DyAyNsewoIEiQpBeqTFeZ5QRCIVZ0GZQGHp7pDvrtG0vDP3iqvy7yqw/v2TWlgOVk0QKqNCJoOtKWE9VqNP8CAi29UiOEihythGl0wlwkkTyz1P7Jt175nf/v6adOnUW3U83unZF2MdYQNRof7aKJMVskhG9Vp7qwTapUJwDo1ok8A6WbnmOWdGJlLzelUoZG3qYh/UbImXInpQZh3g4lVWYdwUrwpl0zn7tvNykCpYmx6IZvG19YitjOxlibdNrs5NBS16BvnBz88ROnv3v0rd1VdWS3rTV5SW22VnGfdGAYkYUDjrZQXGVhoviN0twYZUKeaIZ9q+XBTvc80r/80fEnXl36D37xpo/d0rVUl018Smf0Az0zlFFyQCACuohUahPtkMSqH0wq1vD08vrXfnTyd7/21E/PnkPHds/NLSrgsQiHdRAVokXVuUDFMy41ac6tJMIwWk9xJQMZcpGJ5btlSd97jIZqG7kKV00OdgOto3H/6IH6npt2FRdUa+QMhcKD2yR9Uy5dkhqSg1GlGlQonj22/jt/+fqx1dg33TGY+3Daoi8q4R7uKiiy0dQqkCT851guKJLHQqYi0mjFIFINRneu++p6+z9/7ZXf+oXbv/KJvdCsWSWJWi+XRi+OBLkFoJjDFfQmYFo0s6dF2tz+q6+/8M//7LEnTvYxM7entmnocQwgVVtWjA2BcNQJbS7b+UaPDwGNt5mcLRPgo6Vxm2jOa9YU+d5jtBHVEEvmERkksTJo9s52Hr21S1KADFG2IqllW9u28TIyElAHwqhBOgTPvn7+3/x44WzDqY5X7FUcJO00HqQPBFAFUHsACIkWpedN3rYwcZFtElYBEWkRlqwfkYhdqTrHYbR+u1YmPAr++eMniebvf/wgqraNlCREAhRQXNTQAlXZ2gYB1ZIp6U3m3z516s9/dPQvHj/209VlzM7BYsGTWIVIcIP3YQkpRuEjh4h65J14oVXqZxm/yWqlS3y9bErtZTsheyPU67NI8nA3lTYA1ZTumLEH7t5NkpEt1WCCiErRb9mWeDQoKhxl5oAA+p2nz/7r7588O8CeadkV2md/XRDqiWGBjtYt6AL3DCCEKrAo5Zd39HlVCAhFpG3bjlQZXGTe5cmFA2kbSXN1tdLE//69E+dX8e9/9tBcR9wpQlGnJCCAaqxRqg5PSdpB+72fHP/j77/+O397LJZXMDsFm4UZfADEeekAGZFR14CCjqaB6mTj61XUgcabribXn5uj1U3fVyI2wV3enky9Jv2j25rXowO6aHZMJekQC95+6t7b5qZ6ksEkEqSaSmjYu9RvGKsY+CjKEGmirbVGK//PE+d+/7ETPYmZXqcJRBJnCybJNDVVNpLVoxL1Mr4SEJEQu1zb+2efmjFZRprUOghKrEIiorY0IASEoGOxu6r+7U9PrvY3fvsLN830egwr25dShKuO9l4a1laGX//B63/yoxN/+NwxLK1idgb79wHrc4O0Ehm1wAXegERSiBYJViRDEDYFb8Zoi3dm/C6BZkwkYLa8zfwZd2Ub7CiFMpZgMZpftKDk3bKk3UA/oRMq3tRaLXm7t+585EhXyrtjGrsghf48LTCTnZEReTSKruJOAxuGsqbkF09u/L+PHRtmPbKr3gg0mQvOjkiX0pbmEkBC4rIq13i10ju5sxd0xQhwQIJSA2FYR3RhLdWQ3XwKtk/wrWcX7rtp/7/zUFJFAyqGAkkx9JSUdm6p/3t/9tzvfv3ZF8+dx+zuw/t3wfVUXofKSsqAwnVkAUcdczEaYRcDCG8hCr9sg6ddwhkFZKRON1pkXYTxOPm5ClVIBgxuQEDHSdVIZFguQ3YgBNECnQtjxrJtdnQ7u6VyoeLpTVV1sy82fPD2md2z1Xb9fBtpbaIskI0IMJsgtFOHZ5c3z/sfPv7WBn1vXQ8zREQjT1eVO115uazVu69jbRZMvFDUFXYoWRDiiZCsbjo/bScH+fd//Ore3m0fv2uuE0YTmBBcXFj9/a+/+Dvfeu3FxVVAsWc3gqeaPFV1EQkQmIwEzC+Qbbqpg3NT5V1kaxt5uaOfwEgUytFK5fJi52jOrtjjXALTMVV4yQ8Mgg6TEsVtnqO6EX19tpQ8D4RwDBgR+OjNc3OdaxH4ikiphlfBjHC4DvLa//3d8z85vnDzrplm2A4zU5JOsty2YhVHVZOJnvq2cF6XCNRfuP2ZDEUVdBEzayMieE+VXh7E737vzH8/Ux84PAPyreX+v/rTZ/7Hrz9/fq1BLyNNAQ4MUSWw3ijVgxEmAgxM5kd4sTuOMQ+fBBxL7wehhHML+rNkSxOvncaTBxxT8dQxk6XQgMbP8rKSRnUm1Z9t9W4A7ilCVVP4/8/emwdLdl73Yb9zzvfd291vmxnsIAgCJkiI4CIS3HeTFgUxWhMpqrIcy1osqSIzqihWiYmV2JRtyVZKqViSxdhZyrITJd5EmiJFSpREkYzEnSB2DDDAYDArZnt7v+57v++ckz++2/163swAg5kHApLzCjXVmJnXr+fec893lt8yggI8H/32GwbuaWqUuRsYSiNiwN1NSwbwiq31KPceaL58fOPGQY3RiKJkRHftV8FTNipHF5mZXDGe+iIA+9IxiLvDnJnJnZxNAHMljJ3Fm32xf3Rj9KeH175tUB0+dvpf/+GDv/zVJzFW9Oq9RFuSm6ap69i4QEeg6gbICSigbMGYQQ6njrcp3AHmiQCDEDTDBZiB2xnhYly18r3TTFwGpdvP2pQJU1TyyqEvF07PTIAUPH8BzV7suHr+Y7RyUwpM3oc16q+8fv7aPbV3Gq6XtLl5djnM3BzuFgIOnW3+9ZdOsI16PLDgAGvBO+Uc6mqcbReLmlmg1rnmTF3Ci2BXy2QNI5gkdwBzEQjzS+77gH/2xwc/8gcPf/LeJ1bHin61FLEWmhUX5MDca5IjMKx3NaySgjkSw6yOZbfd734VgAskdELzKN2PTo7yCzZQPtkY+UxPwtMFvU23zEAojBuYXmww3tGbcn763cflxehuCswSkbkD6Dmdzs1rb1joRTjFXVXr4YlQNxciI7MPM3/8i8cOr7fX9/pDs+TcMwlBs9Ew5V4VABff5Yfk/NDsOLZEiRWAGJhCNDeyQRAAw63R6ZPL959aPnz6LLa2MLdH9lbe0hoydEDIbmZzhKxICZWcyXSGU2c2zYA6O1k5l7mA66jokWFiBwUykHQczqIskunCK72ZXrFryWkmv5Z3IAYULFCCKIwmQ9Pzmbu5gEdnaT/nh+mzjFGy7TnFboapwzEEDcDXXSWRoO67q2K7TeUzI3Jmue/x9XuOrvUJypQ4pNwGsugg4oa40RxoamlnV4KRmxVUmv0k5T1jR8721oxEiFCBxtZKxYO5+aOnVu9/5PEHjp2A1wiE+SUEVQoIDYwQc2g5uWKLwQQQspbJaXd3SmnKXTiSmbuBSq/jKLKCThMUW4ldBZeyclpZzsxvykTTpom5hC0DNhHPKfh0hgLIEAZRl5v5vFlBCe7ARB3f8IIGJpcao07PlUqegtk0M5pW+oN6abEiEfaMXRJsKqs7JnMonEXECG3CvQdXOWvdiyY5JImB3G3sqNxCqNzdodEkEzKcmC67Z9rRJBVdIHOPIVTMKaeiczGQSjONkDM1PogbK8Mv7T985OSZtbGimoO0kF5skUBICeIINdIohQARUAuVLlElRmfIZYgTmpEy3OedANrIADuYYRkByEV7MUMM6jABaFvkg7Wbjuy4piVhAQSpiBovaVLADk9AhBBUi+Rkl0eNdyZUI0ABVtUdeXQ2TC8xRov0GYLDmGZ4+1cauO4eyIbs8xbU84vnB1cPeqAMhOmDdaUZFNDCPnIikMMZ/sCTGw89uWzkHgI7O7VilOA1SIm5K6GoeJwGEPwZZkkXsuCgqT5r6YqIHIxkGit2VzHkhBjqxlIy0pQl+tJg7uzKaP+jR+4+fhRthteoA3KCRpglcnihCDOgkApugEJlYkFWkJjeJTklFPtTcoSwUcacY53DaOxBoWgIaCElic5BHBjPKQ+dINOhZjnWGQCCQB1CE369uKfGK2gSNGqEREBAGkEC0AILqBx50vgXrXEDPKMQtkzgWVl85hm+0nr0yrvs2cgrLyKCMrE3+xYXej2Z+nXuDnZkYm1fAhREBtzz5OrZUQohsBo7FCAigeTO8/vyW6Kp4zdRt2KdgJLczIREnHK2wFFBEGvdyLQ/YEj91Jm1R+574v6nTiIbqohYIyXk0Mkzl+OS6MLUiyIGbI5A0AnnvUQHA8owhxHQ/K07X/qfvfcVzShlAiePPVUJJ45v/sP/8PUnNsfo87AX4I6UIQQuIIGiYE/wogeTERlZAIP0kNOP3XnbX3v37TnnlpxSGwJC7B8/u/4rv/O1B9daGtReoCouHWalxPrkNj/D7fvmN/IXdMSCm5ntW4yDWnb953UzPzARKXxtPX3jxFBDv1eT5eTgwORufjHDymdaaJhbcT/COfaHjO43HTAwkVOn6+ZlaK0GCyFUvWo4zsfPbD58+Pjh5TWAUNfwADPUjMyATQpEQZhME8+P1FLt5QKUL5PLGTkQcThj3Nx80/x733JTmz0IMVux+Tv4xMZvfPJeiEOoI9dHRraCAARHlKldUsQAdTgBiiDIQM4vvXHxvW9/cUoJwhGsOpLYO3Rq63/6xD2gxpG7Fs1yp7bXPcAKDiAJjov1TET0fM6eyk1N5NE8uwv1rl3oTQvHS/HfvuQwosnJRwIcPzM6stywiDgEFENI7uzO7plmwT+XdiacF9kzVb91Tt8My8YcAFbKBAqwGEJW2xq3h09t3PfY8afOrEAEgcE8oWQQctkMGYg70e7pOXYxOtskoXdD0G4NIVAFMaTfNwLlEAKbmTdGEeCk47ETvGTesjxOAMMJXCErUBQbAXVwhBJCBBLUAa6d3D3GmIo9N0d3RpNWvAfeggfkDDZIhBrgEAZngGAOAZyeZtT4fMZopzsMiPtQcwy9fXM9dGbdZHae6+tl1qPWicROZHGePJNUda4CEJi5hSWz0F0qunRcxayu7Lkfsujt2MTv2tmZWIhINbM4iKSqROKZ02e/fuDIY0fPIAC1INbIDmckBbXQoujJyNol0em6aJZ+iQnUCJPW2x3MyGV+LnAHWfFEAGicCB4yEJkBKctKI2y6wYhC7Zq70A+Aaac4UjgyyhN3FkAdbqgEyVYBIk/ZjQuhq3BCfT2lboMV4rmDgkLAMrjD8wQcuJv7+l3OpkqkmRYGtHehKqOKzEWccDdYkQ5M3JShGDa6/8RmTaiCIGsBLAeIC7O5uREu2ABd2M4VnSyr75jPl7Pc1JiZid2JmdRTojwfB4Gr42dOHzq5/NDJs+ONLcQK9WQbFBhKnSCyJmgD1JjqQegEq1FIcNO0yaWYUZh0A84i1qAOFpBBDB4AA7fj4CAgKYloWf7DIgt5Auk+xzLg0JqkcYL5nqSrfYEpFFcrnQmEZAuEDScEAQOpoG5M1ZkIcGZ2GAQhKHJCqF8GXjU73emgw+Fg3jkueAHumcrtrIkUPHJcG9GvvDy8co4oxJWe9GXI4e4Q2Wr5xOrIBMHRdjrHCORtUYZ/9oY4xc8AM16a5UvVi1A6keecVbWqYy/0T51afejJEw+ffAopQ3ro92A2YUfByIsAACAASURBVGVoV6KBkbCtj9wBiGxiHKNQ7zAis40UMcSRFU5gKTSDLjslANQzjM3miByIxE5wIrcA2FitdgHjrI4gEYZGM5jhtBoExoDB/QyXGtdbDjBHcjiQwx4JAIfAgeDkZoDALew1OiMC5AOaiAjJENhjGThIJx1FmIjA+QtOk2xKDEriEO4J12Wt5k7Eu2VN5hPdofI+m6PUZmMOlmFCzuy5jASNWWbn7Zf4c909q1YxTklFZpZzLpHaplYC9/p1avOpsxsPP37kwHBDhyPwAFUEZ2QCGFRgy6UFE3hGJKgBEw2wst22Gak6zPDaeObpCtIdnbmFEjR3w3xKYwvIStkJGEuuXEJHWVFxHrSExKgqjBVEMAMZhBFDZ4QjDjNsZQg1SDAHteAabae45m5OydwFlbsLZL7JyIQQYK2TQRnGIO+mZuWNuRw+drFEeon8+m4nm0vDiN1Ux90iDxbIcr8SjgUYX9hku7PH6ix/CHB26Mp4PBy1deAMBBRUmLXEhs7R57x15fYEFBMniR124mGif2zA1GciEAkTB8pE42RHTq7ff+j4ydPL6BHCAFQQFdSJJFIEdLKJ0clupnT06Eq3iy96J99ooAmIs0nXVIPvuf3qar625IBXEmKbt2x820sXYYgOFnaPY889yPxS+L633vLOYYOKcrIQec7rhPy5YyfvPrEGABxgPAjVD7zuxvk6srsRe4iUE+f8ilv2ABA2Qs2EhESWewP+3je9/LUbw4XoZixg4kDQb5xY/uyxNRjqwE02SNHvJSUiXID3+wLSKQlBGE5EZs5M3gFndun9J6l0fb0ZqfUjZ4Ambi/doP7cgfyOyfwsSgszPpECcAhjzeIQEQGanJk5M4zIQ3X4qTP3P3bk5MoqJGJOgNDJKqXSjhQ1Jd0JC7rMJ9IBQmak9Nob6r//4++67kWVeITDSclFy0PrW+UMs8yVhKzjG6+u/t7PvKO7GJ4BZGLP4Td/+6t3//uvoO6DBNq87rrFD/3ku269vmc2ZoqgWC6Js6ttGTGByEgoEtFVi+3f+em3cCB2OBKDlJhcPvwf9n/2X34a9VyTG0AiRzARKBRNixegBgQRRXcGojjLZD9ejPp2rR6dluQ8bn0MnweUKLtF99B5Gux0LduRUGcLj9ISlWyq7lCNxMQEVQViHUOMQf3Boye+dvDY+vImJKJagCRwCc2isa3nQIfO58FcioDC7GS0TKYyEAgijzbeWgIq1ZYlKohygsDBSoMyumVSGAOVu5HkkRmojhaDqUSo+WZyjFv05xAAyPHRZmSFa9lUqyoss4iaCnpiDHZwVndm0YQqtpoZiAZmCkTmOkrDBioIAe5QNreuEyC6YGf//MeoTACEBi3PMTN7l9J22cHbzLJHZ/KcrapdJ5RfIJ/rqXexvdrUH3v2T9k9ioxzduFBv6cprZw6feDk1iMnT21ubqAXwAxTQJAIMoFfhNDtrK3gfP2Ck92nFam7SP2WFdCrKPTNBWRO7mTeRI6ElKEgMrVOx8IcBHaGuYCFQSCNxA7OpE7oCbwFCVI7R/2czREBuGd3klADHhzqxJThZuBAAncJtWYFkYmhTJ+JzOq221BnBIFa8dp7Gq7vC2L2ZNAyvinxCkxUOHbzpC9TUldVhgg7UZnodyXmLChpeqCXHoiZVTUUUvzkIqachTmEAKBpW7gvzM+3poePHDn82BOrJ88cpj6qiF4FYagCBA6d/LEI7AI2RZdZwez8HYa38FxRjiwOz06Vo2KGkYGEgzuCMLqE7g4QMblEMtfME7dbFapKmiCHEBAFQmlMtGRtgpiIuCPBamdhIgT3jjRGMJCzCNyzGcDEGc6BqhAFNPEJz12KoqIaMyVGv9Dq0RIZDMnOxfJm8kF3KVCpQzo6k7DJNBDJS2em5wp/nj9PKK9rkeReAjeGUD5qKxgMepb00OMHH3v8ibOnz57ZGvZAqBtYxblv1QBVjcBoGzABEUQz43HqTOIu+I+99Aq1lArMYIdWcD1r1oYaiOwZpE6kaFWYp2cXjBjskTybZQKIReEMIxXjnKEUAkwRI8YJHE5yRjXIbk5GLIBLajjGzAhqDrIgAk3JQwg5tRJqZmNVZwJ65tmpkdxCQRBvGijmY6VMTnAzYn4hnvXdJoY8K5nxtM7zXVIRmApDF72GublYuSUHe3fEJPILRuTUP7MEJQBz17YNdZ1znsbxIISg9tjjjz/84KMnzq6I8GJdA1jMfiKNLOQ95krYqCswQwRJ4ehQRRMx8onyx7MPUJ9E5zTELUECOPR6XDokiQUtwIHFQZZzYHJnp+gGUYCd2MkrMo8ORXmMuWIeBIETMhOJW1tRRBgEYkSGuyFTLcHFTOEpg4IHwNwNTpFVyYGSTB0K5qAsXPVBtTBlAzjKBITJF1FKegHw6wuJh6hpk+mUAu+7Zfi5nRQdABYGMTiSF2o0GQyOoi4xG507QnZKt4kxmntVx6waQxhubT31+OOPPvr4cGPYmHu/zlUYZps3T4xrKGxZXh2vI48xHvSqeiwBkaHesYG1s3SYmGbTZbb2BeBc+mIwZxjbeFM/8skH5q+eG4+zqA6RFlFt5vYtr7nhza+50bjzn/UgTHJ6bfypzzy+srExP6hbFSINkbVpP/3wU+gtAAYoAoZt/ugnv7a3X43NFJyjuBOP9fV3XPfWO68L7qRi7IgBoI1h/N3PPHxmc7NX9QCY5xAk5/YLDy4jUC6j3OQjd7GCOSS6khglf67cHcSoFQf7sKWtnPdRwO77KXYjUnbcsBAX+3y8aZakT8RkHpyVHQxyCs6ZrOwPzMy44E4sgBQYOxIzw6rc6rg5ePjY/gNPrK8sR4nKtCGF16YOXy7QYOcgvKSwpuG2HY1kEKtmMBiEaoMisgGGyDAAOtGfCShgQUykvzARp51uQbtdqJ4LFi4EYoWThRbUO7Ax/pmPfwFOQARaUAVrJaVfbd/+5tfcKFacLAEidz50dP1X/82X7l9ZRn+us8ZjEnIloKoQ3A1AdXbdf+5jX1SvQBU0w1Ppfj70PW952503mBvECSKU3KtDp1f/0Ue/9uCJk+gP4DSZATvcUc2BW2SHmxbwzcWhPC8EPXwTJ5iMU1L1kg12WUDcGQR3BUkd+ZqlhWPHPVQuZA2wxaicFFS5ZQLAzl0qFTd3z0CMosqM9urBICV98MHH/uz+h7A1GhCbBBfugRYMrr5ONmIKFJTYDdltE+6COddoxm3WPG7rwVxvYVjXcEJSuEx46NY5JQigvn13ynzeZgqAp0m3BTMFBwfMzwOGHIB4A8IJmdPNoUbKTASHiQoiWqLQ68WNqsLCAL2IpAi4NVVM/jgBzMEoWwKAflRfQDLECskHsT9y8eHqfK9XDuvCKRWHw+cHfeaA+QX0AuBLGRteW+Cr4Ex2OpUDRJ5xxPj8x6hO9pVZVW0K75fdFbqfDgoGPa97zOrC5JaJRAlG1DOMCeJO5IWhBxFVzXBmzsJ1EDRy9tCxQ4ef/PqTR3jY9EJkoURIwNB8DmCm4Az4nIOyOtGQkBkAhmW+BFpSX2u2yDJ8DlLtpd5K4QBp7vZhxdBIZJurfsGt3sX2cFZ4c0WLQeEONjCdaA0MSLWVUyjYKUfwJsErsUht4xmqgqDGUDoD3xCDBCTOAATIDlcgghztGPCtrGCF1KM2bZ8F1rBFCybUHGOHMXIh5LIFgO2sAbntdr+k3abm4uTl55/PBLC7MmOc89YoA7F02LuFzZuaZZcxaC+GG6/tyePZXKBANDeAQoQ3RAQnU2ImouRKRDVLCGE8Gh8/fvTk8VNPPHlseTyOUQa1DIlcSQXBPMPXpCw2EZyGwJz4RgcgJbiT8dy2O7SOx1tIbUXVWm+AXo1QIURkgytahwg0d8x0sp2l6o6DfuetMhCDM5ShDGGgCJ4rknWmiKWvJxJthHoAKlCfIzyqF1ozb3iCGZBgDGI4wRKSgwhFdDXUaFu4A0ISASghFPyokQBiZsRARqjdfYOBMv9HBGpIKcdzV/Ff/LB/QcxHwRBI045Pb4zcB0TkrrvJC+2I4y5GLHzb9YNQ8zDbogSGNUwDcyOvHAqYcKcwSpxzXuz1c9MeevSxQw89emh9FYM++lXjaABRnwfWzAEK6My1JuNGGkHITKYeYoQh0IdvQAEJxH2zbFutjmHz6A1QzVFg9wIANcQIoi5qp3Bm4gsf9DuaLSV46ZIZDphBrSNpWFOJKznK0MJ77OIQVa9NAYe3CMV2sWDnMgq0QRkiEwreBLjhADN8bJ6AzJYdNVMNNjNT514BwTCQDE4d3KmzaaSOZuz56dPQJcboc2gKH8jVKRIlw4n1UTKtJBCJ++5kbgeTAZwEsWSm25fqG/fMP3p6uNiXcfZK4O7GzKoJMJacHbDF/qBt0v777jtw4ODW5nBZDQvzgLPbHHjLGMAGW/BuNTXn5UynDBfv1PHmQQA2y2KCsMEEEDsyfIM5MC2YYri5lVuVEff6WkWKtRewkicIYNyF4Cx08GkAN8RwdBo1002BM6RXwPB9qaXLWqZC5SmSqi+c4BnodXZhKaCsOZijcoJ1bwiFR2gLz5GrFAhZ52IF5SCVl2RKLVO1UM+9BM1TwjBdsLzBAiEowRXgiTaEAcj0wq5H3T0TBxAzn1lPo4TIOjt42oWqlEAQuDqJZtu7GN/4ornHz45aU2PqgUfs4q7kYojCRNSORl/9yteOHzm6vr5ePkwjLMLapiUK2czFAJBx322LkAnDkmGoa8gzGYiGPvn5QADmFGvM22tMQ0AgsqV2vC4pN1vozXlsUfWRWwQGDCITaL08w460BPHUhG4q5yQCU+QGQuDe5+4+ZONh08iYfMtSII6xOj0cPsIRvT4gaFsmsdgiR8BAlorlhxV+p3SzWOZkipSB+Pl7DmKr2VRLpaKoohnaPPqy91CV/q88CxMAnhC8kI2feV502Tolu7pnchbKgJ3dSOOWlnq0i9OnCVdk4uZMDqG3vGzvJ/evredmr4QGxQPZq6o3H+P66tr9D+9/4MATrLkGZZYxSFmWYBgnI14hgxDMAvEcfENAhuBdMghesjLEQEQZJk7KBIDhGwQQm3twzJm3rivCJBzB/WQbwTFaRxMobPr8IqgCB1iCGiggyLbsTCGk08VXU45tRYbyO0EKKfwjh09+5PBJWIAnSESrYIYoYt3pO9RiadquTUjxTFCAFA5QhgiUwFQano8dWfnYwadgAcJdr9Y26DHifEmZvSgj1+wyeT4zdILCe6ax5vOcRwXYIq5BjtSLgxMb+ezK6LrF+Q5ZcgmcjUvCPXVqHEQlRiEvvn7uVdfLnx3KHKRWaK01R8k4curYE/sfOXL0xFyr7r7F3EgoETY0FCn+ALh1m/JNOE+q/TBjnDwF8AQwaPpHNH3CjbBR2OSAqWaiNnDliO7cNsh5Qxia9nC9VtVOFTiDK5iCFazQutP4zIwIIBfgeyecUfZYNnECkcJdNqAGFNIDEzhBewiOMPFXzi0sgStYAFp47Agn3cyrCFZPAksnGo4aynofVQ1kkAVmNfKqODsmIAJ0uox4NUMEGfCpuaOANTwdneny9Uftsk/2c9S5gJpApIx6DNoY6+rqGl4y6JQ2zjvuL+vct47LW96woBnI73r19Y+czqvu11TgJp88c+bJRw9+/fixukm9ELgKK6YgAhkRuersqbSLQzEmKmI9omZCQwJi2Ou0tLW1Nhqu9iLaAXqLIIcaMbzINlHabj6SI/LkZio0QgzZUETJ3brW3gHPCGXIAaCwDA2RkMZQklirG1LqIulpzsspk6oLrgAmJINUEM85IUQQoUmIAUQQQdtCuOMPUnhW4fM851FFR8ZtDfOsZ8yeWLc3qxMSuNqtMOgKiuKda+JMAN1xy+Krrl/40xNrGKb99z5096MHU7u+UM83vcHQtaNkEMHNzeYcDWGH0OQO/9lLnrSd43TKIHNnkLqV5TaAFVdmWjJaG48BRTvG/B6weWbEsJB9g7WkYATAmVORpSEQIyicEGhmpG/dgsCpI0KVoWlJvVwVwBEnV6Ku2eraowslpmm6K3J5yjCLxFkcUC/lhypCNVGQnOzM8ozO4znmOHQp9+/Shje7tz2fvcfa+aLrgJxYDy/buDGaoOZwnqX75f5cEBmRFhCpqjLzO1+999R9d//RH3328wcPrck4DvZuCfME2CDmogbigDCGTFnz068r/2DurmYdWY+IXRYy+jkDMFB03ufC1HBuFjZXsbF+0x7GqN1oM2TuGgLQK0IkViVIhjiCQRlpu6boLL+YEASxlLAGmix3KHS8oohEUx7flHR6wWjhTlkcgixFhTR1cwdGAqiCRSSAIpJ32wKpOmKgRFwAb89PE2SM5/uLOSQ3sI8NRH7i1PpT6+0OQbLdOFsL83C7ZlDo614cv+vlL9p/5swSDNJbq/xq17GmPtzInaEEqLrrPPz8rHl5efR8sMv0i8mZvBEG8T4D2JeZFqxiJ1ld/unX3/y5X/z+j/3se7/vZXuwtnx61IC2UGlU6pjvOSwlIRgqBXK3rHLpOqHZnaMIOgN0RlJkRhawQ7zTfbioohB3/B2d8CSEOh0UMFg6jXOmmVxLMHRtX9Ec4WdnjfPNxpTsqEcBsJFzIDJnqqvemXHaf2Tt1mvr6fhpl4q/wqjbBjJr25jwT//IO594auW3//h+LFJIcpI5gEfAHrCaARgxm/umd3Oc81n2Vx6m06/WNTOxEzk10BiBzBvs1TC/57ZbP/A333vrTXv+0g1L3/GGF31u//JvffTe//vBo4ClnsEExAiylttrYNdrfADmpVPMjoAuL1qZ7QPwIvXNDgvcqeYWfimHDm5rlzDU6WZSsyMFgpZ1g+8MxDIvm8JiSgQr7VqMPod5VDOETU2Ea2Bd5JETzbcbBzlHCOQKngqdZCyedtbuCFWvQVsN7K99751fvOfg0ZUz7dzCGlN2oawQFlhyL3qxIAq+s+q4wjx6/r+uNE8MWiSsADAsuI/bfHXK3/v+O2558ZKiAcdqfu69b+hdW/Ge368//OBxbGwihn2OZQdCdVp5HeJFOazseGy6DZ+srDo76EkVWwxqiSd/E3gaW1afNLTbWrsTZNZ0505Fe6dILPrOge6zxB9+s8/68+tREk+e64JIsFRBD57ZOnp6NI2AK/WzI5mwuHWKdyYKUKsRAldvfeNtf//nvvuWwXy1uhaUApTE1ymvsm8IZbcKJObnfOYZndvLDs0LnDDGoJBha5RBga0/HOcbGvvgT37nD33/u3okpMGVPTuyvuqVi7/28+978Ofe/8F3vvp1i4vLrWNcoXFwarAJJBT6OstEv6m0pxkAuu2SQsrswiFFbnwy93i6eeHkduiMZag6oBAHFJ67PYIQAk0kzM/1H3s29Bj50Ic+dCmb0C88unpqo3GiiuDdKId3ZUdqzn3AmI3RYyLCqS3d269fdfPAQUYg7zx7r/DMJyrw/uRQVRcKBnUE5vTyW6+9+aYb7nvw6NGNkcYgDi4eh2pC5O5KMGARNJrIGueiaXrxJ6g8DwugttSGE9cIZWKgdmuYHZgnjAEGKUiIzTNI2LHXdSvnv9Sj/+5H3vejf/3tdS1qDVsITO4uRh7roH719fX73nrLu+948bWVnN1aX91MmhOkBzewwAyCczaooiDv7LvLTEq8O9k7F3nals24WPu5reXt3X80GRd0ZruTuJm4iU/y68xQsWxcnSD0k+96+Y1Xz11pHn0OdZzJDGIkSc2ce2QGffTExnicO7Czq6saqbvq1ITiso9X79jxxkVlMGd3gO9678v/m5+46zYDNjdLNZCdEcMSy16iq0EV8QZ7cBi5kZNaRj5f6WnHibHR4Za7UkG5pGRuiOeyAc5E1yuyaxCrPQdhMCt5UtRr63/9fe/8iR97dxVHloy8D4GzWjCrRJxUHOaqevtte//uj7/l9z74ff/Fa27E6hhrY7jUBcDhLZlCCsGQkCuoAEyUoKWv984puWu36dKSnH3Tzt7nv683EicTqDLByMx6Ep5c3nr06CaIYC2RQLqWnN2u5PQvJE/hKCJEBlZiBlXZDW7f9d47/t7Pfv8r53v94VYmB2yPevI0RGNeq5kFyTAu6rdSdoI2WwPMhmmJ2gx397753ES4T8nVspEPAwcwu6zGWAWez7ToZN5CEpJfPd7673/4237ib7yBiraQGBUrOeoogw4XF+Lg7JoznG568fwv/tRb/88Pvv/7v/V6jHMz3gQA9FyEVGEKLjZTAorufRBDGyh1Hb0bspdgvYhzooEVBLBe3FvxvFLBZl4ViCD0WXm8X9JZD/gXDqycWm/PPet3xVyXBYhuZApmZQlQiCwPG3f71tv2VnDy6JRhwsS0C6Kk1EUUCGAzZyLNBnhVV3e88tq3vfKOY4dPPnZy3YIlJ0gYg0fIRQV3wVjcErDokhjsYm50ISpp90iAACRCBUoEcp8nqogSwZmNrYUmMBlG7oA0IvV48237rv2lv/09P/gDb7lqqd+qirAZGTl3JGMicFeDkKgSE7vAyfbM91710mu/44033/Wq63U4vu/UKlICKlQR7nBCWZ5xC0sIQuU3S806c7o7TY9ymglQ3+7ly4uLjt9nvmtmA7w9dSLaNnverbP+OczknpVIKBowMneKc2wi8cFT7dGTY+JgZABEPCefkCj9CufnPp0lMeAqzM7SambzO++84Wd/9Nved/PSVY2rIZstKDOZ1EKKzYghU0WyRmbOysQXaZ5mLTKUaRPeN18CDTiwk6svZYLC3K8B+uYewganPVv5TdXCT//nb3n/d7xyoSdkUgkzMTNvm+dODfI4KJL7WECcIS7uzC0WFut3v/HWX/6Rv/x333H7Uqgx3sDmxj4LhHRV5KgNDOgJHF6GVlow9g6ZJEvRS7x5F9gb7Tqo49LyKM7No9Nn5co/mjtJJjeSEQyKHkKAxV51ZlNv6FUvv3lA7kScs3HFOHfTcwX902RK4iBipowMQiIPSrjl5qvuetdrdG116+TZdlMNaIXmsi8IDd0YNgfyYsp9HpdxB/ali1TACQr0QIlchOdAAVwLGctmJjbf2w5f5Pydb7vjl/7OD73nPS8v+lwkIGM4nCDinUJl91xA3QKxGEBkgVTdFVx1kuODpcHbX3/LD7zulqvdDp1tVoab2WREZDHCayDAtBMQne7fqajfE7a9h2Ys7WnSM83e92kqpel6m8/5rqmD2Y48Wt7QCBJ+8l0ve5o8enkxSrsXo1AihmW35JgjgFkVwqlJsrrR3LSPr987p6AoQS0H5itbzE6PHne30umbQc0lEHkFNmY15fn5+N53vPodb/gWSc3y8rJutglOEkamTtzRxQx42v3T9uBzcmC1RCPk1jAvYoyRjVgNWW+fC9/1qpf/tx/4T374R991wzU9hzKCZ0tQd+uQloV3wsE6sFV2AkPU1akht0CRmQByygxOyCR83d7Be95863e/6bar6/5obePo1ghNMQbJCBmGmbUkdcKLJfIIF4pR22mBtzNG/elilPwcWEoXo/xCj1HnPO8BOWeWBeYR2hF8iQOxHBkOrw31K29ZYBbLYyHx3CkGPI080DON0WhyaQUEhTMRXG3iL+IWlRpnI9C1Vy2+512veMMdL1s/uvrQkTNrw3VIBWEnmlOvidqLz4DLxIocA0cExL1hsuKpJbwpOh6O02YbGnrfS2/8+Z/69g/8l99+60v2VSysMINqCgJ4JgrM4pQZsZhzF+QfERcCK0sAQssGMqYSdQyVKCxOztmgVy9U73jti+563Ut6Q/vTA6exOUQfV4U4Km4QhgiBdy4EEyvvSXbtrhlhe6F/wRjdpo9cPEbPq1p3MUa/+OjaZD5Kz3jWX1BP4WJy3RGcPWVBIDSAcCXwxnmOMc68PGq+9aaFpfmqQYoe1RqW4BfRD3s24BhydLCjcuQXqzVmItECLCECyBhy3d7517zi6lfddNWNC9VoeXx6bRWjkXE0t0CmdVQiL7o8XiTLHYBKEV2mTDQWTuQBHFtTTVhv60176UJ91xu/5a/edecP/+Db3/mml8YAc0enou/MRUI/Erm7MTFRZ41SBFe6i8BToy1hCBFr0TzhSWvoLMZwMsbSfHzNS6597c2LLdKjx9ZGKw2qPiKDyNRdijo+Aanzf3KCMFhgBPJOOLLMp2zmYZ9tpLoD40KlwjnpeSbEA56+Z7okV2N3/9VPHLr/2LoSzW+DEy6KIr2gx7CTz+qHu3dX3EldSYSUkHNiZqLgroEVwNrm+B0vu/lv/uUbBn13V+YadNlJ9BIHfl0faZaLnI57EcrLq+vDxw+uHDxy8uvfOPaNh44fW15faZqzlhZZzD0Lg2UTvkicYaxGRH3wZjYjA3wB1A/Vi64avOq2m+58xU3fcvsNt7/s+mv2DopN7DlrDZ+tH+xSuttLeVxzzkW/9+z68Ev3rn/yCw99+P7HMcwYRGQDxYLx6eZHRc1vqs0rk/Q5pf517nV0yb24zXRaE8lVJdT8tV/4ztfffu03dV9/wYu1Q+CeaLJwMIiIu4vmfqyyqltm8y2TpRDWA33+4NHvfvPeW+ei5zq5RpLdjs6dl3WCwQtluOOeVZ2ZlhbmX//apTtfe8tfeXe+78HDX7r3sXvuf/LgkeUzaxs52XDcmOueOrpx5bQBqoGRqXBarKvrlhZv2DP3um+97U133Py2N77sqn2hwwrNum1PF4X0rGcvz3hNzBAkJB1ZiFct1t/5jqve+uo3X/NvF37tD+5dHRP69UJurwbOGDYRPEiHoXbqBCnUOnIVXfaAiM+N1Uu9ibufR3fIzJ576WkW5DEp2pjISF1EVL1mYXE1b1WNqV/FlZW1bwn8X/3Qa666KigCn4s/2l2piCLMTkRlZWBW6r6CgTTVxBxKiaGq2XTcUh63J06tnF1rVpbXV9c3x601LbWZ+nM86FVLg941S3N798ztFIBySQAAIABJREFU2defG8jcXKwrFmJ3yiB3Z0Yg/iYMATOs4PQzg43VVEJuW773ibUP/vonPvfUJnpznNkCoLotLR0EuTg1tp3nicw4cZ6viPZsDy6H1PzlX3j/62+//puXRy/O69ieI57r8Vr2KOV/fewtJQqEpV5vuWmP7z9078P7P3f8qX469bc/8D4O8YIrit2K1Ik/XRnyuAibmVmR8mMQqVvkWGqAikLdI5uXa65dpCKvx6xuxZCJ3UhgTiA2AjwHUOnIHWQGJifypCqBCc/5VwByNjJygrlJEIPWdTx98PDw0BEaw/ckCz0gIERkQRgjO4wxXfnTTDiWbfsuTdmffuv0nJz1F6kXO3fpGcQQM5ObFtKEa45MQWKv1xuNRg8/9sj99z7sp0+emJ+/fr7/v338qy+/44b/9DvesOOM2BVs1I6BbfmQ7jqdxhaxUiYmiDuI1FzJWUzcSc1CYGY2y5OWwSiQqXaKz2YAJwMRGG7kFKg450buZCMn8/DnKqEqnClTYFIuW/pA1X2PLf/jf/6pA6O0RMxra2tY68/v2YwLqAOh76LICZRBhNhxCOHF9mkX5/b+QtnXO10AcmFmyc2K+0mUugrMcuzEiS9/497PP7B/bX1dBkskcU3SU2Yf+YMHTp7dnGZi9+dkucGMsmacNQQros9mrJqsLBCLHKSAmSmQWgmCwETszCyqjuK07GBiphyDkiezgjrIThOgr/suagJf7LKwg9EzA8NMldnM0h9/+isHVoZrEUzogVRoc7S5OF5Be8Y1QwJiVYR0yCPckbTzorUrTAq2o7n/ZufRUowWAe/tndBkWjEV8AbcTGEWgiwO6vG4PXH81OEjRx48eHi4tbUUIqr6KEVoo9SrYJ/84iPX/C+//49//ntijLMjLZ+xB9mtc4CImAMmSuREHeMohGLrGNXAbNkhRW+LlFwcTCRGgBe1clJzEmcnososc1ACYNKpMVLnzOOdv+flf9rzA3SHKQqRJGrgMQvVlAH+vz72xV//t189JVJ5tU6eoDDdYzZIzUbqeWgRe6gqxAoQzwoiSNgGNV9SIn1mR4NnROKHS4w5NhdHAECTuvm8hqnM8cQRCOZQEuZOg25sGZBapAj3iwhUxRFDEGG4Hjnw+BOHjxw4cmKjafoSF2I1ElazQAlgc98MYJff+INvvGTv/N/40W9b6gs8JRjaWkJyD0Q7UtHl+z1MGH+TqYvMkquK0TiEAfCEfSk0Y9PDvP0xgmxjMZlDd8F5prGVZ9PiPlNHX5j9XsRqYBNHCQWYzAmuwYISOP7up+7/lX/+J4dsiLpfpL83QEBYZVsFB8/1eDwcb6LqobeAqqbQ82KPKwY4skIEVhikZXFlcAMX5Z9JR90pR5Trcq5wlRvAsCRe4VzXocs56y/xVJ1gz5CMjEjJiCi7m1Bd1XVkJ43MgUjVW0Jiqus6p2b//gOf/eI99x94sk1KsRozRRFzF+bZHmsQY875t37v64/uP05ErRFyZG7BNHHh5hcUXOZ5+jIimQhhl/6PiQhETlIZROjYydV/9YkvHDqzJrEXHIVo0L3wTlU9IFQckBM2VrC15nk0aW0YDkhd5gRQBTu0hVDnW4cZI1Ojbdx++cvbAYqOTPpMfcUl3Ejf+byyOZ97pmyvrbybMbk7uZWhsWVLTcvqAEaWPXBknw+B3e558IHf/dRnvnz3fSmNB3WdgswzKWwZBqCdkZ0XZgBLg8F9K+u/9Osfvf/hQ3WIgcBC8OLSys9Rhfrn64vO2ceSmTIzOZRNXYjC5pnVX/3NT/3J1w9v7e2pBABq1lkDqE6V/zfhACqmwM7jIVZOY30Z7ahTFFOFK9gQJg4hPAm7TtH3XPYS68zK9FlPJC616MnlQxPTZDYzHYLOvmZX4sBKTLCASFTFnnpq1cioV1XCUODeB+9/5OEDm+PETkP4HFMgjeqbxBSi5wSSEpdd4wKMmABc25v79EMnqv/x4//kH/zVF73o6taSOHMwOP3/ATozl3BVIxIpGFF1da9FtsYbv/y/fuZ///0HNhfDnMTG1d2jSFIFUA6u4u2hTGo6lxGYxZA8j2wzj7dQD2J/kOoeQGjH3eFeCmu90NbZi0wkJlUszkmlAD9T1PKlPJhGMO5an+ye4VOrjQv+apZJIBQtY5TSWFsmkh71AvXBo9XNr3/lG488/PjWsKlBjfBeCewyQs2x14MPcg4UC3W4POI06VkAtH0bz4U/OXD43338weGoraSXkcj5CtF6f6FSKXmR1C+zZ01OgSoJTWr/8LNHf+dPH96cZ1BoVMv9anKW4tlnRQwQZGB3Jkos7ARQzbQHmLOM8UYermO0haSIPSDCCDaBUAl1jCUmMG0zRadzgPMkO+2ZRDyfRR4t+yF2ELPzBcSYOrs6JhBSB4OIxhlkVdWXtj15+vRjh5588rFD1rSoYupVjfucYwi0gSk3feMRS1JdhI1E1KwUpmrGRElVmJdb9OLcWZFf/K1PrW6u/syP37VvXzXFPv9HH6bWUbQLnMvdnTgAZGjHH/3ovf/Dhz91lA39OmQF4VqVk8jCnFSZSJjLpVZCcGKi0jaIe+m/gsiC2ka7hWZroRr0+wunYg0iUA1pO5G9IphTjnjhyek/s5jsyH3cTTau/KxXOIMCKBIzM6xzeGQ+xy8mw0EwdzKLIcCNcq5ElAWpPXzw0GOHjhw+crRNiQmhXw8JWTWAN52cjT1bwJrZXhcjXi+yTEQlQLvZAlFSRU1jVXHyxfqf/vsvbg63/taP3XXrzfu8c/fqOqf/eNLqpArfZnqZFjFxFQmAOdPyav6d3/3M//wvvrLhosJLSdeIlpQ2KAuxmk3LqvIidBnOAbhZ8ajO8NYxMGchg1u7dbrZwtwAcYAwQGkKjIsscReQnZm5d52TTUYZU2AKkz5TZnnmGJWy07dMZlHEHQjC7sm26WY6YacQUQBBjd2DYGGhXl8dfeOe/Yce3b/S5jqEXlWtkMOd1PeyrLv1YI1zRgBIXNdh08JoUq90Z726u/BC0hE8E2Dsg/n/4/fuDpH+0S/8oDvcdVK78nRi+hc4UmfXGQUyWV444EiFocgCB/3Rp+/+5X/25cO1occL5mtAMJjbkDGnxkSbM0bo3UVjZLPgDFDfnAlDKjoOhVMrQ9YlVxuuGm3OV/0z/T3aCwiM7FAgEqBICSSdusS0+1YCC6Zy8ue2NOffr0s4680NxMwW0ygxINAUQhCDEfWIR6bOFImhqmoVs8TQxLA53Hr4q/c+9eSR/atrcFmopBMx9C6c190ANFQeXN/hLHE+uB3AkmFNwJ4q5jXXimXP3Pwn/ujeKP0P/NR7rts7MGPAzDNzgInzVNGl8IFkcjionGc8/ueuVCh1Z1IEYkYAYMhmLGxOok5M43Zs/+J37vmN/+fzjfgChQ2zDaKCJRoxGTDqZKXp/Ol7mLQro5nSboNA5MGzmw+JWfrmPkwNdBmpRjVAfw5eVPIIMUIYrcEBDkDuTnyKnQiPRURNk+UzLmQcFy7pSiCPgnDikbjBF5zdOLBYzhuca5DBPacA8joGluHG5gP7H3n86DHd2BqbSxCNvJmVZ7ZQlxEN7r4JsCNwaM3g1LKdrsOpsTz4yf/3wJET/+C//u6XvfRGJ2InWICjiMeadazfaZKQC3nr/HnLuAVmKlGSG2cyUIJLZrIsEQiBVlfxmx/+zD/95JdWyFMvTiaJVIH6wBAQ82crrbHDlNoAMCqSWvPWVtamic049ecgEQggR2ohEZShDPHOSyRnEEA9IKMz6nFiucy+3uHBBbBNjwOSBTcFWkuu2kYiIgVqEGLgQW/Q7y+fOfvFu7/x1CMHq+W1NbYmysAR0BU6MlFnvoxZZikx95iYFnvaEODzKe2r+pDFP/zqwX/5775+aiURCUtMUCXA43Re666d1vhfiBrA3Y3MnVlrUXNXQhCV2nLg7MJbo/RvPnHfb37mq09JG6pgUxMMs1ptN7J4V/Fns2wGYMF9T06D4TqGy2g3oQ3UwPXk2VCodaY5UoErSFpwIEdyARHULtMvlMjhvC+4mdUQc+RAUMrIgPTNOQZjcdOzp8489sD+g8ePj9vMQqjDApG5pxBctVOrMyu/yoyU+DOWXLN/rTKqYTmSm7qBhZx0iX1tYfArn/izex498Is/84Ovf/UNIYRMRSwvTzYuYmbnB+eOffefl9glIi5oaIYjELlnI2QjZ6oOPXn81/7Vl3/7/2vvS6Psqq4zv73PufdN9epVlUojGhAghCSEQIbgAAYMtsHYGA/Bc6fdjjte6U46q73yo9fqX91/ujur10q6k+5O3OnVaZzYTmzHxoyxDXaYbCRAIBCDJDQhCUlVqqpXr9507zl7949z36tSqSSXBIIC6vzQeiqV3nDfd/fZ+zt7f98Dz07kFfmeBkzZt2uK0GLYpGx62xu2Z6gQNm0QyJMCKCkaChD1MNVJ0G7ZJHW5lsnlIptvs1HOgwEI2EENnIIdrKkpre8v9hfgSdWwPTuMqioRLltV2bm/3vR+QmFESpxvo11UakfGt1qvHx/Zv2vPsf2HGlBrrY9sSgqwA1i17KVAVtSLKhONzxqgM0a7YaNgxAQRUlCTIarMpFDqKd736ui+b/zV733xmts//hsrlvUTHJSzOUoKGvvTT/PfwQE1SCmqV6NERgG1OjTWfvSxnX/2v3/81JGxRl+hJH5AcqlPI+IyoQ32Kp4Qh7krkbNoFpjaqmLBCFamxqq4GlSUmKkEVFuNYrNZKxTiuJRYD45gFQr4BNZCAAd4d+c1y1YvGcgGy2bSxJ8dP0qy9rzeSvHocDXVmFMVRhrn8hxH48eGtm17dtf+gwOp5OP4OIlR7oFW1YFsxbOor7LGJAXtaBeeSRw9+YbxpESm4MWCBeqcQBCbyACcurF8fNC53//mz7bsPvIX//5Thd5eQRJmvcI3whyiqUydf+/+OQfxeqq2JqEg3mCYIepZQcZO1JNv/c3jf3rXw8dtjIEyHOqk1kuebIucE/EEz2Q145UqSnU6G4BOxnIiEZ1QrfhkgtlFxiS+BxQRLWQ7RIpWPUkSEKFnAawBl/p9SzyqyEF8JaJPXLEitiZRiTVoz03PP3/9XCgRq0oU8dFqe8fr1RxTIc5VCnxsbOLJl17a9/TzR4aG88y1yIxDmYjBiYphw4IEEGMMwUFySqLaIEjnxGiWgOh+SY6gRCBjvKRAQmiSpAQhSogm4JuG+zwbQ41ifHj/8JGXXs/1FpcvHSQbRA04jAqFUaqujoh0TqvnZkCddkSSqYmqCDVJLQl7EWsswC/vHvqzb/7s2z/dchCmN87VxRugLHGVGw2QVwgzUZAizD5sDKT05rzJiKkJMV57QE2mhgqJClAiSqAF75zKklaLieqWm8F0qu0/sH7wq7duLOViJi801bpqypPPrnYRBR8aafznB/Y4FzdGh/bv2nP00OsHRqqOaZDtGCQmw0TjKmXVGlE4ujDMwf2tympPOk8/0/FOd6LFTEBV6CIwCiLj4Cy4AM2BUu+r4+nl/cU7fnPDZ7/4gXXrFoRZHiJSSolZ1XYxGhpS5/LW3yVBu725gDVQGCj4yLHGt7/7T//w8AvPHD7m84W0kIOkUG/ZOlEL4+ACZ24VJUWdOldv0pfnLFPSE74dIuOzG74HVDWwkr2cIx1UHZa038ajxRJsHnEZJr33X934sfevyRybxM5Yw/96jGYBRhRM9z91+D/+j/sPHh62zVpNyRe5qojJ9nqMQV2mDkFAQOTkUJ6Q8lvY8yGkTOS8h5dyW9cuKn3s6jW/+5Vbli0rAqpqRUlFjMlkt7PBh0yibnJggE47N3wa2vm0G0KWCnfo4MnMWKf2YyigClYIO4YBSOGQqBKFvYlIRUaHxu/6yfZ7H9q2e+fQMddOy2VvmIhUBJAg7Rv6fc/1vecgIA7alyQgovDAs+/XSJ2OxQZAxftE0wLZEYd/c+f1/+nrNxYsCYlBVwf9LOp6kKoSExQXLyuyb1SPD1NfsRYV4JtLUqrBD+e51JIegmeqT8Ix63R9iwGaXTIRZhZja7E8VR0f+umOqrdf/eKVa85bELHlyHtDqp6ZU2nFnCMIYDvSGR1cSpA8mNm4+kxHqaZ1YU8R2skQOuWZJHPeAYFgIaqkEFK1bEGsBJe2Dw8nD/7w6T+5+/HxWmuikO8nMxyJ9cpCBVEA1RDb5JynMapaAYtokymYqqkqZycDsai4KIHkEFGP+rbGw632qnL+o1ctiyImwMA4TQziGd/lLPd6B1gHscqPbHn1d//rA68eOSp508dmTDwTFZzWLEG5X02VkoDILjTfFoxmoRQwXnvJtiTJu9biXPHjN175yds2XXZxf7EQZV6FapglCHKrZDIc6EYyZHYPNDs6+YwIrBN/s8NZKoOmxlpB0AMlpKlGllqt5uHDI/c8vPv79z+559Bwsyc3xklM5YSllHhrAbARTQm1UHO82UF0xg9YUghpo+OgC4CVhFRgIAKSijKppuTr6qyN/+Lrt/3OZ65GmGWH8RQk+GeYnpjlfL0P1AYBUP/X9z/1R//lnpr4nlzFox0RimKOU8pKNUZZAAYr1amLTn4LZH+7d4JOeoMqgLJQzvuEadyQiNg6Vkb62Zs3feXz1629ZAkQin0BRNQynbDhnhtBFJysiYLMbmPqBZ/Z73XfviM/uG/bt+9+5vmxYRTzRZNvcpTTVmTMmCgrhXR8GMJEJQ+mM67c3whwsxaCqRhVZhJhgtJCFWnr8WbjD79w3R//2ztiCodlQkTwDDNNoGXWdT0yRw7JRqrJXLCoWG/QI3sPNH2aEEWgYyb1xG02/TCiAoIhToJikIb/fs475ENO4gmmKy+lYCZPRsUZYxM1OcMmShqqu/YN7dt9aKwxroaLhWIhZ1WViaFQJASIqDIpAeq9JN0RpW4SqSpEmCW5eGIgCHxCqC0mf4UIUPFhX9ZwNgYigQiIvde9ew//+JHtd9397D88/MKuZi1fKjVNnFc0WCJBPQg1UJySt0ptghLlFESU0rmFZnjgmYJvQZFQBLdJlSBEgyqCFBqLZWq1qmn6pRsu+8aXb1g0kANMgIcnYRCUiOmsaiZkWlShOyVUFI2m/85Pn/vvdz20fV816pU0l2cXl9Euq6lCWAmMWkdEXxnTIty5I3q6hWr2EpwRgZ1hxsz7zSppLSm61mUrF1+54YL3bz5v06YLLrxgcYygwcninBAzQ0SYM2Y3sFfMCG0rBIMputKqk9rW00ZVp05aq1IIk93+gWwbYB9068LNkFl8QQ4cGtny7GvPbd//q217HtrzOmJrIu6xMcAT8B5qYJSlojxKBFULdYSQgzqoxTmh1U6W9ApleUEUnPUJJRAw93uOMdFwcS1xK8rxVz957dc/d/XSgd4pT5UlVz5QNG+AewIhsO7qVCwsgBd2Hvw/9zzzw8d3joxWa4b6jXXiALZgB6lBwwDXW4tRDabcUzh/ZC6AgAVbZuNdm9hFbBIfNV3OJRWbv2hF/7q1SzevX/m+jUvWXrQqnyMvaSekGUBCK+JU15vOq0zW/p1pmXBn6rSfd+RyA3lgkA1wTt5RXpitt2QV6Z5XR7Y8u/f5l449t+vQM/v2H6kn1uZ7y6W2SxoEjRgKiHAQ0xPugYpqzZCRzBmii9Fz1S0whedmokS9BQupqIbDp5JCVJ24pvLCOHfL5au+esdvXH/1GsMKYu2SQMG8HTjVrjQLjCqUhMAe3qgJAVWy3jY5Ntr4v9/fetcDTx5+fSif70lYlayQQjAB9RRsMCncZOcUo6oEiOfgxUTdVLKkXCcpiAahDVEoUdUQq2VKnTrAIE3hhL1fkc/fuG7FB2/YeMWlyzZuWIkp79N7JU6Dsq5KBAn6P15DFzhAZKawVqKh1lGdimxRByjUdIJomIRRETAJKBZxB/bUtr+468GHXn58176dw41WHEVWiyYCYKBM5ER9J+PvHtol4gwYQJGA4GdCXPbKRFXKvE3OXQIaPqNQME0nSygpSkIGOpwmqwuFD918+R/cec1Fqwcmj3C64S/7uwsdmie/TTq7WcpwfT0ZVpD3h4+Ofe/nL95179O7j03UNIHlQYoj548bStAeEDNiqOy0ZgCiiocBRlh5ignxtCfvAU1gBhxPoyRnA/ppGmnU8eJ2kJhMRVhVU5I6oRDmC1QqNqpEtGJR35rVS9+3ftWlaxedv7y3XIqMMSBDbMOcECDBQMr7sLNzVoR3AkToLgqTWDRJYHmCgEhUvLdt75yT/XuPvLJn/PkXX9/28v7Xho6ONRupREq2RX7cUCfTyAqRkyu5c1bbzbACJw/AgcoiNUNGjKc02K1UQFVVkJaV2MuyUu4LN13+yds3X7x6MGcjBbw6S4CY2duInTFGu7/vSCI1AJQgUAN/dNR9+94n/uePnto9NLIA1lszZqSsRlTrRBbkQEZBpOHEKDDMMwLx9Ff8TOPxCdPVIZ1U7RG1zICmhDrBBRY0fB4vBZJYBW0fG+6Lo4FK4fylA6tXLb18w6rli8srly1Y2FcykY8s62RKOo274OnUvZBAG43GyIRWh9K9B48/+/JLew6MPL+/OlQbd2maiEwQORt5VlACjaARU2qZE50cRQ9gt0onn4296SqCU58t5Pohm/LEoLQCdg5NSyS2l2SUqOx9DR5eL8wVb//Ipf/6c1evWrHYBspZGQSFqAidiUDn2WM0CF6DRESYbSBPjo9Wf/T4zvsefHbr3mMHazWQqdh8lX3oQGWiHtEq1DOshoO4s6GlzvSbmJbgh/2ROtoEwZwwVvSI5EjHFUxUg1rmgqgTAcTBsY/6cvHKvsKySmnVooVLFld6K1HfYGlBsVQqFQqxKeSNtSZoqWbbunI78ao00UyazaTVTo8cHTo61hx6ffjA0MToSPPgWPNo2u5F6tVWDcWG6sQQMJFDu0RsJRLVcZWctUKaOAei2JjEOUvdFzqz/ofZx8sJaA8mqauQ3TpkA5dloSpQAarwzFwQracOTgbK+SvOH/jINes+/cHNF63oy4acCIAPE4B6hn3VZ7/XE6kHBeVbghdiCDGDFO0k/cctr9zz0AuPbd398vAICr0l0nqch08BAVPJSwvkLVdcpjVwrmupk8HdUbjLMiCr6FWNIcPGWHCboKp5kKgmmVKmllQkTW2qrdSxRm1iWCpqmo/jmKlgo4Jla02qCrCBE49EkDrXcGmt3W55D2Yow8ZlQisyxSgS8jUjAPrVQuCkm6Z5ZA1NJjYmpJjdLCVk+TiFZPY5KuGLigaBKIqkaZlrbI1nb8TCuxbQasf9xY9ctvLT16372PUbF/UXT9zxMsa3M3rF5xyj0w+XO7Wt96kxUajUXKKPPvPq3Y89/7Nf7txxfKJibN2II1SEI8W4UWYjTkXPoZ7o6bOIaWw/K6lSSIU9qxEthi4tpQYxIJ40JiOqoXqddC8QKfigP4OkQzM5aJhQAVHoS2wb7nA01oFj0kRa1kQFRzX2Rg2ROlIQGa+eFMyT9ADASm7KJZl6wvlG8tEZfQoCJ1BRqpJaUElRJR0Ep6pVSxVHVass0icAMEJyYZS/+soL7rx27YevubjUkweTBxmQyyx2qJujZ9Oiei73+hOJ00AGeuqyWpmBuRoNuYCrJfT3P3nmz7/9yJFdR6rlXJLLLU1RFZ2A7ycaY7FsZSa39BlhOvsfzhqvJtxg4ZhKlZSliwl0xnm9QFlYJwkjZYhqRW2dpCAUpD6YKMQ/Jqp2rI4DX1tSNJm8iKfIwjkIh3NCgKElzwDqRgSeYcpCotpk46AZpxsInXOfdE5iVMUSd9krR1gITkSqxi9pR00rbKjlkma9fd7iwa/ffvm/+K33n9fXG1TRFB5EFA51O50iZ83q0BvSSFKARMEdAc2M6KLOzwmApg2nRw5PPPDkK3//wJbHXzxSLBXaERLvB8g2feojK6rqO0QmJkn401evb5DJmtJF0OF9CYBaNU5TZu42GwR8CCmr8eIiY8LESyS+e9IYdmHbYUM9oTxpaJuxhkbJcxCRIYYGxJdUJkCes2kBVQ0HiWWhCagyykIApp1ndovrc4TRbvKQEczhgzDnvLTJFuD7nR5wyWWDfZ+5dfNvfXD9eSsGKsVC+L+OYMOEEQBymWalZq2hesZDfm9or8/6g7IjuxNOn53CQpU0gJaDu/bR0dbdj7zwrXufem7P8QmQGgx6brOvEzpbJ34tRjELV53ZRVkGxAXuUCl88QCqRDEhp9LQLMoKaVmoTugmggHfDgSIRYfB7rjeUHaIwCH8QJXEd2cQpt5jWZetZSdiwaVOuTZ5KBXaSwDf9bh5sxVZToXRoqJmqCKoMgAtK2pMZdGSb9Sp54LB3i/euvFTH9pwwfIlQc0pU5DsUBzh5D2zNIVQBydnobRKb53WnMKTGmhzIr370R1/8oMntuw8PEC+Ygs1NWMMRx6gzndAntVq5g0QvmkLCtDhKZL7byU1eJrFNMliSscmFHNsnTx2Eu4loZSEPaRM3AQ5Vismp87CVjk0rQOghYkfMrphQc/vfPR9X7796oULy4pAO+qMvSBvWifGW4bRrLgAGaWklTy8ZeePHnnlsa07d4xMFGHbOePhQFoWUzOETDqoM4RFFIYQqjxZK8wRHMx4k7yNXf1nelkKQg0Sb4hVFzkMG9OrfsSQFTgVMJUVLedSn/b09tyy9rw7bt7wkWs3Lu4rhhN2A3oDasRzLY4GJ6JJ6kE86Jfb9nzvwWcefeG1Fw9WnTU9GVvQFo2ZyMGlnOsR70Xqxhbga2SsCubqOk1ud64ZotNQwienTNPOMAPCokRTa5goIQ9xMBEB/U5GvFs60HPT2vNuv+nSO67flMtxqDcAzmqRzBzy3YDRjKLyIAPNhIZFU8bPH3/hT//frx545lVwrlK2Tet7HCY4LohvsvbAGNEh46GOIazxW8ZVvelYmTsY7T4oGV/1BDZSbuRMAAAOb0lEQVRLnbZNPIL2CtG6mNRIy7W5pqtWDf67f37Dl27ZHOVNGFIQ4W4nuIojZsU5tO95CzEqinAHTuGtAhngBXsPvv6PW3d9/+Hnf/HcUZiWiYuRMS2kEK0QM5lR8KD4Ecr6/U513edO7Hzb3880z4ZT15rcq37E+KXimeJDwBKRI17Rcu87f/AzH7z8w9deeMmaJT25OFRwKchCO3VPUFDgmfSi3okYVXjyJoiCh7Ko468NwIEt3LHhiUe2vvrNe558ZMdRsJTYpIRapEtTUMqwVBdfN+9Zofs3gUs6OcR6G53v2wcROQJI1rTtHjRWLu//xq1X3X79+qXL+y1bpnBiDNt1Y8gO3zuHOAq8C/Z67diZZQxZl6NgCiyVUiCA3fFq+8mnX/2b+7Z979m9C1I3lssnmpbIDbj8a/nUpuZtr0tmE8BOs9vOqeJJVXuQFCSqk6m55No1S75yxxWfuObSwYFy1qatAiXPyPoyw/dH3ToYBDnVSOebsuxbdskozDoijFhw1rNOlClukJAEv247WLEfu/Gy/sEB7nvkla37tNocIqlbm7Mci03Fn4sWijcOhZPfz9v7DmcJ0AVeamyrls7j+NqNK792+6bbbry0YCNo1hjPIE9qwRAPghILeQZRloOGccV3SV0/K/pmSrunJ6Knd7z2Vz988rlte14cb1eV+kTGWCvK1UAMGC4LmjAOWlGtUgKKLBEEJUWivmnMjBoH7yDtsdkfp3VP88uqrGYCvnNkZaqUABHUlZUbBA/pJzsmXo1UHC/piy+/ePFXPv6BD79/rYkmp4PmyJrDGA38BiElbNtx4M/+9pG7n3il1nYoFMHOqDGMyPm6CSc6flDiEZMK2SCV4UhwYuPFuyy/nPFzOYIRItICtEYEp2UCGzKCEZJ+GFIdJzgCedEWSJof2rTu9z975UevvySKInRmgOfUFaC562kkKmFOUADG7gPHf/LEjvsff/W+5/ei3cjlcy5f8mkTnBt0NGLSBWBHUhNyTJC0jCAb7Zsn6jW/48Saf20cnXZ65FmhxrJ3MJB2hWJRzYGdiJKJSEfISbMNx1ddOPiJ6zd+9Lq1l128PIpCLdvVv5C5Y8I2hzGacf5+qrzHwaHqr7a89N2HXvjBU/vR1uWVqJZKNfZQ7gf3+qiq6RiridKKK4wrHJMVjxnMM+mdGFBxirGFE3TLGL0eSqZt0FIP5dggUSxUGeI2WhESvWHdws/dsumGq9ddsmIRG3h4hglCKT6r2OfQnTyX4ygyVVVwGJRgDmrqPDKePLZtz49/8tTPtuyqQSYQOThRbzTnCSAdAKfe1zhUhfSOxuip2hFxihGRHtGGsZG0y8I1W6xzu19RJ+S8c3A3rT//0zddfus165YtLGJq03FQDdJzSsbP+br+jFc2YM6hZS+bbYSIuIHe+Pbr116yopwv9/7wn55vN5oLvWnn4xhIibyIpiafQx2eKZMV6wJ0+ljinF9nelQxZhmS9lO+aZM6twupyymLoBbzJ69Y84d33nD9VRdMOUPJOpI8qSEFdVss5/f6WfKpnYCqLNDMYFwZ5CVoGnqXvLT3+F33P/WjR3bsHh2vaGS9T2KuUQTWWGzk0rY5IYhOa5B7F+z102qmAUcjkWP1BeGWk7y1i/L2I5sv/Pxt779y88qeKAxkOqjNOny7nb4C5dDHNLcuzhze68O9rp7UeFajlF3NTg7QOVoVD9p14Ojf/nj7/U+8dGC02m6mErm25gtCYGkT+45zZDBxm8uKuLMsm2Z8/xn3pNonqBF6ya7uy121aeVvf+rq39xwvqdg4CEeBoCBdkc4Qn/dlNcL0nfzGH1j4WTGPfHgkdH/9Z1f/rcHn61Xj0f5AkX5hIVFSgrxGpuISMfgBajI5Ljj1J72twC7M7QdnXpgA2H+iVlUBaYiUkUKFdh8v/AoJ4CxQJ8QhNqc1igqOam32zlDn/3Auj/48g1XrV+BuUR2vicweqrlkRpEB4eqD23dde8vXnr46T0j1Vq5r8cyl8R4cU0osR0lBaSs2tBMGd5By4KayR5bvD0YPfU+zg6OBMoxkAAOHMc2RpqKqmNTFlczOiC2KuonWj3kr9u08tbrL73l2g1rzl9glKBzJ7d8b2O060CpqmMT7ce27v7hz5//x+27jo+3+4gbbGpsrfgy66goYPqBcRUPBZFRFBVNPkvt7TeeXJ4GowXR0PQN1X6kBrnIsYtkiFDy6QA4FXMkBrwfUP7IpctvuXHDjdeuX7WoN5s0U0VXSmAeo28/n6o8ZbLKHRlJ//LvHv3rH20drY6iXK6qkDHGKxMlkLKHZR4lLXttMvUqxufAN3lylHXEDJ/zElNkIEpRk7UlCVT7yTpOa14XtW0tlq9df+nv/bPrLrlwGTqjRZlw7KT61zxG50CV1SWijQBAXdoH9o9978Ht3/rZc7tHxzvu6lRWaiKbs6sywmRZDJK3+2qc3C0VdEH6BBNsEwJIIGkxiootGiYH0d5y8XPvW/2VT117xYWLCwWb1egiHXFJeWfv9O86jApCsQ+ICmcWUCoiuw6N/uCnz/344Rdefr1aJQEEZLsCiF1EWH0bQDljS3L3sTIkDDxDoY5Mvl/QTH2OtVKOvnzthjtv27x2zfJczCAlZSCF2iBzNGUUzs1pLvy9ko9OaYbQTJxIgz5wR5/CD43U77r3qW/es3XnoTHkrDHGM5EXZbIgJ94Qv8Wc1OkxCsDBQhMwxzA94mtpmqbtfF/v125e/0efvn7VBQug6GTiHZG+TEAdWUClGW2P5jH6ttCpQXtCiZTA4uFZrYKYpMOncnU8uffxHT946LnHtr82VKshjmwc92roZMW4ytuF0RJBVLssmGStxASRMigHHmt7nzZ6C8UPXLz0g9et//wtmxYtqljAQxVqhQBS6grpSwem0tWGnsfonKZUp8WqRqPxkyf33fuL53++fe+e0WbFxBG5VMGGRq0WknabYoGxKkyUeh8ZIxoMqMhqRx76JOHZGZsMT34/DmShjj2UK2IiRdO02hRDbMknJTYtpqp4wyxKjnw/cavVXtxTuGLd8o9+YP1t11563sIi3jPrPYHRmVELGm8l377nib/87pPPHq4ih0ocGWEIjUfqiXqdVkmY1MIGWYfM7JQzwZ9pxPssZ1eC6omogtFkLQixl2oEqAFRJfV9LFXFGOf72S90eE3QrKeL++N/efumr3/+hqULe0wmSWPmMfouj6lBv6BVT/YdPn7/L1++695tz+07Ui5GHMVVzvd7P8qp8ZoXarEGtr9jKwicaGqImTQgTtUL4iAVtQCMUJvTFkyFacQa+BpZ05/mPKSKGEgWe9dousGB4iduvuxTH9p46fkLF/SWAPiOv9g8Rt/9cVThiYyHstKeg8M/fnTHXQ9s37F/qJf9aGRYDcCOBCpQDSplDmoUmMng8DSqyidiVI3CEyyMkGelAjsANeHFiEXpOLeEbC5NV/eUPv6hdV/48BWb1qw0kSjYAZEXMIPeQ1/WexSjocjypIyse0+VhDA8MnHvwy/83T1P/fTgSFAHt4YK8KymbuBUgY5lx4kGuyfno6e6N4qKuhES9qTBYLMgWvaaxmZUjdFq3hXPW9DzpY9efufNl61etdAYmiKbGWogzMU2z3mMvokRdAqMHJTQsfALZGqr4e978uX7Hth+/479RycaABBZC3Kk9kS/BAcBEPx9Tp+Dnqi2bBxcWUyN08wniGmZ59c9VBuDUXTl+ed/5tYL7/jQ5oV9PYB0U091Shw0azyU3zsofe/GURWAM03azG5ZOSj9EEQ8P/hPO/76J888ufPQgeExUFSOjAWLapUBon7JMNqmTNLx9Hs9unKenImPOrh+mBqMS+qc+uJA71Vrl37uho1fvHljuZTPuuOC/kCI8+QBDkao/p3LyM9j9IxWl+gOf5uMWJ3jgDT1W148+IOfbX946yuvHx5zURTO9EOzXK9qEXoYdIp4eUKcY6Ik27OlAq2BytBIUU1o5aLcNZde9Nu/uebK6y6ulIp0gp2WBJOdTs+r6Ui8yHxd/55egT7P2jsgAD/2ixf/w3cefWj7ngqZ8XJhuZMRSI7zBu3EuaaNRdWRQmFBwQoxVmky9QnGuGPRyGwFluMCUiM6nHrUmxetWvhHX7rhi7dtLuej+Ss/j9HZhtcpRtFBakIlNa8eGnnosRd++PAzD+0+AjXlKFeLDODBgNOyJ8uokoS+q6KiZgzgyqo1ZigtFONZWV1TAbH1ZuPi5X2funHjZ27asH71wmIhT5jXsZrH6GyXA+yJ7tyuo+2vR4/UH3p29/ceePqJ7QedphxFwwCIKmKqHFQrYAUl72sWQvmKT+vGOeGYTKLpSphR5y85b+ALH9v8sWsvvmjFQmYb1C6U3qlD1fMYfduiqfOJNflO5uqIjCeyAkeyZeu+P/6Hx5/cvudIq11GfgK+B1RjZaKymCqD4QtI68oFRy2mWJ0VallbJFy+evDrn776Mzdtzkcc6iGaHW81j9H5NT0fBZwIuq6BDs5oMPT2RFR3tO25vd/76a+e2HHs8Hi91ZKRNIEQyAIeXgLFD5iKoZ4cLyrmN6wc+K0PX3XzdZeUSnHXMEghHaFEmsfoPEZnB1CkhKhjx4bJjqEsQRUIKZFq1lV0aHh85+6hl1499vSuQ8/vHxqtN+uSFgVsCgO5/KqlxSsuWbbxwiXrLlq6evkCgbKKEAPg4GdNBJpzOpXzGH1H1EzougZOmtJ6qAG6moZC4R8Unoiqjfa+10aOHhsfb6UWmstFC/qKq5YvXDRQouD11nHVy0RBSESZCSqOiLvWP/NrHqOz3O4nTcinGZLjBP4y+0G37RNCXhEYTSbN9GpOEjueSmwB596bYx6j82t+nbs1f+/Or3mMzq/5NY/R+TWP0fk1v+YxOr/m1zxG59c8RufX/DpX6/8DmvBtm9vfvpsAAAAASUVORK5CYII=" alt="image"></span></p>
+</div>
+<div class="paragraph">
+<p>Liens :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="http://www.cplusplus.com/reference/">www.cplusplus.com</a></p>
+</li>
+<li>
+<p><a href="http://www.open-std.org/jtc1/sc22/wg21/">Comité du standard C&#43;&#43;</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_c_moderne">2. C&#43;&#43; moderne</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Le C&#43;&#43; moderne est apparu avec la mise à jour C&#43;&#43;11.</p>
+</div>
+<div class="paragraph">
+<p>Les standards C&#43;&#43;11, 14, 17 et bientôt 20 apportent de nombreuses
+fonctionnalités : gestion automatique de la mémoire via des pointeurs
+intelligents (<em>Smart Pointers</em>), déduction de type automatique à la
+déclaration via <code>auto</code>, etc &#8230;&#8203;</p>
+</div>
+<div class="paragraph">
+<p>L&#8217;implémentation des standards C&#43;&#43; va dépendre du compilateur utilisé,
+de sa version et des options invoquées.</p>
+</div>
+<div class="paragraph">
+<p>Exemple sous Ubuntu 18.04 :</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>$ g++ --version
+g++ (Ubuntu 7.5.0-3ubuntu1~18.04) 7.5.0</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>$ man g++
+...
+g++ [-std=standard] ...
+...
+-std=
+          Determine the language standard. This option is currently only supported when compiling C or C++.
+...
+c11
+c1x
+iso9899:2011
+          ISO C11, the 2011 revision of the ISO C standard.  This standard is substantially completely supported, modulo bugs, floating-point issues (mainly but not entirely relating to optional C11 features from Annexes F and G) and the optional Annexes K (Bounds-checking interfaces) and L (Analyzability). The name c1x is deprecated.
+c++11
+c++0x
+          The 2011 ISO C++ standard plus amendments. The name c++0x is deprecated.
+c++14
+c++1y
+          The 2014 ISO C++ standard plus amendments. The name c++1y is deprecated.
+gnu++14
+gnu++1y
+          GNU dialect of -std=c++14. This is the default for C++ code. The name gnu++1y is deprecated.
+c++1z
+          The next revision of the ISO C++ standard, tentatively planned for 2017. Support is highly experimental, and will almost certainly change in incompatible ways in future releases.</pre>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Il est possible de définir le standard utilisé pour le
+compilateur C++ dans un projet <strong>Qt</strong>. Pour cela, il suffit de l&#8217;indiquer
+dans la variable <code>CONFIG</code> de son fichier <code>.pro</code> :</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>CONFIG += c++11</pre>
+</div>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_les_exemples">3. Les exemples</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><a href="https://github.com/tvaira/cpp-moderne" class="bare">https://github.com/tvaira/cpp-moderne</a></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_c11">4. C&#43;&#43;11</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Lien : <a href="https://fr.wikipedia.org/wiki/C%2B%2B11">C&#43;&#43;11</a></p>
+</div>
+<div class="sect2">
+<h3 id="_les_types_etlesvariables">4.1. Les types et les variables</h3>
+<div class="paragraph">
+<p>Le langage C&#43;&#43; est dit fortement typé. Chaque variable possède un type.</p>
+</div>
+<div class="paragraph">
+<p>Une définition est composée de :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>un type pour définir la convention d&#8217;interprétation des valeurs
+possibles</p>
+</li>
+<li>
+<p>un objet qui contient en mémoire la valeur d&#8217;un type</p>
+</li>
+<li>
+<p>une valeur</p>
+</li>
+<li>
+<p>une variable qui est le nom de l&#8217;objet</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Chaque type est directement lié à une architecture matérielle et possède
+une taille fixe. La taille d&#8217;un objet et/ou d&#8217;un type est obtenue avec
+l&#8217;opérateur <code>sizeof</code>.</p>
+</div>
+<div class="paragraph">
+<p>L&#8217;opérateur <code>typeid()</code> (dans
+<a href="http://cplusplus.com/reference/typeinfo/type_info/">type_info</a>) permet
+lui d&#8217;obtenir le type d&#8217;une valeur à l&#8217;exécution :</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-cpp hljs" data-lang="cpp">#include &lt;iostream&gt;
+#include &lt;string&gt;
+#include &lt;typeinfo&gt;
+
+using namespace std;
+
+class Foo
+{
+    public:
+        Foo(const string&amp; str) : str(str) {}
+    private:
+        string str;
+};
+
+int main()
+{
+    int i = 10;
+    int* pi = &amp;i;
+    string s = "hello";
+
+    cout &lt;&lt; "i : " &lt;&lt; typeid(i).name() &lt;&lt; '\n';
+    cout &lt;&lt; "&amp;i : " &lt;&lt; typeid(&amp;i).name() &lt;&lt; '\n';
+    cout &lt;&lt; "pi : " &lt;&lt; typeid(pi).name() &lt;&lt; '\n';
+    cout &lt;&lt; "*pi : " &lt;&lt; typeid(*pi).name() &lt;&lt; '\n';
+    cout &lt;&lt; "s : " &lt;&lt; typeid(s).name() &lt;&lt; '\n';
+
+    auto booleen = false; // bool
+    auto f = 1.5; // double
+
+    cout &lt;&lt; "booleen : " &lt;&lt; typeid(booleen).name() &lt;&lt; '\n';
+    cout &lt;&lt; "f : " &lt;&lt; typeid(f).name() &lt;&lt; '\n';
+
+    Foo foo(s);
+    cout &lt;&lt; "foo : " &lt;&lt; typeid(foo).name() &lt;&lt; '\n';
+
+    return 0;
+}</code></pre>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Il existe un moyen d&#8217;insérer des chaînes de caractères
+complexes dans le code source sans le formatter avec <code>R"(raw_string)"</code>.
+Ceci est pratique avec des chaînes qui contiennent des guillemets <code>"</code>
+et/ou des <em>antislash</em> <code>\</code>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Lien :
+<a href="https://en.cppreference.com/w/cpp/language/string_literal">string_literal</a></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-cpp hljs" data-lang="cpp">#include &lt;iostream&gt;
+
+using namespace std;
+
+int main()
+{
+    string str1 = "&lt;a href=\"file\"&gt;C:\\Program Files\\&lt;/a&gt;"; // avant
+    string str2 = R"(&lt;a href="file"&gt;C:\Program Files\&lt;/a&gt;)"; // C++11
+
+    cout &lt;&lt; "str1 = " &lt;&lt; str1 &lt;&lt; endl;
+    cout &lt;&lt; "str2 = " &lt;&lt; str2 &lt;&lt; endl;
+
+    return 0;
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_initialisation">4.2. Initialisation</h3>
+<div class="paragraph">
+<p>Avant d&#8217;être utilisé, un objet doit être initialisé. Il existe
+l&#8217;opérateur <code>=</code>, les crochets <code>{}</code> ou les parenthèses <code>()</code> comme
+initialiseurs universels :</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-cpp hljs" data-lang="cpp">int a = 10;
+int b(20);
+int t[3] = { 1, 2, 3 };</code></pre>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Le nouveau standard ISO a introduit une syntaxe d&#8217;initialisation uniforme avec les accolades <code>{}</code>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-cpp hljs" data-lang="cpp">int a { 10 };
+int b { 20 };
+int t[3] { 1, 2, 3 };
+
+std::vector&lt;int&gt; v { 1,2,3,4,5,6,7 };</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>En C&#43;&#43;03, il est possible d&#8217;assigner une valeur par défaut aux attributs
+statiques et constantes directement dans le fichier d&#8217;en-tête. C&#43;&#43;11
+étend cette possibilité aux attributs des classes :</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-cpp hljs" data-lang="cpp">#include &lt;iostream&gt;
+
+using namespace std;
+
+class X
+{
+public:
+    X() {}
+    explicit X(int valeur) : valeur(valeur) {}
+    int getValeur() const { return valeur; }
+
+private:
+    int valeur = 1; // pour tous les constructeurs
+};
+
+int main()
+{
+    X x1;
+    X x2(2);
+
+    cout &lt;&lt; "x1 = " &lt;&lt; x1.getValeur() &lt;&lt; " (" &lt;&lt; sizeof(x1) &lt;&lt; " octets)" &lt;&lt; endl;
+    cout &lt;&lt; "x2 = " &lt;&lt; x2.getValeur() &lt;&lt; " (" &lt;&lt; sizeof(x2) &lt;&lt; " octets)" &lt;&lt; endl;
+
+    //cout &lt;&lt; "Membre valeur -&gt; " &lt;&lt; sizeof(X::valeur) &lt;&lt; " octets" &lt;&lt; endl; // si membre public
+
+    return 0;
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_auto">4.3. auto</h3>
+<div class="paragraph">
+<p>Il est aussi possible de laisser le compilateur déduire le type à la
+compilation en utilisant le mot-clé <code>auto</code> :</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-cpp hljs" data-lang="cpp">#include &lt;iostream&gt;
+
+using namespace std;
+
+int main()
+{
+    auto booleen = false; // bool
+    auto ch = 'c'; // char
+    auto i = 10; // int
+    auto f = 1.5; // double
+    auto s = "string"; // char *
+
+    cout &lt;&lt; "booleen = " &lt;&lt; booleen &lt;&lt; " (" &lt;&lt; sizeof(booleen) &lt;&lt; " octet)" &lt;&lt; endl;
+    cout &lt;&lt; std::boolalpha &lt;&lt; "booleen = " &lt;&lt; booleen &lt;&lt; " (" &lt;&lt; sizeof(booleen) &lt;&lt; " octet)" &lt;&lt; endl;
+    cout &lt;&lt; "ch = " &lt;&lt; ch &lt;&lt; " (" &lt;&lt; sizeof(ch) &lt;&lt; " octet)" &lt;&lt; endl;
+    cout &lt;&lt; "i = " &lt;&lt; i &lt;&lt; " (" &lt;&lt; sizeof(i) &lt;&lt; " octets)" &lt;&lt; endl;
+    cout &lt;&lt; "f = " &lt;&lt; f &lt;&lt; " (" &lt;&lt; sizeof(f) &lt;&lt; " octets)" &lt;&lt; endl;
+    cout &lt;&lt; "s = " &lt;&lt; s &lt;&lt; " (" &lt;&lt; sizeof(s) &lt;&lt; " octets)" &lt;&lt; endl;
+
+    vector&lt;int&gt; v { 1,2,3,4,5,6,7 };
+
+    cout &lt;&lt; "v : ";
+    for (auto it=v.begin(); it != v.end(); ++it)
+    {
+        cout &lt;&lt; *it &lt;&lt; ' ';
+    }
+    cout &lt;&lt; '\n';
+
+    // ou avec range-for
+    cout &lt;&lt; "v : ";
+    for (auto i: v) // i est un int
+    {
+        cout &lt;&lt; i &lt;&lt; ' ';
+    }
+    cout &lt;&lt; '\n';
+
+    return 0;
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_membre_mutable">4.4. Membre mutable</h3>
+<div class="paragraph">
+<p>Dans une fonction <code>const</code>, il est impossible de modifier un attribut
+(une variable membre) sauf si ce membre est préfixé du mot-clé
+<code>mutable</code>.</p>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Un membre <code>mutable</code> n&#8217;est jamais <code>const</code> !</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Lien : <a href="https://en.cppreference.com/w/cpp/language/cv">mutable specifier</a></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-cpp hljs" data-lang="cpp">#include &lt;iostream&gt;
+
+using namespace std;
+
+class X
+{
+    public:
+        X() : x(0) {}
+        int getX() const { return x; };
+        void foo() const;
+
+    private:
+        mutable int x = 0;
+};
+
+void X::foo() const
+{
+    ++x;
+}
+
+int main()
+{
+    X unObjetX;
+
+    cout &lt;&lt; "x = " &lt;&lt; unObjetX.getX() &lt;&lt; endl;
+
+    unObjetX.foo();
+
+    cout &lt;&lt; "x = " &lt;&lt; unObjetX.getX() &lt;&lt; endl;
+
+    return 0;
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_les_pointeurs">4.5. Les pointeurs</h3>
+<div class="paragraph">
+<p>Il faut maintenant utiliser <code>nullptr</code> à la place de <code>0</code> ou <code>NULL</code> pour
+initialiser un pointeur :</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-cpp hljs" data-lang="cpp">#include &lt;iostream&gt;
+
+using namespace std;
+
+int main()
+{
+    int j = 20;
+    int *pj = nullptr;
+
+    cout &lt;&lt; "j = " &lt;&lt; j &lt;&lt; " (" &lt;&lt; sizeof(j) &lt;&lt; " octets)" &lt;&lt; endl;
+    cout &lt;&lt; "&amp;j = " &lt;&lt; &amp;j &lt;&lt; " (" &lt;&lt; sizeof(&amp;j) &lt;&lt; " octets)" &lt;&lt; endl;
+    cout &lt;&lt; "pj = " &lt;&lt; pj &lt;&lt; " (" &lt;&lt; sizeof(pj) &lt;&lt; " octets)" &lt;&lt; endl;
+    if(pj != nullptr)
+        cout &lt;&lt; "*pj = " &lt;&lt; *pj &lt;&lt; " (" &lt;&lt; sizeof(*pj) &lt;&lt; " octets)" &lt;&lt; endl;
+
+    pj = &amp;j;
+    *pj = 30;
+    cout &lt;&lt; "j = " &lt;&lt; j &lt;&lt; " (" &lt;&lt; sizeof(j) &lt;&lt; " octets)" &lt;&lt; endl;
+    cout &lt;&lt; "&amp;j = " &lt;&lt; &amp;j &lt;&lt; " (" &lt;&lt; sizeof(&amp;j) &lt;&lt; " octets)" &lt;&lt; endl;
+    cout &lt;&lt; "pj = " &lt;&lt; pj &lt;&lt; " (" &lt;&lt; sizeof(pj) &lt;&lt; " octets)" &lt;&lt; endl;
+    if(pj)
+        cout &lt;&lt; "*pj = " &lt;&lt; *pj &lt;&lt; " (" &lt;&lt; sizeof(*pj) &lt;&lt; " octets)" &lt;&lt; endl;
+
+    return 0;
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_les_pointeurs_intelligents">4.6. Les pointeurs intelligents</h3>
+<div class="paragraph">
+<p>Un pointeur intelligent (<em>smart pointer</em>) est un type abstrait de
+données qui simule le comportement d&#8217;un pointeur en y ajoutant des
+fonctionnalités telles que la libération automatique de la mémoire
+allouée ou la vérification des bornes.</p>
+</div>
+<div class="paragraph">
+<p>En C&#43;&#43;11, les pointeurs intelligents sont implémentés à l&#8217;aide de
+<em>templates</em> qui "imitent" le comportement des pointeurs grâce à la
+surcharge des opérateurs, tout en fournissant des algorithmes de gestion
+mémoire.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>unique_ptr</code> est une classe qui possède un membre qui pointe sur une
+ressource (objet) non partageable. <code>unique_ptr</code> gère l&#8217;objet pointé en
+devenant responsable de sa suppression lorsqu&#8217;il passe hors de portée.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Lien : <a href="http://www.cplusplus.com/reference/memory/unique_ptr/">unique_ptr</a></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-cpp hljs" data-lang="cpp">#include &lt;iostream&gt;
+#include &lt;memory&gt;
+
+using namespace std;
+
+class Point
+{
+    private:
+        double x;
+        double y;
+
+    public:
+        Point() : Point(0., 0.) { }
+        Point(double x, double y) : x(x), y(y) { cout &lt;&lt; __FUNCTION__ &lt;&lt; endl; }
+        Point(const Point &amp; p) : x(p.x), y(p.y) { cout &lt;&lt; __FUNCTION__ &lt;&lt; endl; }
+        ~Point() { cout &lt;&lt; __FUNCTION__ &lt;&lt; endl; }
+        double getX() const { return x; }
+        double getY() const { return y; }
+};
+
+int main()
+{
+    unique_ptr&lt;Point&gt; p1(new Point(10, 5));
+
+    std::cout &lt;&lt; "p1 : " &lt;&lt; (p1 ? "not null" : "null") &lt;&lt; endl;
+    cout &lt;&lt; p1-&gt;getX() &lt;&lt; "," &lt;&lt; p1-&gt;getY() &lt;&lt; endl;
+
+    unique_ptr&lt;Point&gt; p2(move(p1));
+
+    std::cout &lt;&lt; "p1 : " &lt;&lt; (p1 ? "not null" : "null") &lt;&lt; endl;
+    std::cout &lt;&lt; "p2 : " &lt;&lt; (p2 ? "not null" : "null") &lt;&lt; endl;
+    cout &lt;&lt; p2-&gt;getX() &lt;&lt; "," &lt;&lt; p2-&gt;getY() &lt;&lt; endl;
+
+    unique_ptr&lt;Point&gt; p3;
+    std::cout &lt;&lt; "p3 : " &lt;&lt; (p3 ? "not null" : "null") &lt;&lt; endl;
+
+    //p3 = p2; // erreur !
+
+    return 0;
+}</code></pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Les <code>shared_ptr</code> implémentent le comptage de références, ce qui permet
+de partager l&#8217;objet possédé par un <code>shared_ptr</code> entre plusieurs
+<code>shared_ptr</code> sans se soucier de comment libérer la mémoire associée.
+Lorsque le dernier <code>shared_ptr</code> est détruit, l&#8217;objet pointé est
+également détruit.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Lien : <a href="http://www.cplusplus.com/reference/memory/shared_ptr/">shared_ptr</a></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-cpp hljs" data-lang="cpp">#include &lt;iostream&gt;
+#include &lt;memory&gt;
+
+using namespace std;
+
+class Point
+{
+    private:
+        double x;
+        double y;
+
+    public:
+        Point() : Point(0., 0.) { }
+        Point(double x, double y) : x(x), y(y) { cout &lt;&lt; __FUNCTION__ &lt;&lt; endl; }
+        Point(const Point &amp; p) : x(p.x), y(p.y) { cout &lt;&lt; __FUNCTION__ &lt;&lt; endl; }
+        ~Point() { cout &lt;&lt; __FUNCTION__ &lt;&lt; endl; }
+        double getX() const { return x; }
+        double getY() const { return y; }
+};
+
+int main()
+{
+    shared_ptr&lt;Point&gt; p1(new Point(10, 5));
+
+    std::cout &lt;&lt; "p1 : " &lt;&lt; (p1 ? "not null" : "null") &lt;&lt; endl;
+    std::cout &lt;&lt; "compteur p1 : " &lt;&lt; p1.use_count() &lt;&lt; endl;
+    cout &lt;&lt; p1-&gt;getX() &lt;&lt; "," &lt;&lt; p1-&gt;getY() &lt;&lt; endl;
+
+    shared_ptr&lt;Point&gt; p2(move(p1));
+
+    std::cout &lt;&lt; "p1 : " &lt;&lt; (p1 ? "not null" : "null") &lt;&lt; endl;
+    std::cout &lt;&lt; "compteur p1 : " &lt;&lt; p1.use_count() &lt;&lt; endl;
+    std::cout &lt;&lt; "p2 : " &lt;&lt; (p2 ? "not null" : "null") &lt;&lt; endl;
+    std::cout &lt;&lt; "compteur p2 : " &lt;&lt; p2.use_count() &lt;&lt; endl;
+    cout &lt;&lt; p2-&gt;getX() &lt;&lt; "," &lt;&lt; p2-&gt;getY() &lt;&lt; endl;
+
+    shared_ptr&lt;Point&gt; p3;
+    std::cout &lt;&lt; "p3 : " &lt;&lt; (p3 ? "not null" : "null") &lt;&lt; endl;
+    std::cout &lt;&lt; "compteur p3 : " &lt;&lt; p3.use_count() &lt;&lt; endl;
+
+    p3 = p2;
+    std::cout &lt;&lt; "p2 : " &lt;&lt; (p2 ? "not null" : "null") &lt;&lt; endl;
+    std::cout &lt;&lt; "compteur p2 : " &lt;&lt; p2.use_count() &lt;&lt; endl;
+    std::cout &lt;&lt; "p3 : " &lt;&lt; (p3 ? "not null" : "null") &lt;&lt; endl;
+    std::cout &lt;&lt; "compteur p3 : " &lt;&lt; p3.use_count() &lt;&lt; endl;
+    cout &lt;&lt; p2-&gt;getX() &lt;&lt; "," &lt;&lt; p2-&gt;getY() &lt;&lt; endl;
+    cout &lt;&lt; p3-&gt;getX() &lt;&lt; "," &lt;&lt; p3-&gt;getY() &lt;&lt; endl;
+
+    return 0;
+}</code></pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Les <code>weak_ptr</code> permettent de voir et d&#8217;accéder à une ressource (objet)
+possédée par un <code>shared_ptr</code> mais n&#8217;ont aucune influence sur la
+destruction de ce dernier. Ils servent principalement à s&#8217;affranchir du
+problème des références circulaires.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Lien : <a href="http://www.cplusplus.com/reference/memory/weak_ptr/">weak_ptr</a></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-cpp hljs" data-lang="cpp">#include &lt;iostream&gt;
+#include &lt;memory&gt;
+
+using namespace std;
+
+class Point
+{
+    private:
+        double x;
+        double y;
+
+    public:
+        Point() : Point(0., 0.) { }
+        Point(double x, double y) : x(x), y(y) { cout &lt;&lt; __FUNCTION__ &lt;&lt; endl; }
+        Point(const Point &amp; p) : x(p.x), y(p.y) { cout &lt;&lt; __FUNCTION__ &lt;&lt; endl; }
+        ~Point() { cout &lt;&lt; __FUNCTION__ &lt;&lt; endl; }
+        double getX() const { return x; }
+        double getY() const { return y; }
+};
+
+int main()
+{
+    shared_ptr&lt;Point&gt; p1(new Point(10, 5));
+
+    weak_ptr&lt;Point&gt; wp1;
+    weak_ptr&lt;Point&gt; wp2(wp1);
+    weak_ptr&lt;Point&gt; wp3(p1);
+
+    cout &lt;&lt; "use_count wp1 : " &lt;&lt; wp1.use_count() &lt;&lt; '\n';
+    cout &lt;&lt; "use_count wp2 : " &lt;&lt; wp2.use_count() &lt;&lt; '\n';
+    cout &lt;&lt; "use_count wp3 : " &lt;&lt; wp3.use_count() &lt;&lt; '\n';
+
+    return 0;
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_les_énumérations">4.7. Les énumérations</h3>
+<div class="paragraph">
+<p>De manière générale, les énumérations permettent de grouper des
+ensembles de valeurs dans un type distinct.</p>
+</div>
+<div class="paragraph">
+<p>Il y a quelques limitations (donc problèmes !) dans l&#8217;utilisation du
+type <code>enum</code> :</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-cpp hljs" data-lang="cpp">#include &lt;iostream&gt;
+
+using namespace std;
+
+int main()
+{
+    // Problème n°1 : Deux énumérations ne peuvent pas partager les mêmes noms
+    enum Genre { Masculin, Femimin };
+    enum GenrePersonne { Masculin, Femimin }; // error: redeclaration of 'Masculin'
+
+    Genre genre = Masculin;
+    GenrePersonne genrePersonne = Femimin;
+
+    cout &lt;&lt; "genre = " &lt;&lt; genre &lt;&lt; endl;
+    cout &lt;&lt; "genrePersonne = " &lt;&lt; genrePersonne &lt;&lt; endl;
+
+    // Problème n°2 : Aucune variable ne peut avoir un nom déjà utilisé dans une énumération
+    int Masculin = 10; // error: 'int Masculin' redeclared as different kind of symbol
+
+    cout &lt;&lt; "Masculin = " &lt;&lt; Masculin &lt;&lt; endl;
+
+    // Problème n°3 : Les énumérations ne sont pas un type complétement sécurisé
+    enum Couleur { Rouge, Vert, Bleu };
+
+    Couleur couleur = Rouge;
+
+    if (genre == couleur) //warning: comparison between 'enum main()::Genre' and 'enum main()::Couleur'
+        cout &lt;&lt; "Égal !";
+
+    return 0;
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>C&#43;&#43;11 a introduit des <strong>classes enum</strong> (appelées énumérations étendues)
+qui rendent les énumérations fortement typées. L&#8217;énumération de classe
+ne permet pas la conversion implicite en int et ne compare pas non plus
+les énumérateurs de différentes énumérations.</p>
+</div>
+<div class="paragraph">
+<p>Lien : <a href="https://en.cppreference.com/w/cpp/language/enum">enum</a></p>
+</div>
+<div class="paragraph">
+<p>Syntaxe :</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>enum class name { enumerator = constexpr , enumerator = constexpr , ... } // constexpr = 0 par défaut
+enum class name : type { enumerator = constexpr , enumerator = constexpr , ... }
+enum class name ; // int par défaut
+enum class name : type ;</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Exemple :</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-cpp hljs" data-lang="cpp">#include &lt;iostream&gt;
+
+using namespace std;
+
+int main()
+{
+    enum class Genre { Masculin, Femimin };
+    enum class GenrePersonne { Masculin, Femimin };
+
+    Genre genre = Genre::Masculin;
+    GenrePersonne genrePersonne = GenrePersonne::Femimin;
+
+    cout &lt;&lt; "genre = " &lt;&lt; int(genre) &lt;&lt; endl;
+    cout &lt;&lt; "genrePersonne = " &lt;&lt; int(genrePersonne) &lt;&lt; endl;
+
+    int Masculin = 10;
+
+    cout &lt;&lt; "Masculin = " &lt;&lt; Masculin &lt;&lt; endl;
+
+    /*enum class Couleur { Rouge, Vert, Bleu };
+
+    Couleur couleur = Couleur::Rouge;
+
+    if (genre == couleur) // error: no match for 'operator==' (operand types are 'main()::Genre' and 'main()::Couleur')
+        cout &lt;&lt; "Égal !";*/
+
+    return 0;
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_decltype">4.8. decltype</h3>
+<div class="paragraph">
+<p>Le mot-clé <code>decltype</code>, introduit dans C&#43;&#43;11, permet de définir une
+expression pour exprimer une déclaration de type. <code>decltype</code> « retourne
+» un type.</p>
+</div>
+<div class="paragraph">
+<p>Lien : <a href="https://en.cppreference.com/w/cpp/language/decltype">decltype</a></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-cpp hljs" data-lang="cpp">#include &lt;iostream&gt;
+
+using namespace std;
+
+struct X
+{
+   int i;
+   double d;
+};
+
+int main()
+{
+    X x;
+
+    decltype(x) y; // le type de y est X
+    decltype(x.i) e; // le type de e est int
+
+    return 0;
+}</code></pre>
+</div>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p><code>decltype</code> est notamment intéressant dans l&#8217;écriture de
+bibliothèques génériques à base de templates. Sinon il est fort probable
+que vous n&#8217;ayez pas à vous en servir.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_les_littéraux_utilisateur">4.9. Les littéraux utilisateur</h3>
+<div class="paragraph">
+<p>C&#43;&#43; fournit un certain nombre de littéraux. Les caractères <code>12.5</code> sont
+un littéral qui est résolu par le compilateur comme un type <code>double</code>.
+Avec l&#8217;ajout du suffixe <code>f</code> (<code>12.5f</code>) le compilateur interprétera la
+valeur comme un type <code>float</code>. Les modificateurs de suffixe (comme <code>U</code>
+pour <code>unsigned</code> ou <code>L</code> pour <code>long</code>) pour les littéraux sont fixés par la
+spécification C&#43;&#43;.</p>
+</div>
+<div class="paragraph">
+<p>À partir de C&#43;&#43;11, il est possible de définir ses propres littéraux afin
+de fournir des suffixes syntaxiques qui améliore la lisibilité et
+renforce la sécurité des types.</p>
+</div>
+<div class="paragraph">
+<p>Lien :
+<a href="https://en.cppreference.com/w/cpp/language/user_literal">user_literal</a></p>
+</div>
+<div class="paragraph">
+<p>La bibliothèque standard a elle-même défini des littéraux pour
+<code>std::complex</code> et pour les unités dans les opérations de temps dans
+<code>std::chrono</code> :</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-cpp hljs" data-lang="cpp">complex&lt;double&gt; n = (2.0 + 3.0i) * 4;
+
+cout &lt;&lt; "n = (2 + 3i) x 4" &lt;&lt; endl;
+cout &lt;&lt; "n = " &lt;&lt; n &lt;&lt; endl;
+cout &lt;&lt; "partie réelle de n = " &lt;&lt; n.real() &lt;&lt; endl;
+cout &lt;&lt; "partie imaginaire de n = " &lt;&lt; n.imag() &lt;&lt; endl;
+cout &lt;&lt; endl;
+
+auto recordDuMonde = 2h + 1min + 39s;
+cout &lt;&lt; "Record du monde du Marathon : 2 h 01 min 39 s (Eliud Kipchoge en 2018)" &lt;&lt; endl;
+cout &lt;&lt; "recordDuMonde = " &lt;&lt; recordDuMonde.count() &lt;&lt; " s" &lt;&lt; endl;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Liens :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="http://www.cplusplus.com/reference/complex/">complex</a></p>
+</li>
+<li>
+<p><a href="http://www.cplusplus.com/reference/chrono/">chrono</a></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>C&#43;&#43; 11 permet donc à l&#8217;utilisateur de définir de nouveaux types de
+modificateurs littéraux qui construiront des objets basés sur la chaîne
+de caractères que le littéral modifie.</p>
+</div>
+<div class="paragraph">
+<p>La transformation des littéraux est redéfinie en deux phases distinctes
+: <em>raw</em> (brut) et <em>cooked</em> (préparé). Un littéral <em>raw</em> est une séquence
+de caractères d&#8217;un type spécifique, tandis que le littéral <em>cooked</em> est
+d&#8217;un type distinct. Le littéral <code>1234</code>, en tant que littéral <em>raw</em>, est
+la séquence de caractères '1', '2', '3' et '4'. En tant que littéral
+<em>cooked</em>, il s&#8217;agit de l&#8217;entier <code>1234</code>. Le littéral <code>0xA</code> est '0', 'x',
+'A' soit l&#8217;entier <code>10</code>.</p>
+</div>
+<div class="paragraph">
+<p>Liens :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://akrzemi1.developpez.com/tutoriels/c++/litteraux-utilisateur/?page=litteraux-bruts">raw</a></p>
+</li>
+<li>
+<p><a href="https://akrzemi1.developpez.com/tutoriels/c++/litteraux-utilisateur/?page=les-litteraux-prepares">cooked</a></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Tous les littéraux définis par l&#8217;utilisateur seront des <strong>suffixes</strong>. La
+définition de littéraux de préfixe n&#8217;est pas possible. Tous les suffixes
+commençant par n&#8217;importe quel caractère sauf le trait de soulignement
+(<code><em></code>) sont réservés par la norme. Ainsi, tous les littéraux définis par
+l&#8217;utilisateur doivent avoir des suffixes commençant par un trait de
+soulignement (<code></em></code>).</p>
+</div>
+<div class="paragraph">
+<p>Les littéraux utilisateur sont définis via un opérateur littéral qui se
+nomme <code>operator ""</code>.
+<a href="https://en.wikipedia.org/wiki/C%2B%2B11#User-defined_literals">en.wikipedia.org</a></p>
+</div>
+<div class="paragraph">
+<p>Pour les littéraux numériques, le type du littéral est
+<code>unsigned  long long</code> pour les littéraux entiers ou <code>long double</code> pour
+les littéraux à virgule flottante. (<em>Remarque :</em> il n&#8217;est pas nécessaire
+d&#8217;utiliser des types intégraux signés car un littéral avec un préfixe de
+signe est analysé comme une expression contenant le signe en tant
+qu&#8217;opérateur de préfixe unaire <code>operator -</code>, qu&#8217;il est possible de
+surcharger, et le nombre non signé.)</p>
+</div>
+<div class="paragraph">
+<p>On va définir une classe <code>Temperature</code>. Il sera alors possible de
+définir un littéral pour les degrés Celsius et un autre pour les
+Fahrenheit. Ensuite, on sera forcé d&#8217;exprimer explicitement l&#8217;unité de
+mesure en écrivant par exemple : <code>auto t1 = 36.5_celsius</code> ou
+<code>auto t2 = 32.0_fahrenheit</code>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-cpp hljs" data-lang="cpp">#include &lt;iostream&gt;
+
+using namespace std;
+
+class Temperature
+{
+    private:
+        long double temperature = { 0 }; // en celsius
+        explicit Temperature(long double valeur) : temperature(valeur) { }
+        friend Temperature operator"" _celsius(long double valeur); // pour une valeur en virgule flottante
+        friend Temperature operator"" _celsius(unsigned long long valeur); // pour une valeur entière
+        friend Temperature operator"" _fahrenheit(long double valeur);
+        friend Temperature operator"" _kelvin(long double valeur);
+
+    public:
+        constexpr static long double zero_absolu = 273.15; // en celsius
+
+        long double celsius() { return temperature; }
+        long double fahrenheit() { return (temperature*9./5.) + 32.; }
+        long double kelvin() { return (temperature + Temperature::zero_absolu); }
+
+        Temperature operator+(Temperature t)
+        {
+            return Temperature(celsius() + t.celsius());
+        }
+        friend Temperature operator-(Temperature t);
+};
+
+Temperature operator"" _celsius(long double valeur) // pour une valeur en virgule flottante
+{
+    return Temperature(valeur);
+}
+
+Temperature operator"" _celsius(unsigned long long valeur) // pour une valeur entière
+{
+    return Temperature(double(valeur));
+}
+
+Temperature operator"" _fahrenheit(long double valeur)
+{
+    return Temperature((5./9.) * (valeur - 32.));
+}
+
+Temperature operator"" _kelvin(long double valeur)
+{
+    return Temperature(valeur - Temperature::zero_absolu);
+}
+
+Temperature operator-(Temperature t)
+{
+    return Temperature((-1.) * t.celsius());
+}
+
+int main()
+{
+    Temperature zeroCelsius = 32._fahrenheit; //Temperature zeroCelsius = 0_celsius;
+    cout &lt;&lt; "zeroCelsius = " &lt;&lt; zeroCelsius.celsius() &lt;&lt; "C " &lt;&lt; zeroCelsius.kelvin() &lt;&lt; "K " &lt;&lt; zeroCelsius.fahrenheit() &lt;&lt; "F " &lt;&lt; endl;
+
+    Temperature zeroAbsolu = 0._kelvin;
+    cout &lt;&lt; "zeroAbsolu = " &lt;&lt; zeroAbsolu.celsius() &lt;&lt; "C " &lt;&lt; zeroAbsolu.kelvin() &lt;&lt; "K " &lt;&lt; zeroAbsolu.fahrenheit() &lt;&lt; "F " &lt;&lt; endl;
+
+    Temperature t1 = 36.0_celsius + 42.0_celsius;
+    cout &lt;&lt; "t1 = 36.0_celsius + 42.0_celsius" &lt;&lt; endl;
+    cout &lt;&lt; "t1 = " &lt;&lt; t1.celsius() &lt;&lt; "C " &lt;&lt; t1.kelvin() &lt;&lt; "K " &lt;&lt; t1.fahrenheit() &lt;&lt; "F " &lt;&lt; endl;
+
+    Temperature t2 = 36.0_celsius + -42.0_celsius;
+    cout &lt;&lt; "t2 = 36.0_celsius + -42.0_celsius" &lt;&lt; endl;
+    cout &lt;&lt; "t2 = " &lt;&lt; t2.celsius() &lt;&lt; "C " &lt;&lt; t2.kelvin() &lt;&lt; "K " &lt;&lt; t2.fahrenheit() &lt;&lt; "F " &lt;&lt; endl;
+
+    auto t3 = 36.0_celsius;
+    cout &lt;&lt; "t3 = " &lt;&lt; t3.celsius() &lt;&lt; "C " &lt;&lt; t3.kelvin() &lt;&lt; "K " &lt;&lt; t3.fahrenheit() &lt;&lt; "F " &lt;&lt; endl;
+
+    auto t4 = 36_celsius;
+    cout &lt;&lt; "t4 = " &lt;&lt; t4.celsius() &lt;&lt; "C " &lt;&lt; t4.kelvin() &lt;&lt; "K " &lt;&lt; t4.fahrenheit() &lt;&lt; "F " &lt;&lt; endl;
+
+    // Evidemment, ceci n'est plus possible :
+    //Temperature t5 = 25; // error: conversion from 'int' to non-scalar type 'Temperature' requested
+    //Temperature t5 = 25.; // error: conversion from 'double' to non-scalar type 'Temperature' requested
+    //Temperature t5 = 36_fahrenheit; // error: unable to find numeric literal operator 'operator""_fahrenheit' -&gt; il faudrait donc surcharger operator"" _fahrenheit(unsigned long long valeur)
+
+    return 0;
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_range_for">4.10. Range-for</h3>
+<div class="paragraph">
+<p>Introduit en C&#43;&#43;11, la boucle <strong>Range-for</strong> exécute une boucle <code>for</code> sur
+une plage de valeurs, telles que tous les éléments d&#8217;un conteneur.</p>
+</div>
+<div class="paragraph">
+<p>Lien : <a href="https://en.cppreference.com/w/cpp/language/range-for">range-for</a></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-cpp hljs" data-lang="cpp">#include &lt;iostream&gt;
+#include &lt;vector&gt;
+
+using namespace std;
+
+int main()
+{
+    string str = "Hello world!";
+    for (char c : str)
+    {
+        cout &lt;&lt; c;
+    }
+    cout &lt;&lt; '\n';
+
+    std::vector&lt;int&gt; v = {0, 1, 2, 3, 4, 5};
+
+    for (const auto &amp;i : v) // acces par référence constante
+        cout &lt;&lt; i &lt;&lt; ' ';
+    cout &lt;&lt; '\n';
+
+    for (auto i : v) // acces par valeur (i est de type int)
+        cout &lt;&lt; i &lt;&lt; ' ';
+    cout &lt;&lt; '\n';
+
+    int t[] = {0, 1, 2, 3, 4, 5};
+    for (auto n : t) // avec un tableau
+        cout &lt;&lt; n &lt;&lt; ' ';
+    cout &lt;&lt; '\n';
+
+    for (auto p : {2, 4, 6}) // avec des constantes
+        cout &lt;&lt; p &lt;&lt; ' ';
+    cout &lt;&lt; '\n';
+
+    return 0;
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_les_expressions_rationnelles">4.11. Les expressions rationnelles</h3>
+<div class="paragraph">
+<p>La bibliothèque C&#43;&#43; standard prend maintenant (en C&#43;&#43;11) en charge les
+<strong>expressions rationnelles</strong> (<em>Regular Expressions</em>) avec l&#8217;en-tête
+<code>&lt;regex&gt;</code> via une série d&#8217;opérations :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>regex_match</code> : correspondance exacte avec une expression
+rationnelle ;</p>
+</li>
+<li>
+<p><code>regex_search</code> : recherche correspondance avec une expression
+rationnelle ;</p>
+</li>
+<li>
+<p><code>regex_replace</code> : recherche correspondance avec une expression
+rationnelle et la remplace ;</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Liens :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="http://www.cplusplus.com/reference/regex/">regex</a></p>
+</li>
+<li>
+<p><a href="http://www.cplusplus.com/reference/regex/ECMAScript/">Syntaxe
+ECMAScript</a></p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-cpp hljs" data-lang="cpp">#include &lt;iostream&gt;
+#include &lt;regex&gt;
+
+using namespace std;
+
+int main()
+{
+    string str = "Le code postal de Sarrians est 84260 et 84000 celui d'Avignon.";
+    regex reg {R"(\d{5}?)"};
+    smatch matches;
+
+    while (regex_search(str, matches, reg))
+    {
+        for (auto x:matches) std::cout &lt;&lt; x &lt;&lt; " ";
+        cout &lt;&lt; endl;
+        //cout &lt;&lt; matches.suffix().str() &lt;&lt; endl;
+        str = matches.suffix().str();
+    }
+
+    return 0;
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_délégation_du_constructeur">4.12. Délégation du constructeur</h3>
+<div class="paragraph">
+<p>En C&#43;&#43;03, un constructeur appartenant à une classe ne peut pas appeler
+un autre constructeur de cette même classe, ce qui peut entraîner de la
+duplication de code lors de l&#8217;initialisation de ses attributs. En
+permettant au constructeur de déléguer la création d&#8217;une instance à un
+autre constructeur, C&#43;&#43;11 apporte donc une solution.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-cpp hljs" data-lang="cpp">#include &lt;iostream&gt;
+
+using namespace std;
+
+class Nombre
+{
+    public:
+        Nombre(int nombre) : nombre(nombre) {}
+        Nombre() : Nombre(42) {}
+        int getNombre() const { return nombre; }
+
+    private:
+        int nombre;
+};
+
+int main()
+{
+    Nombre n1;
+    Nombre n2(2);
+
+    cout &lt;&lt; "n1 = " &lt;&lt; n1.getNombre() &lt;&lt; endl;
+    cout &lt;&lt; "n2 = " &lt;&lt; n2.getNombre() &lt;&lt; endl;
+
+    return 0;
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_héritage_des_constructeurs">4.13. Héritage des constructeurs</h3>
+<div class="paragraph">
+<p>En C&#43;&#43;03, les constructeurs d&#8217;une classe de base ne sont pas hérités par
+ses classes dérivées. C&#43;&#43;11 permet d&#8217;hériter explicitement des
+constructeurs de la classe de base grâce à l&#8217;instruction <code>using</code> :</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-cpp hljs" data-lang="cpp">#include &lt;iostream&gt;
+
+using namespace std;
+
+class Point
+{
+    public:
+        Point(double x, double y) : x(x), y(y) {}
+        Point() : x(0.), y(0.) {}
+        friend ostream &amp; operator &lt;&lt; (ostream &amp; os, const Point &amp; p);
+
+    private:
+        double x;
+        double y;
+};
+
+ostream &amp; operator &lt;&lt; (ostream &amp; os, const Point &amp; p)
+{
+   os &lt;&lt; "&lt;" &lt;&lt; p.x &lt;&lt; "," &lt;&lt; p.y &lt;&lt; "&gt;";
+   return os;
+}
+
+class PointCouleur : public Point
+{
+    public:
+        using Point::Point;
+        //...
+
+    private:
+        unsigned int couleur;
+};
+
+int main()
+{
+    PointCouleur p1;
+    PointCouleur p2(2, 2);
+
+    cout &lt;&lt; p1 &lt;&lt; endl;
+    cout &lt;&lt; p2 &lt;&lt; endl;
+
+    return 0;
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_liste_dinitialiseurs">4.14. Liste d&#8217;initialiseurs</h3>
+<div class="paragraph">
+<p>C&#43;&#43;11 introduit le patron de classe <code>std::initializer_list</code> qui permet
+d&#8217;initialiser les conteneurs avec une suite de valeurs entre accolades.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-cpp hljs" data-lang="cpp">std::vector&lt;int&gt; v = {0, 1, 2, 3, 4, 5};
+
+// ou :
+std::vector&lt;int&gt; v {0, 1, 2, 3, 4, 5};
+
+// ou avec une map :
+std::map&lt;string,int&gt; m { {"a", 1}, {"b", 2}, {"c", 3}, {"d", 4}, {"e", 5}, {"f", 6} };</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Lien :
+<a href="http://www.cplusplus.com/reference/initializer_list/initializer_list/">initializer_list</a></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-cpp hljs" data-lang="cpp">#include &lt;vector&gt;
+#include &lt;iostream&gt;
+
+using namespace std;
+
+template &lt;class T&gt; class MonVecteur
+{
+    public:
+        MonVecteur(initializer_list&lt;T&gt; liste) : v(liste) {}
+        void append(std::initializer_list&lt;T&gt; liste)
+        {
+            v.insert(v.end(), liste.begin(), liste.end());
+        }
+    //private:
+        vector&lt;T&gt; v;
+};
+
+int main()
+{
+    MonVecteur&lt;int&gt; mv = {1, 2, 3, 4, 5};
+    mv.append({6, 7, 8});
+
+    std::cout &lt;&lt; "mv : ";
+    for (auto i: mv.v)
+    {
+        std::cout &lt;&lt; i &lt;&lt; ' ';
+    }
+    std::cout &lt;&lt; '\n';
+
+    return 0;
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_constexpr">4.15. constexpr</h3>
+<div class="paragraph">
+<p>Le mot clé <code>constexpr</code> a été introduit dans C&#43;&#43;11 et amélioré en C&#43;&#43;14.
+<code>constexpr</code> déclare un objet utilisable dans ce que la norme appelle des
+expressions constantes.</p>
+</div>
+<div class="paragraph">
+<p>Comme <code>const</code>, <code>constexpr</code> peut être utilisé sur des variables mais
+aussi des fonctions et des constructeurs.</p>
+</div>
+<div class="paragraph">
+<p>Lien : <a href="https://en.cppreference.com/w/cpp/language/constexpr">constexpr</a></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-cpp hljs" data-lang="cpp">#include &lt;iostream&gt;
+
+using namespace std;
+
+constexpr size_t getTaille()
+{
+    return 10;
+}
+
+constexpr size_t getTaille(int n)
+{
+    return 10*n;
+}
+
+int main()
+{
+    constexpr float x = 42.0;
+    constexpr int N = 5;
+
+    int t1[N] = { 1, 2, 3, 4, 5 }; // 5 x 4
+    int t2[getTaille()];  // 10 x 4
+    int t3[getTaille(2)];  // 2 x 10 x 4
+
+    cout &lt;&lt; "taille t1 = " &lt;&lt; sizeof(t1) &lt;&lt; " octets" &lt;&lt; endl;
+    cout &lt;&lt; "taille t2 = " &lt;&lt; sizeof(t2) &lt;&lt; " octets" &lt;&lt; endl;
+    cout &lt;&lt; "taille t3 = " &lt;&lt; sizeof(t3) &lt;&lt; " octets" &lt;&lt; endl;
+
+    return 0;
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_les_nouveaux_spécificateurs_de_classe_override_default_delete_final">4.16. Les nouveaux spécificateurs de classe (override, default, delete, final)</h3>
+<div class="paragraph">
+<p>Le spécificateur <code>default</code> permet de demander explicitement la
+génération automatique de la méthode correspondante. On l&#8217;utilise par
+exemple pour le constructeur de copie, le destructeur et l&#8217;opérateur de
+copie :</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-cpp hljs" data-lang="cpp">#include &lt;iostream&gt;
+
+using namespace std;
+
+struct Coordonnee
+{
+    double x;
+    double y;
+    Coordonnee() : x(0.), y(0.) {}
+    Coordonnee(double x, double y) : x(x), y(y) {}
+};
+
+class Point
+{
+   private:
+      Coordonnee coordonnee;
+
+   public:
+      // Constructeurs
+      Point() {}
+      Point(double x, double y) : coordonnee(x, y) {}
+      Point(const Point&amp; point) = default; // constructeur de copie
+
+      // Destructeur
+      ~Point() = default;
+
+      // Accesseurs et mutateurs
+      double getX() const { return coordonnee.x; }
+      void setX(double x) { this-&gt;coordonnee.x = x; }
+      double getY() const { return coordonnee.y; }
+      void setY(double y) { this-&gt;coordonnee.y = y; }
+
+      // Surcharge
+      Point&amp; operator=(const Point&amp; point) = default; // copie
+      friend ostream&amp; operator&lt;&lt;(ostream&amp; os, const Point&amp; point);
+};
+
+ostream&amp; operator&lt;&lt;(ostream&amp; os, const Point&amp; point)
+{
+   os &lt;&lt; "&lt;" &lt;&lt; point.coordonnee.x &lt;&lt; "," &lt;&lt; point.coordonnee.y &lt;&lt; "&gt;";
+   return os;
+}
+
+int main()
+{
+    cout &lt;&lt; "Les points :" &lt;&lt; endl;
+    Point p0, p1(4, 0.0), p2(2.5, 2.5);
+    cout &lt;&lt; "p0 = " &lt;&lt; p0 &lt;&lt; endl;
+    cout &lt;&lt; "p1 = " &lt;&lt; p1 &lt;&lt; endl;
+    cout &lt;&lt; "p2 = " &lt;&lt; p2 &lt;&lt; endl;
+
+    cout &lt;&lt; "Constructeur de copie : Point p3(p2)" &lt;&lt; endl;
+    Point p3(p2);
+    cout &lt;&lt; "p3 = " &lt;&lt; p3 &lt;&lt; endl;
+
+    cout &lt;&lt; "Opérateur de copie : p0 = p3" &lt;&lt; endl;
+    p0 = p3;
+    cout &lt;&lt; "p0 = " &lt;&lt; p0 &lt;&lt; endl;
+
+    return 0;
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Inversement, le spécificateur <code>delete</code> interdira la génération
+automatique de la méthode correspondante. Utilisé pour un constructeur
+de copie et l&#8217;opérateur de copie, cela rend les objets de cette classe
+<strong>non copiable</strong> :</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-cpp hljs" data-lang="cpp">class Point
+{
+   private:
+      Coordonnee coordonnee;
+
+   public:
+      // Constructeurs
+      Point() {}
+      Point(double x, double y) : coordonnee(x, y) {}
+      Point(const Point&amp; point) = delete; // constructeur de copie
+
+      // Destructeur
+      ~Point() = default;
+
+      // Accesseurs et mutateurs
+      double getX() const { return coordonnee.x; }
+      void setX(double x) { this-&gt;coordonnee.x = x; }
+      double getY() const { return coordonnee.y; }
+      void setY(double y) { this-&gt;coordonnee.y = y; }
+
+      // Surcharge
+      Point&amp; operator=(const Point&amp; point) = delete; // copie
+      friend ostream&amp; operator&lt;&lt;(ostream&amp; os, const Point&amp; point);
+};</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>On obtient alors les erreurs suivantes :</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>error: use of deleted function ‘Point::Point(const Point&amp;)'
+     Point p3(p2);
+note: declared here
+       Point(const Point&amp; point) = delete;
+
+error: use of deleted function ‘Point&amp; Point::operator=(const Point&amp;)'
+     p0 = p3;
+note: declared here
+       Point&amp; operator=(const Point&amp; point) = delete;</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Dans la pratique :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Si un constructeur est déclaré explicitement, aucun constructeur par
+défaut n&#8217;est automatiquement généré.</p>
+</li>
+<li>
+<p>Si un destructeur virtuel est déclaré explicitement, aucun destructeur
+par défaut n&#8217;est automatiquement généré.</p>
+</li>
+<li>
+<p>Si un constructeur de déplacement ou un opérateur d&#8217;assignation de
+déplacement est déclaré explicitement :</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Aucun constructeur de copie n&#8217;est généré automatiquement.</p>
+</li>
+<li>
+<p>Aucun opérateur d&#8217;assignation de copie n&#8217;est généré automatiquement.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Si un constructeur de copie, un opérateur d&#8217;assignation de copie, un
+constructeur de déplacement, un opérateur d&#8217;assignation de mouvement ou
+un destructeur est déclaré explicitement :</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Aucun constructeur de déplacement n&#8217;est généré automatiquement.</p>
+</li>
+<li>
+<p>Aucun opérateur d&#8217;assignation de déplacement n&#8217;est généré
+automatiquement.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>De plus, la norme C&#43;&#43;11 spécifie les règles supplémentaires suivantes :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Si un constructeur de copie ou un destructeur est déclaré
+explicitement, la génération automatique de l&#8217;opérateur d&#8217;assignation de
+copie est déconseillée.</p>
+</li>
+<li>
+<p>Si un opérateur d&#8217;assignation de copie ou un destructeur est déclaré
+explicitement, la génération automatique du constructeur de copie est
+déconseillée.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Dans une déclaration ou une définition de méthode, le spécificateur
+<code>override</code> garantit que la fonction membre est virtuelle et remplace une
+méthode virtuelle d&#8217;une classe de base.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-cpp hljs" data-lang="cpp">class A
+{
+    public:
+        virtual void foo(); // une méthode virtuelle
+        void bar(); // une méthode "normale" (non virtuelle)
+};
+
+class B : public A
+{
+    public:
+        void foo() const override; // Erreur : signature différente
+        void foo() override; // Ok : B::foo() remplace A::foo()
+        void bar() override; // Erreur : A::bar() n'est pas une méthode virtuelle
+};
+
+int main()
+{
+    // ...
+    return 0;
+}</code></pre>
+</div>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p><code>override</code> permet d&#8217;énoncer que l&#8217;on fait une surcharge et le compilateur en assurera le contrôle ! Il est donc fortement conseillé d&#8217;utiliser systèmatiquement <code>override</code>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Inversement, le spécificateur <code>final</code> garantit que la méthode est
+virtuelle et spécifie qu&#8217;elle ne peut pas être remplacée par des classes
+dérivées. Lorsqu&#8217;il est utilisé dans une définition de classe, <code>final</code>
+spécifie que cette classe ne peut pas être dérivée.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-cpp hljs" data-lang="cpp">class Base
+{
+    public:
+        virtual void foo(); // une méthode virtuelle
+};
+
+class A : public Base // A hérite (est dérivée) de Base
+{
+    void foo() final; // Ok : Base::foo() est remplacée et A::foo() ne sera pas remplacée
+    void bar() final; // Erreur : A::bar() n'est pas une méthode virtuelle
+};
+
+class B final : public A // B hérite (est dérivée) de A et ne sera pas dérivable
+{
+    void foo() override; // Erreur: foo() n'est pas remplaçable car final dans A
+};
+
+class C : public B // Erreur : B est final
+{
+};
+
+int main()
+{
+    // ...
+    return 0;
+}</code></pre>
+</div>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p><code>final</code> permet de se protéger d&#8217;un remplacement non désiré et le compilateur en assurera le contrôle ! Il est donc fortement conseillé d&#8217;utiliser systèmatiquement <code>final</code>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_référence_sur_rvalue">4.17. Référence sur rvalue</h3>
+<div class="paragraph">
+<p>Chaque expression C&#43;&#43; a un type et appartient à une <strong>catégorie de
+valeur</strong> (<code>lvalue</code>, <code>rvalue</code>, &#8230;&#8203;). Pour rappel, une <code>lvalue</code> (<em>left
+value</em> ou valeur à gauche) peut apparaître à gauche d&#8217;un opérateur
+d&#8217;affectation (un nom de variable par exemple). Une <code>rvalue</code> (<em>right
+value</em> ou valeur à droite) peut apparaître à droite d&#8217;un opérateur
+d&#8217;affectation (une expression par exemple). Maintenant, une <code>rvalue</code>
+peut être une <code>prvalue</code> (<em>pure value</em>) ou <code>xvalue</code> (<em>eXpiring value</em>).</p>
+</div>
+<div class="paragraph">
+<p>Une <code>prvalue</code> est une expression dont l&#8217;évaluation :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>calcule une valeur qui n&#8217;est pas associée à un objet</p>
+</li>
+<li>
+<p>ou crée un objet temporaire et le désigne</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Une <code>xvalue</code> est une <code>glvalue</code> qui désigne un objet dont les ressources
+peuvent être réutilisées. Une <code>glvalue</code> (<em>generalized lvalue</em>) est une
+expression dont l&#8217;évaluation détermine l&#8217;identité d&#8217;un objet.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-cpp hljs" data-lang="cpp">int a = 2 + 3;
+// a est une lvalue
+// 2 + 3 est une rvalue
+// l'expression 2 + 3 est évaluée à 5 et cette valeur temporaire (et non nommée) est affectée à la lvalue a
+
+// Idem pour des objets
+Point p1, p2; // deux objets Point
+Point  p = p1 + p2;
+// p est une lvalue
+// p1 + p2 est une rvalue
+// l'expression p1 + p2 est évaluée (si l'opérateur + est surchargé pour la classe Point) et un nouvel objet Point est créé temporairement (et non nommé) pour être affecté à l'objet p (si l'opérateur = est surchargé pour la classe Point)</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Lien :
+<a href="https://en.cppreference.com/w/cpp/language/value_category">value_category</a></p>
+</div>
+<div class="paragraph">
+<p>Il est possible de créer des références sur des <code>lvalue</code> (avec
+l&#8217;opérateur « <code>&amp;</code> ») et en C&#43;&#43;11 sur des <code>rvalue</code> (avec l&#8217;opérateur «
+<code>&amp;&amp;</code> ») :</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-cpp hljs" data-lang="cpp">void foo(int&amp; x) // ici x est une référence sur une lvalue (et x est une lvalue)
+{
+    cout &lt;&lt; "foo(int x) -&gt; " &lt;&lt; x &lt;&lt; endl;
+}
+
+void foo(int&amp;&amp; x) // ici x est une référence sur une rvalue (et x est une lvalue)
+{
+    cout &lt;&lt; "foo(int&amp;&amp; x) -&gt; " &lt;&lt; x &lt;&lt; endl;
+}
+
+int main()
+{
+    // Pour rappel :
+    int a = 2; // a est une lvalue
+    int&amp; ra = a; // ra est une référence sur la lvalue 'a'
+    int&amp;&amp; rvb = 42; // rvb est une référence sur une rvalue
+
+    int b = 2; // b est un lvalue
+
+    foo(b); // passage d'une lvalue
+
+    foo(42); // passage d'une rvalue
+
+    return 0;
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>On obtient :</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>foo(int x) -&gt; 2
+foo(int&amp;&amp; x) -&gt; 42</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Les références sur <code>rvalue</code> prennent en charge l&#8217;implémentation de la
+notion de <strong>déplacement</strong> (ce qui améliorera les performances en évitant
+des copies inutiles). La notion de déplacement est l&#8217;idée de transfèrer
+les ressources (telles que la mémoire allouée de manière dynamique) d&#8217;un
+objet vers un autre sans avoir à le copier.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_la_fonction_move">4.18. La fonction move()</h3>
+<div class="paragraph">
+<p>La fonction <code>std::move()</code> retourne une référence <code>rvalue</code> sur l&#8217;objet
+passé en argument. Il s&#8217;agit d&#8217;une fonction de service pour utiliser la
+notion (ou sémantique) de <strong>déplacement</strong>. La notion de déplacement est
+l&#8217;idée de transfèrer les ressources (telles que la mémoire allouée de
+manière dynamique) d&#8217;un objet vers un autre sans avoir à le copier.</p>
+</div>
+<div class="paragraph">
+<p>Dans la bibliothèque standard, le déplacement implique que l&#8217;objet
+déplacé est laissé dans un état valide mais non spécifié. Ce qui
+signifie qu&#8217;après une telle opération, la valeur de l&#8217;objet déplacé ne
+doit être que détruite ou affectée d&#8217;une nouvelle valeur; y accéder
+donnera sinon une valeur non spécifiée.</p>
+</div>
+<div class="paragraph">
+<p>Donc : dans une opération de déplacement (<em>move</em>), l&#8217;état de l&#8217;objet
+déplacé devient non défini. Cet objet ne doit plus être utilisé.
+Qu&#8217;est-ce que cela veut dire ? Si on déplace un objet p1 dans un objet
+p2, l&#8217;état de p1 n&#8217;est plus disponible car il n&#8217;est plus défini. Il ne
+faut donc plus utiliser p1 (mais p1 reste un objet valide). Seul l&#8217;objet
+p2 est viable.</p>
+</div>
+<div class="paragraph">
+<p>Lien : <a href="http://www.cplusplus.com/reference/utility/move/">move</a></p>
+</div>
+<div class="paragraph">
+<p>Exemples :</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-cpp hljs" data-lang="cpp">int a = 2; // a est une lvalue
+int&amp;&amp; rva = std::move(a); // rva est une référence sur une rvalue
+
+Point p1(2.5, 2.5);
+Point&amp;&amp; rp1 = std::move(p1);
+
+Point p2(2.5, 2.5);
+Point p3(std::move(p2));
+
+void swap(Point&amp; a, Point&amp; b)
+{
+    Point tmp(std::move(a));
+    a = std::move(b);
+    b = std::move(tmp);
+}
+
+Point p4(2.5, 2.5), p5(1., 1.);
+swap(p4, p5);</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Il est possible de "convertir" une <code>lvalue</code> en référence <code>rvalue</code> en
+utilisant donc la fonction <code>std::move()</code> ou <code>static_cast</code> :</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-cpp hljs" data-lang="cpp">foo(static_cast&lt;int&amp;&amp;&gt;(b)); // la lvalue 'b' est castée en référence rvalue
+
+foo(move(b)); // move() retourne une référence rvalue sur 'b'</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>On obtient :</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>foo(int&amp;&amp; x) -&gt; 2
+foo(int&amp;&amp; x) -&gt; 2</pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_déplacement_constructeur_et_opérateur">4.19. Déplacement (constructeur et opérateur)</h3>
+<div class="paragraph">
+<p>Le C&#43;&#43;11 introduit un nouveau constructeur : le constructeur de
+déplacement. Sa signature sera : <code>T(T&amp;&amp; t)</code>. Son objectif est de "voler"
+les ressources de l&#8217;objet passé en paramètre tout en le laissant dans un
+état valide mais non spécifié (cet objet passé en paramètre pourra par
+la suite être détruit ou recevoir une nouvelle valeur). L&#8217;objectif du
+constructeur de déplacement est donc d&#8217;éviter des copies inutiles et par
+conséquence d&#8217;améliorer les performances du programme.</p>
+</div>
+<div class="paragraph">
+<p>Exemples d&#8217;appel de constructeurs :</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-cpp hljs" data-lang="cpp">Point p1; // constructeur par défaut
+
+Point p2(p1); // constructeur de copie
+
+Point p3(Point()); // constructeur de déplacement : Point() instancie un objet temporaire non nommé passé par référence rvalue (inutile de le copier car il suffit de le "déplacer" en lui volant ses ressources)</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Le C&#43;&#43;11 introduit un nouvel opérateur d&#8217;affectation : l&#8217;opérateur de
+déplacement. Sa signature sera : <code>T&amp; operator=(T&amp;&amp; t)</code>. Son objectif est
+de "voler" les ressources de l&#8217;objet passé en paramètre tout en le
+laissant dans un état valide mais non spécifié (cet objet passé en
+paramètre pourra par la suite être détruit ou recevoir une nouvelle
+valeur). L&#8217;objectif de l&#8217;opérateur de déplacement est donc d&#8217;éviter des
+copies inutiles et par conséquence d&#8217;améliorer les performances du
+programme.</p>
+</div>
+<div class="paragraph">
+<p>Exemples d&#8217;appel de l&#8217;opérateur d&#8217;affectation = :</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-cpp hljs" data-lang="cpp">p1 = p2; // opérateur d'affectation = de copie
+
+p3 = p1 + p2; // opérateur d'affectation = de déplacement : (p1 + p2) génére un objet temporaire non nommé passé par référence rvalue (inutile de le copier car il suffit de le "déplacer" en lui volant ses ressources)</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Le constructeur de déplacement et l&#8217;opérateur de déplacement utilisent
+les références sur <code>rvalue</code>. On peut leur ajouter le qualificateur
+<code>noexcept</code> s&#8217;ils ne lancent pas d&#8217;exception.</p>
+</div>
+<div class="paragraph">
+<p>Liens :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://en.cppreference.com/w/cpp/language/move_constructor">move_constructor</a></p>
+</li>
+<li>
+<p><a href="https://en.cppreference.com/w/cpp/language/move_assignment">move_assignment</a></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Exemple : pour une classe <code>Point</code></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-cpp hljs" data-lang="cpp">struct Coordonnee
+{
+    double x;
+    double y;
+    Coordonnee() : x(0.), y(0.) {}
+    Coordonnee(double x, double y) : x(x), y(y) {}
+};
+
+class Point
+{
+   private:
+      Coordonnee *coordonnee;
+
+   public:
+      // Constructeurs
+      Point() : coordonnee(new Coordonnee()) { }
+      Point(double x, double y) : coordonnee(new Coordonnee(x, y)) { }
+      Point(const Point&amp; point); // copie
+      Point(Point&amp;&amp; point) noexcept; // déplacement
+
+      // Destructeur
+      ~Point() { if(coordonnee) delete coordonnee; };
+
+      // Accesseurs et mutateurs
+      double getX() const { return coordonnee-&gt;x; }
+      void setX(double x) { this-&gt;coordonnee-&gt;x = x; }
+      double getY() const { return coordonnee-&gt;y; }
+      void setY(double y) { this-&gt;coordonnee-&gt;y = y; }
+
+      // Surcharge
+      Point&amp; operator=(const Point&amp; point); // copie
+      Point&amp; operator=(Point&amp;&amp; point); // déplacement
+      friend ostream&amp; operator&lt;&lt;(ostream&amp; os, const Point&amp; point);
+      friend Point operator+(const Point&amp; p1, const Point&amp; p2);
+
+      // Services (exemples)
+      static void swap_v1(Point&amp; a, Point&amp; b);
+      static void swap_v2(Point&amp; a, Point&amp; b);
+};
+
+// Constructeur de copie
+Point::Point(const Point&amp; point) : coordonnee(new Coordonnee(point.coordonnee-&gt;x, point.coordonnee-&gt;y))
+{
+}
+
+// Constructeur de déplacement (le "vol")
+Point::Point(Point&amp;&amp; point) noexcept : coordonnee(point.coordonnee)
+{
+    point.coordonnee = nullptr;
+}
+
+// Copie
+Point&amp; Point::operator=(const Point&amp; point)
+{
+    if(this != &amp;point)
+    {
+        delete coordonnee;
+        coordonnee = new Coordonnee(point.coordonnee-&gt;x, point.coordonnee-&gt;y);
+    }
+    return *this;
+}
+
+// Déplacement
+Point&amp; Point::operator=(Point&amp;&amp; point)
+{
+    if(this != &amp;point)
+    {
+        delete coordonnee;
+        coordonnee = point.coordonnee; // "vol"
+        point.coordonnee = nullptr; // valide mais non spécifié
+    }
+    return *this;
+}
+
+// Surcharge
+ostream&amp; operator&lt;&lt;(ostream&amp; os, const Point&amp; point)
+{
+   os &lt;&lt; "&lt;" &lt;&lt; point.coordonnee-&gt;x &lt;&lt; "," &lt;&lt; point.coordonnee-&gt;y &lt;&lt; "&gt;";
+   return os;
+}
+
+Point operator+(const Point&amp; p1, const Point&amp; p2)
+{
+   Point p;
+   p.coordonnee-&gt;x = p1.coordonnee-&gt;x + p2.coordonnee-&gt;x;
+   p.coordonnee-&gt;y = p1.coordonnee-&gt;y + p2.coordonnee-&gt;y;
+   return p;
+}
+
+void Point::swap_v1(Point&amp; a, Point&amp; b) // par copie
+{
+    Point tmp(a);   // constructeur de copie
+    a = b;          // opérateur de copie
+    b = tmp;        // opérateur de copie
+}
+
+void Point::swap_v2(Point&amp; a, Point&amp; b) // par déplacement
+{
+    Point tmp(move(a));
+    a = move(b);
+    b = move(tmp);
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Exemple n°1 : le déplacement en action</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-cpp hljs" data-lang="cpp">cout &lt;&lt; "points :" &lt;&lt; endl;
+Point p2, p3(1.,1.), p4(2.5, 2.5);
+cout &lt;&lt; "p2 = " &lt;&lt; p2 &lt;&lt; endl;
+cout &lt;&lt; "p3 = " &lt;&lt; p3 &lt;&lt; endl;
+cout &lt;&lt; "p4 = " &lt;&lt; p4 &lt;&lt; endl;
+cout &lt;&lt; endl;
+
+cout &lt;&lt; "p2 = p3 + p4" &lt;&lt; endl;
+p2 = p3 + p4; // move
+cout &lt;&lt; "p2 = " &lt;&lt; p2 &lt;&lt; endl;
+cout &lt;&lt; endl;
+
+cout &lt;&lt; "p5 &lt;- p2" &lt;&lt; endl;
+Point p5(move(p2)); // move
+cout &lt;&lt; "p5 = " &lt;&lt; p5 &lt;&lt; endl;
+cout &lt;&lt; endl;
+
+cout &lt;&lt; "p3 &lt;-&gt; p4" &lt;&lt; endl;
+Point::swap_v1(p3, p4); // par copie
+cout &lt;&lt; "p3 = " &lt;&lt; p3 &lt;&lt; endl;
+cout &lt;&lt; "p4 = " &lt;&lt; p4 &lt;&lt; endl;
+cout &lt;&lt; endl;
+
+cout &lt;&lt; "p3 &lt;-&gt; p4" &lt;&lt; endl;
+Point::swap_v2(p3, p4); // move
+cout &lt;&lt; "p3 = " &lt;&lt; p3 &lt;&lt; endl;
+cout &lt;&lt; "p4 = " &lt;&lt; p4 &lt;&lt; endl;
+cout &lt;&lt; endl;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>On obtient :</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>points :
+default Point 0x7ffc389b1908
+Point 0x7ffc389b1910
+Point 0x7ffc389b1918
+p2 = &lt;0,0&gt;
+p3 = &lt;1,1&gt;
+p4 = &lt;2.5,2.5&gt;
+
+p2 = p3 + p4
+default Point 0x7ffc389b1920
+move operator= 0x7ffc389b1908
+p2 = &lt;3.5,3.5&gt;
+
+p5 &lt;- p2
+move Point 0x7ffc389b1920
+p5 = &lt;3.5,3.5&gt;
+
+p3 &lt;-&gt; p4
+copy Point 0x7ffc389b18c0
+copy operator= 0x7ffc389b1910
+copy operator= 0x7ffc389b1918
+p3 = &lt;2.5,2.5&gt;
+p4 = &lt;1,1&gt;
+
+p3 &lt;-&gt; p4
+move Point 0x7ffc389b18c0
+move operator= 0x7ffc389b1910
+move operator= 0x7ffc389b1918
+p3 = &lt;1,1&gt;
+p4 = &lt;2.5,2.5&gt;</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Exemple n°2 : amélioration des performances</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-cpp hljs" data-lang="cpp">auto start = std::chrono::high_resolution_clock::now(); // démarrage chronomètre
+
+vector&lt;Point&gt; points;
+for (int i = 0; i &lt; 1000000; ++i)
+{
+   points.push_back(Point(i, i*2));
+}
+
+//vector&lt;Point&gt; courbe(points); // test 1 : par copie
+
+vector&lt;Point&gt; courbe(move(points)); // test 2 : par déplacement
+
+reverse(courbe.begin(), courbe.end()); // pour s'amuser ;)
+
+auto end = chrono::high_resolution_clock::now(); // arrêt chronomètre
+chrono::duration&lt;double&gt; elapsed = end - start; // calcul du temps
+
+// Affichage des résultats
+cout &lt;&lt; "Duration : " &lt;&lt; elapsed.count() &lt;&lt; " s\n";
+cout &lt;&lt; "Constructions : " &lt;&lt; Point::constructions &lt;&lt; "\n";
+cout &lt;&lt; "Copies : " &lt;&lt; Point::copies &lt;&lt; "\n";
+cout &lt;&lt; "Deplacements : " &lt;&lt; Point::deplacements &lt;&lt; "\n";
+cout &lt;&lt; "Total : " &lt;&lt; (Point::constructions + Point::deplacements) &lt;&lt; "\n";</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>On obtient :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>par copie :</p>
+</li>
+</ul>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>Duration : 0.193734 s
+Constructions : 4548575
+Copies : 1000000
+Deplacements : 0
+Total : 4548575</pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>par déplacement :</p>
+</li>
+</ul>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>Duration : 0.0961808 s
+Constructions : 1000000
+Copies : 0
+Deplacements : 3548575
+Total : 4548575</pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_threads">4.20. Threads</h3>
+<div class="paragraph">
+<p>C&#43;&#43;11 fournit une classe pour représenter les <em>threads</em> d&#8217;exécution
+individuels.</p>
+</div>
+<div class="paragraph">
+<p>Un <em>thread</em> est un fil d&#8217;exécution (une séquence d&#8217;instructions) qui
+peut être exécuté simultanément avec d&#8217;autres fils de ce type dans des
+environnements <em>multithreading</em>, tout en partageant un même espace
+d&#8217;adressage.</p>
+</div>
+<div class="paragraph">
+<p>Un objet thread initialisé représente un <em>thread</em> d&#8217;exécution actif. Un
+tel objet thread est joignable et possède un identifiant de <em>thread</em>
+unique.</p>
+</div>
+<div class="paragraph">
+<p>Lien : <a href="http://www.cplusplus.com/reference/thread/thread/">thread</a></p>
+</div>
+<div class="paragraph">
+<p>Exemple avec un <em>thread</em> :</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-cpp hljs" data-lang="cpp">#include &lt;iostream&gt;
+#include &lt;thread&gt;
+
+// $ g++ thread-1.cpp -lpthread
+
+using namespace std;
+
+void unThread() { cout &lt;&lt; "Hello !" &lt;&lt; endl; }
+
+int main()
+{
+    thread hello(unThread); // création et lancement du thread
+
+    hello.join(); // attendre la fin du thread
+
+    return 0;
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Exemple avec deux <em>threads</em> :</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-cpp hljs" data-lang="cpp">#include &lt;iostream&gt;
+#include &lt;thread&gt;
+#include &lt;chrono&gt;
+
+// $ g++ thread-2.cpp -lpthread
+
+using namespace std;
+
+void etoile()
+{
+    for(int i=0; i &lt; 10; ++i)
+    {
+        this_thread::sleep_for(chrono::duration&lt;int,milli&gt;(250));
+        cout &lt;&lt; "*";
+    }
+}
+
+void diese()
+{
+    for(int i=0; i &lt; 10; ++i)
+    {
+        this_thread::sleep_for(chrono::duration&lt;int,milli&gt;(250));
+        cout &lt;&lt; "#";
+    }
+}
+
+int main()
+{
+    setbuf(stdout, NULL);
+
+    thread t1(etoile); // création et lancement du thread
+    thread t2(diese); // création et lancement du thread
+
+    t1.join(); // attendre la fin du thread
+    t2.join(); // attendre la fin du thread
+
+    cout &lt;&lt; endl;
+
+    return 0;
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Voir aussi :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="http://www.cplusplus.com/reference/mutex/call_once/">call_once</a></p>
+</li>
+<li>
+<p><a href="https://www.cplusplus.com/reference/atomic/">atomic</a></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_stdfuture_et_stdasync">4.21. std::future et std::async</h3>
+<div class="paragraph">
+<p><code>std::future</code> est un objet qui peut récupérer une valeur de manière synchronisée. <code>std::async`permet d&#8217;appeler une fonction de manière asynchrone (sans attendre la fin de l&#8217;exécution de la fonction). La valeur retournée par la fonction sera accessible via l&#8217;objet `future</code> retourné lors de l&#8217;appel et en appelant sa méthode <code>get()</code>.</p>
+</div>
+<div class="paragraph">
+<p>Liens :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="http://www.cplusplus.com/reference/future/future/">future</a></p>
+</li>
+<li>
+<p><a href="http://www.cplusplus.com/reference/future/async/">async</a></p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-cpp hljs" data-lang="cpp">#include &lt;iostream&gt;
+#include &lt;future&gt; // pour async et future
+#include &lt;chrono&gt;
+
+// $ g++ future.cpp -lpthread
+
+using namespace std;
+
+// la factorielle d'un entier naturel n est le produit des nombres entiers strictement positifs inférieurs ou égaux à n
+long factorielle(long n)
+{
+    return n &gt; 1 ? (n * factorielle(n-1)) : 1; // https://fr.wikipedia.org/wiki/Factorielle#Algorithme
+}
+
+// exemple : http://www.cplusplus.com/reference/future/future/
+bool is_prime(int x)
+{
+    // version non optimisée
+    for (int i=2; i&lt;x; ++i)
+    {
+        if (x%i == 0)
+            return false;
+    }
+
+    return true;
+}
+
+int main()
+{
+    // future permet de lancer une fonction de manière asynchrone et
+    // d'en récupérer le résultat
+    long n = 15;
+    future&lt;long&gt; resultat1 = async(factorielle, n);
+
+    cout &lt;&lt; "veuillez patienter pendant le calcul de la factorielle de " &lt;&lt; n;
+    chrono::milliseconds tempo(100);
+    while (resultat1.wait_for(tempo)==future_status::timeout)
+        cout &lt;&lt; '.' &lt;&lt; flush;
+    cout &lt;&lt; '\n';
+
+    cout &lt;&lt; "résultat : " &lt;&lt; resultat1.get() &lt;&lt; "\n";
+
+    future&lt;bool&gt; resultat2 = async(is_prime, 444444443);
+
+    cout &lt;&lt; "veuillez patienter pendant la vérification";
+    while (resultat2.wait_for(tempo)==future_status::timeout)
+        cout &lt;&lt; '.' &lt;&lt; flush;
+    cout &lt;&lt; '\n';
+
+    cout &lt;&lt; "444444443 " &lt;&lt; (resultat2.get() ? "est" : "n'est pas") &lt;&lt; " premier.\n";
+
+    return 0;
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_mutex">4.22. Mutex</h3>
+<div class="paragraph">
+<p>Un <code>mutex</code> est un objet verrouillable conçu pour protéger les accès aux sections critiques de code en empêchant d&#8217;autres threads de s&#8217;exécuter simultanément et d&#8217;accéder aux mêmes emplacements mémoire.</p>
+</div>
+<div class="paragraph">
+<p>Lien : <a href="http://www.cplusplus.com/reference/mutex/mutex/">mutex</a></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-cpp hljs" data-lang="cpp">#include &lt;iostream&gt;
+#include &lt;thread&gt;
+#include &lt;mutex&gt;
+
+// Chaque thread (tache) va faire ses COUNT boucles
+#define COUNT  5000
+
+//#define MUTEX // avec ou sans mutex
+
+using namespace std;
+
+int value_globale = 1;
+
+#ifdef MUTEX
+mutex m;
+#endif
+
+// Avec mutex : g++ mutex.cpp -DMUTEX -lpthread
+// Sans mutex : g++ mutex.cpp -lpthread
+
+void increment()
+{
+    int value = 0;
+
+    for(int i=0; i &lt; COUNT; ++i)
+    {
+        #ifdef MUTEX
+        m.lock();
+        #endif
+
+        // Récupère la value
+        value = value_globale;
+
+        // Incrémente la value
+        value += 1;
+
+        // Stocke la value
+        value_globale = value;
+
+        #ifdef MUTEX
+        m.unlock();
+        #endif
+    }
+}
+
+void decrement()
+{
+    int value = 0;
+
+    for(int i=0; i &lt; COUNT; ++i)
+    {
+        #ifdef MUTEX
+        m.lock();
+        #endif
+
+        // Récupère la value
+        value = value_globale;
+
+        // Décrémente la value
+        value -= 1;
+
+        // Stocke la value
+        value_globale = value;
+
+        #ifdef MUTEX
+        m.unlock();
+        #endif
+    }
+}
+
+int main()
+{
+    setbuf(stdout, NULL);
+
+    cout &lt;&lt; "Avant l'exécution des threads : value = "&lt;&lt; value_globale &lt;&lt; " (" &lt;&lt; COUNT &lt;&lt; " boucles)\n";
+
+    thread t1(increment); // création et lancement du thread
+    thread t2(decrement); // création et lancement du thread
+
+    t1.join(); // attendre la fin du thread
+    t2.join(); // attendre la fin du thread
+
+    cout &lt;&lt; "\nApres l'exécution des threads : value = "&lt;&lt; value_globale &lt;&lt; " (" &lt;&lt; COUNT &lt;&lt; " boucles)\n";
+
+    return 0;
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Voir aussi : <a href="http://www.cplusplus.com/reference/mutex/lock_guard/">lock_guard</a></p>
+</div>
+<div class="paragraph">
+<p><code>lock_guard</code> est un objet qui gère un <code>mutex</code> en le gardant toujours verrouillé.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-cpp hljs" data-lang="cpp">mutex m;
+
+void foo()
+{
+    lock_guard&lt;mutex&gt; lock(m); // création et appel à lock()
+
+    // section critique
+    ...
+
+} // destruction et appel à unlock()</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Voir aussi : <a href="http://www.cplusplus.com/reference/condition_variable/condition_variable/">condition_variable</a></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_stdref">4.23. std::ref</h3>
+<div class="paragraph">
+<p>La fonction <code>std::ref</code> (dans <code>&lt;functional&gt;</code>) retourne un objet de type
+<code>std::reference_wrapper&lt;T&gt;</code> qui est en fait une référence sur l&#8217;élément.</p>
+</div>
+<div class="paragraph">
+<p>Lien : <a href="http://www.cplusplus.com/reference/functional/ref/">std::ref</a></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-cpp hljs" data-lang="cpp">#include &lt;iostream&gt;
+#include &lt;functional&gt;
+#include &lt;thread&gt;
+
+using namespace std;
+
+// $ g++ ref.cpp -lpthread
+
+void foo(int&amp; data)
+{
+    data = 42;
+}
+
+int main()
+{
+    int i1 = 100;
+    cout &lt;&lt; "i1 = " &lt;&lt; i1 &lt;&lt; endl;
+
+    foo(std::ref(i1));
+    cout &lt;&lt; "i1 = " &lt;&lt; i1 &lt;&lt; endl;
+
+    i1 = 100;
+    cout &lt;&lt; "i1 = " &lt;&lt; i1 &lt;&lt; endl;
+    //std::thread t1(foo, i1); // no works
+    std::thread t1(foo, std::ref(i1));  // works
+
+    t1.join();
+    cout &lt;&lt; "i1 = " &lt;&lt; i1 &lt;&lt; endl;
+
+    return 0;
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_les_tableaux_à_taille_fixe_array">4.24. Les tableaux à taille fixe array</h3>
+<div class="paragraph">
+<p>C&#43;&#43;11 fournit le nouveau type de tableau <code>std::array</code> en tant que
+conteneur standard (défini dans l&#8217;en-tête <code>&lt;array&gt;</code>). Contrairement aux
+autres conteneurs standards, les tableaux <code>array</code> ont une taille fixe.</p>
+</div>
+<div class="paragraph">
+<p><code>array</code> fonctionne de la même manière que les tableaux en C sauf qu&#8217;il
+permet d&#8217;être copié (opération relativement coûteuse car c&#8217;est une copie
+de la totalité du bloc de mémoire) et peut s&#8217;utiliser explicitement en
+pointeur.</p>
+</div>
+<div class="paragraph">
+<p>Lien : <a href="http://www.cplusplus.com/reference/array/array/">array</a></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-cpp hljs" data-lang="cpp">#include &lt;iostream&gt;
+#include &lt;array&gt;
+
+#define TAILLE  3
+
+using namespace std;
+
+int main()
+{
+    // En C/C++
+    cout &lt;&lt; "-&gt; En C/C++" &lt;&lt; endl;
+
+    int t1[TAILLE] = {10, 20, 30};
+
+    cout &lt;&lt; "Elements du tableau t1 (avant) : " &lt;&lt; endl;
+    for (int i=0; i&lt;TAILLE; ++i)
+        cout &lt;&lt; t1[i] &lt;&lt; " ";
+    cout &lt;&lt; endl;
+
+    for (int i=0; i&lt;TAILLE; ++i)
+        ++t1[i];
+
+    cout &lt;&lt; "Elements du tableau t1 (après) : " &lt;&lt; endl;
+    for (int i=0; i&lt;TAILLE; ++i)
+        cout &lt;&lt; t1[i] &lt;&lt; " ";
+    cout &lt;&lt; endl;
+
+    cout &lt;&lt; "Elements du tableau t1 (après) : " &lt;&lt; endl;
+    for (int element : t1)
+        cout &lt;&lt; element &lt;&lt; " ";
+    cout &lt;&lt; endl;
+
+    cout &lt;&lt; endl;
+
+    // En C++11
+    cout &lt;&lt; "-&gt; En C++11" &lt;&lt; endl;
+
+    array&lt;int,TAILLE&gt; t2 {10, 20, 30};
+
+    cout &lt;&lt; "Elements du tableau t2 (avant) : " &lt;&lt; endl;
+    for (int i=0; i&lt;t2.size(); ++i)
+        cout &lt;&lt; t2[i] &lt;&lt; " ";
+    cout &lt;&lt; endl;
+
+    for (int i=0; i&lt;t2.size(); ++i)
+        ++t2[i];
+
+    cout &lt;&lt; "Elements du tableau t2 (après) : " &lt;&lt; endl;
+    for (int i=0; i&lt;t2.size(); ++i)
+        cout &lt;&lt; t2[i] &lt;&lt; " ";
+    cout &lt;&lt; endl;
+
+    cout &lt;&lt; "Elements du tableau t2 (après) : " &lt;&lt; endl;
+    for (int element : t2)
+        cout &lt;&lt; element &lt;&lt; " ";
+    cout &lt;&lt; endl;
+
+    // Avec un pointeur
+    int *t3 = t2.data(); // data() renvoie un pointeur vers le premier élément du tableau
+
+    // Dans array, les éléments du tableau sont stockés dans des emplacements mémoire contigus,
+    // le pointeur récupéré (ici t3) peut être utilisé pour accéder à n'importe quel élément du tableau
+    cout &lt;&lt; "Elements du tableau t2 (avec un pointeur) : " &lt;&lt; endl;
+    for (int i=0; i&lt;TAILLE; ++i)
+        cout &lt;&lt; t3[i] &lt;&lt; " "; // cout &lt;&lt; *(t3+i) &lt;&lt; " ";
+    cout &lt;&lt; endl;
+
+    // Avec un itérateur
+    cout &lt;&lt; "Elements du tableau t2 (avec un itérateur) : " &lt;&lt; endl;
+    //for(array&lt;int,TAILLE&gt;::iterator it = t2.begin(); it != t2.end(); ++it)
+    for(auto it = t2.begin(); it != t2.end(); ++it)
+        cout &lt;&lt; *it &lt;&lt; " ";
+    cout &lt;&lt; endl;
+
+    return 0;
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_les_listes_simplement_chaînée">4.25. Les listes simplement chaînée</h3>
+<div class="paragraph">
+<p><code>forward_list</code> est l&#8217;implémentation d&#8217;une liste simplement chaînée accessible seulement par sa tête (<code>front</code>).</p>
+</div>
+<div class="paragraph">
+<p>Lien : <a href="http://www.cplusplus.com/reference/forward_list/forward_list/">forward_list</a></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-cpp hljs" data-lang="cpp">#include &lt;iostream&gt;
+#include &lt;forward_list&gt;
+
+using namespace std;
+
+int main()
+{
+    forward_list&lt;int&gt; liste = {10, 20, 30, 40, 50};
+
+    cout &lt;&lt; "liste :\n";
+    for (int&amp; element : liste)
+        cout &lt;&lt; element &lt;&lt; " ";
+    cout &lt;&lt; '\n';
+
+    return 0;
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_le_type_tuple">4.26. Le type Tuple</h3>
+<div class="paragraph">
+<p>Un tuple est une collection de dimension fixe d&#8217;objets de types
+différents. Tout type d&#8217;objet peut être élément d&#8217;un tuple. Cette
+nouvelle fonctionnalité est implémentée dans le nouvel en-tête <code>&lt;tuple&gt;</code>
+et bénéficie des extensions de C&#43;&#43;11.</p>
+</div>
+<div class="paragraph">
+<p>Lien : <a href="http://www.cplusplus.com/reference/tuple/tuple/">tuple</a></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-cpp hljs" data-lang="cpp">#include &lt;iostream&gt;
+#include &lt;tuple&gt; // cf. http://www.cplusplus.com/reference/tuple/tuple/
+
+using namespace std;
+
+int main()
+{
+    typedef tuple&lt;string, string, int, double&gt; tuple_1;
+    tuple_1 foo("John", "Smith", 50, 1.87);
+    cout &lt;&lt; get&lt;0&gt;(foo) &lt;&lt; " " &lt;&lt; get&lt;1&gt;(foo) &lt;&lt; endl;
+    cout &lt;&lt; "Nb elements du tuple : " &lt;&lt; tuple_size&lt;tuple_1&gt;::value &lt;&lt; endl;
+
+    tuple&lt;double, double, char&gt; p1(0., 0. ,'A');
+    cout &lt;&lt; get&lt;2&gt;(p1) &lt;&lt; " : " &lt;&lt; get&lt;0&gt;(p1) &lt;&lt; "," &lt;&lt; get&lt;1&gt;(p1) &lt;&lt; endl;
+    get&lt;2&gt;(p1) = 'B';
+    cout &lt;&lt; get&lt;2&gt;(p1) &lt;&lt; " : " &lt;&lt; get&lt;0&gt;(p1) &lt;&lt; "," &lt;&lt; get&lt;1&gt;(p1) &lt;&lt; endl;
+
+    auto bar = std::make_tuple("pi", 3.14);
+    cout &lt;&lt; get&lt;0&gt;(bar) &lt;&lt; " = " &lt;&lt; get&lt;1&gt;(bar) &lt;&lt; endl;
+
+    return 0;
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_tables_de_hachage">4.27. Tables de hachage</h3>
+<div class="paragraph">
+<p>Une table de hachage (<em>hash table</em>) est une structure de données qui
+permet une association clé-élément. Il s&#8217;agit d&#8217;un tableau ne comportant
+pas d&#8217;ordre (contrairement à un tableau ordinaire qui est indexé par des
+entiers). On accède à chaque élément de la table par sa clé. L&#8217;accès
+s&#8217;effectue par une fonction de hachage qui transforme une clé en une
+valeur de hachage (un nombre) indexant les éléments de la table.</p>
+</div>
+<div class="paragraph">
+<p>Pour éviter les conflits de noms avec les bibliothèques non standards
+qui ont leur propre implémentation des tables de hachage, on utilisera
+le préfixe <code>unordered</code> au lieu de <code>hash</code>.</p>
+</div>
+<div class="paragraph">
+<p>Il existe deux types de tables de hachage dans la STL :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>hash_set&lt;K&gt;</code> : table de hachage simple, stocke seulement des clés de
+type K.</p>
+</li>
+<li>
+<p><code>hash_map&lt;K,T&gt;</code> : table de hachage double, stocke des clés de type K
+associées à des valeurs de type T. À une clé donnée ne peut être stockée
+qu&#8217;une seule valeur.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Liens :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://www.sgi.com/tech/stl/hash_set.html">hash_set</a></p>
+</li>
+<li>
+<p><a href="https://www.sgi.com/tech/stl/hash_map.html">hash_map</a></p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p><code>hash_set</code> et <code>hash_map</code> font partie de la STL mais ne sont
+pas intégrés à la bibliothèque standard C&#43;&#43;. Les compilateurs GNU C&#43;&#43; et
+Visual C&#43;&#43; de Microsoft les ont quand même implémentés.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Le standard C&#43;&#43;11 propose des conteneurs similaires : <code>unordered_set</code> et
+<code>unordered_map</code>.</p>
+</div>
+<div class="paragraph">
+<p>Liens :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="http://www.cplusplus.com/reference/unordered_set/unordered_set/">unordered_set</a></p>
+</li>
+<li>
+<p><a href="http://www.cplusplus.com/reference/unordered_map/unordered_map/">unordered_map</a></p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-cpp hljs" data-lang="cpp">#include &lt;iostream&gt;
+#include &lt;string&gt;
+#include &lt;unordered_map&gt;
+
+using namespace std;
+
+int main()
+{
+    unordered_map&lt;string, string&gt; hashtable;
+
+    //hashtable.emplace("www.wikipedia.fr", "78.109.84.114");
+    //cout &lt;&lt; "Adresse IP : " &lt;&lt; hashtable["www.wikipedia.fr"] &lt;&lt; endl;
+
+    hashtable.insert(make_pair("www.cplusplus.com", "167.114.170.15"));
+    hashtable.insert(make_pair("www.google.fr", "216.58.204.67"));
+    cout &lt;&lt; "Adresse IP de www.google.fr : " &lt;&lt; hashtable["www.google.fr"] &lt;&lt; endl &lt;&lt; endl;
+
+    cout &lt;&lt; "La  table : " &lt;&lt; endl;
+    for (auto itr = hashtable.begin(); itr != hashtable.end(); itr++)
+    {
+        cout &lt;&lt; (*itr).first &lt;&lt; " -&gt; " &lt;&lt; (*itr).second &lt;&lt; endl;
+    }
+
+    return 0;
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>On peut créer sa propre fonction de hachage avec un foncteur (<em>Function
+Object</em>) est un objet qui se comporte comme une fonction en surchargeant
+l&#8217;opérateur <code>()</code> :</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-cpp hljs" data-lang="cpp">#include &lt;iostream&gt;
+#include &lt;string&gt;
+#include &lt;unordered_map&gt;
+
+using namespace std;
+
+// Foncteur de hachage
+class Hachage
+{
+    public:
+        size_t operator()(const string &amp;s) const
+        {
+            cout &lt;&lt; "[hash : " &lt;&lt; hash&lt;string&gt;()(s) &lt;&lt; "]" &lt;&lt; endl;
+            return hash&lt;string&gt;()(s);
+        }
+};
+
+int main()
+{
+    unordered_map&lt;string, string, Hachage&gt; hashtable;
+
+    hashtable.insert(make_pair("www.wikipedia.fr", "78.109.84.114"));
+    hashtable.insert(make_pair("www.cplusplus.com", "167.114.170.15"));
+    hashtable.insert(make_pair("www.google.fr", "216.58.204.67"));
+
+    cout &lt;&lt; endl &lt;&lt; "La  table : " &lt;&lt; endl;
+    for (auto itr = hashtable.begin(); itr != hashtable.end(); itr++)
+    {
+        cout &lt;&lt; (*itr).first &lt;&lt; " -&gt; " &lt;&lt; (*itr).second &lt;&lt; endl;
+    }
+    cout &lt;&lt; endl;
+
+    cout &lt;&lt; "Adresse IP de www.google.fr : " &lt;&lt; hashtable["www.google.fr"] &lt;&lt; endl;
+
+    return 0;
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>On peut utiliser <code>unordered_map</code> avec ses propres classes à condition de
+définir l&#8217;opérateur <code>==</code> :</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-cpp hljs" data-lang="cpp">#include &lt;iostream&gt;
+#include &lt;string&gt;
+#include &lt;unordered_map&gt;
+
+using namespace std;
+
+class Fabricant
+{
+    private:
+        string nom;
+
+    public:
+        Fabricant(string nom)
+        {
+            this-&gt;nom = nom;
+        }
+
+        string getNom() const
+        {
+            return nom;
+        }
+
+        bool operator==(const Fabricant &amp;f) const
+        {
+            return nom == f.nom;
+        }
+};
+
+class Modele
+{
+    private:
+        string nom;
+        int annee;
+
+    public:
+        Modele(string nom, int annee)
+        {
+            this-&gt;nom = nom;
+            this-&gt;annee = annee;
+        }
+
+        string getNom() const
+        {
+            return nom;
+        }
+
+        int getAnnee() const
+        {
+            return annee;
+        }
+
+        bool operator==(const Modele &amp;m) const
+        {
+            return (nom == m.nom &amp;&amp; annee == m.annee);
+        }
+};
+
+class Hachage
+{
+    public:
+        size_t operator()(const Modele &amp;m) const
+        {
+            return hash&lt;string&gt;()(m.getNom()) ^ hash&lt;int&gt;()(m.getAnnee());
+        }
+};
+
+int main()
+{
+    unordered_map&lt;Modele, Fabricant, Hachage&gt; catalogue;
+
+    Modele zoe("Zoe", 2012);
+    Modele megane3("Megane III", 2008);
+    Modele clio3("Clio III", 2005);
+    Modele bipper("Bipper", 2007);
+    Fabricant renault("Renault");
+    Fabricant peugeot("Peugeot");
+
+    catalogue.insert(make_pair(zoe, renault));
+    catalogue.insert(make_pair(megane3, renault));
+    catalogue.insert(make_pair(clio3, renault));
+    catalogue.insert(make_pair(bipper, peugeot));
+
+    for (auto &amp;itr : catalogue)
+    {
+        cout &lt;&lt; itr.second.getNom() &lt;&lt; " " &lt;&lt; itr.first.getNom() &lt;&lt; " " &lt;&lt; itr.first.getAnnee() &lt;&lt; endl;
+    }
+
+    return 0;
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_nombres_pseudo_aléatoires">4.28. Nombres pseudo-aléatoires</h3>
+<div class="paragraph">
+<p>La bibliothèque standard du C permet de générer des nombres
+pseudo-aléatoires grâce à la fonction <code>rand()</code>.</p>
+</div>
+<div class="paragraph">
+<p>C&#43;&#43;11 va fournir une manière différente de générer les nombres
+pseudo-aléatoires :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>un moteur de génération, qui contient l&#8217;état du générateur et produit
+les nombres pseudo-aléatoires ;</p>
+</li>
+<li>
+<p>une distribution, qui détermine les valeurs que le résultat peut
+prendre ainsi que sa loi de probabilité.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>C&#43;&#43;11 définit trois algorithmes de génération (linear_congruential,
+subtract with carry et mersenne_twister), chacun ayant des avantages et
+des inconvénients et fournira un certain nombre de lois standard
+(uniform_int_distribution, bernoulli_distribution, &#8230;&#8203;).</p>
+</div>
+<div class="paragraph">
+<p>Lien : <a href="http://www.cplusplus.com/reference/random/">random</a></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-cpp hljs" data-lang="cpp">#include &lt;iostream&gt;
+#include &lt;random&gt;
+#include &lt;functional&gt;   // std::bind
+#include &lt;chrono&gt;
+
+using namespace std;
+
+int main()
+{
+    unsigned seed = std::chrono::system_clock::now().time_since_epoch().count();
+
+    std::uniform_int_distribution&lt;int&gt; distribution1(1, 6); // un dé à 6 faces
+    std::default_random_engine default_engine(seed);
+
+    int de = distribution1(default_engine);  // genere un nombre entre 1 et 6
+    cout &lt;&lt; "de = " &lt;&lt; de &lt;&lt; '\n';
+
+    std::uniform_int_distribution&lt;int&gt; distribution2(0, 99);
+    std::mt19937 engine(seed);
+    auto generator = std::bind(distribution2, engine);
+
+    int random = generator();  // genere un nombre entre 0 et 99
+    cout &lt;&lt; "random = " &lt;&lt; random &lt;&lt; '\n';
+
+    return 0;
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_fonction_lambda">4.29. Fonction lambda</h3>
+<div class="paragraph">
+<p>Une lambda est une fonction possiblement anonyme et destinée à être
+utilisée localement.</p>
+</div>
+<div class="paragraph">
+<p>Liens :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://en.cppreference.com/w/cpp/language/lambda">lambda</a></p>
+</li>
+<li>
+<p><a href="https://zestedesavoir.com/tutoriels/822/la-programmation-en-c-moderne/decoupons-tout-ca/des-fonctions-somme-toute-lambda/">Des
+fonctions somme toute lambdas</a></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Syntaxe :</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>[zone de capture](paramètres de la lambda) -&gt; type de retour { instructions }</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Exemple simpliste :</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-cpp hljs" data-lang="cpp">int main()
+{
+    []() -&gt; void {};
+
+    return 0;
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Exemples basiques :</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-cpp hljs" data-lang="cpp">#include &lt;algorithm&gt;
+#include &lt;iostream&gt;
+#include &lt;string&gt;
+#include &lt;vector&gt;
+
+using namespace std;
+
+int main()
+{
+    // Exemple 1
+    auto lambda = [](string const &amp; message) -&gt; void { cout &lt;&lt; "Message reçu : " &lt;&lt; message &lt;&lt; endl; };
+
+    lambda("Hello !");
+
+    // Exemple 2
+    vector&lt;string&gt; const chaines { "Un mot", "Autre chose", "Du blabla", "Du texe", "Des lettres" };
+
+    for_each(begin(chaines), end(chaines), [](string const &amp; message) -&gt; void
+    {
+        cout &lt;&lt; "Message reçu : " &lt;&lt; message &lt;&lt; endl;
+    });
+
+    return 0;
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Les expressions Lambda (ou <em>closure</em>) sont donc un bon moyen de passer du code en paramètre d&#8217;une fonction :</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-cpp hljs" data-lang="cpp">// Exemple 3
+vector&lt;int&gt; v { 1,2,3,4,5,6,7 };
+
+cout &lt;&lt; "v : ";
+for (auto i: v) // i est un int
+{
+    cout &lt;&lt; i &lt;&lt; ' ';
+}
+cout &lt;&lt; '\n';
+
+unsigned int nbElementsPairs = 0;
+
+nbElementsPairs = count_if(v.begin(), v.end(), [](auto x) { return !(x % 2); });
+cout &lt;&lt; "nbElementsPairs : " &lt;&lt; nbElementsPairs &lt;&lt; endl;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Lien : <a href="http://www.cplusplus.com/reference/algorithm/count_if/">count_if</a></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Cette utilisation est simple et place le code du prédicat au bon endroit (sans avoir besoin de déclarer une fonction pour cela).</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Les lambdas peuvent accéder aux variables dans la portée par référence ou par valeur :</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-cpp hljs" data-lang="cpp">// Exemple 4
+int borneMax = 5;
+unsigned int nbElements = 0;
+
+// accès aux variables par référence [&amp;]
+nbElements = count_if(v.begin(), v.end(), [&amp;](auto x) { return (x &lt;= borneMax); });
+cout &lt;&lt; "nbElements : " &lt;&lt; nbElements &lt;&lt; endl;
+
+borneMax = 4;
+
+// accès aux variables par copie [=]
+nbElements = count_if(v.begin(), v.end(), [=](auto x) { return (x &lt;= borneMax); });
+cout &lt;&lt; "nbElements : " &lt;&lt; nbElements &lt;&lt; endl;</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_stdfunction_et_stdmem_fn">4.30. std::function et std::mem_fn</h3>
+<div class="paragraph">
+<p>Le template <code>std::function</code> permet d&#8217;encapsuler un pointeur de fonction
+ou une lambda :</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-cpp hljs" data-lang="cpp">#include &lt;iostream&gt;
+#include &lt;string&gt;
+#include &lt;functional&gt;
+
+using namespace std;
+
+void foo(string str)
+{
+    cout &lt;&lt; "message : " &lt;&lt; str &lt;&lt; endl;
+}
+
+int main()
+{
+    std::function&lt;void(string)&gt; fn_foo = foo;
+
+    fn_foo("Hello world!");
+
+    return 0;
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Le template <code>std::mem_fn</code> permet d&#8217;encapsuler un pointeur de méthode
+(fonction membre) d&#8217;une classe :</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-cpp hljs" data-lang="cpp">#include &lt;iostream&gt;
+#include &lt;string&gt;
+#include &lt;functional&gt;
+
+using namespace std;
+
+class Foo
+{
+    public:
+        Foo(const string&amp; str) : str(str) {}
+        void print(int n=1) const { for(int i = 0; i&lt;n; ++i) cout &lt;&lt; str &lt;&lt; '\n'; }
+    private:
+        string str;
+};
+
+int main()
+{
+    const Foo foo("Hello world!");
+
+    auto fn1 = mem_fn(&amp;Foo::print);
+    fn1(foo, 5);
+
+    return 0;
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Liens :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="http://www.cplusplus.com/reference/functional/function/">std::function</a></p>
+</li>
+<li>
+<p><a href="http://www.cplusplus.com/reference/functional/mem_fn/">std::mem_fn</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_c14">5. C&#43;&#43;14</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>C&#43;&#43;14 a été une évolution mineuyre de la norme.</p>
+</div>
+<div class="paragraph">
+<p>Lien : <a href="https://fr.wikipedia.org/wiki/C%2B%2B14">C&#43;&#43;14</a></p>
+</div>
+<div class="sect2">
+<h3 id="_nombres_binaires">5.1. Nombres binaires</h3>
+<div class="paragraph">
+<p>Avec le C&#43;&#43;14, il est désormais possible de spécifier des nombres
+binaires en utilisant le préfixe <code>0b</code> ou <code>0B</code> :</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-cpp hljs" data-lang="cpp">#include &lt;iostream&gt;
+
+using namespace std;
+
+int main()
+{
+    int i = 0b01010101;
+    int j = 0B10101010;
+
+    cout &lt;&lt; "i = " &lt;&lt; i &lt;&lt; " (0x" &lt;&lt; hex &lt;&lt; i &lt;&lt; ")" &lt;&lt; endl;
+    cout &lt;&lt; "j = " &lt;&lt; j &lt;&lt; " (0x" &lt;&lt; hex &lt;&lt; j &lt;&lt; ")" &lt;&lt; endl;
+
+    return 0;
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_séparateur_de_chiffres">5.2. Séparateur de chiffres</h3>
+<div class="paragraph">
+<p>Pour améliorer la lisibilité :</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-cpp hljs" data-lang="cpp">#include &lt;iostream&gt;
+
+using namespace std;
+
+int main()
+{
+    int i = 0b0101'0101;
+    int j = 0b1010'1010;
+
+    cout &lt;&lt; "i = " &lt;&lt; i &lt;&lt; " (0x" &lt;&lt; hex &lt;&lt; i &lt;&lt; ")" &lt;&lt; endl;
+    cout &lt;&lt; "j = " &lt;&lt; j &lt;&lt; " (0x" &lt;&lt; hex &lt;&lt; j &lt;&lt; ")" &lt;&lt; endl;
+
+    int un_milliard = 1'000'000'000;
+
+    return 0;
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_c17">6. C&#43;&#43;17</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Liens :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://www.developpez.com/actu/128065/De-Cplusplus14-a-Cplusplus17-qu-est-ce-qui-a-change-avec-la-nouvelle-version-du-langage-Cplusplus-un-document-de-la-Standard-Cplusplus-Foundation/">De
+C&#43;&#43;14 à C&#43;&#43;17</a></p>
+</li>
+<li>
+<p><a href="https://cpp.developpez.com/actu/127416/La-specification-de-la-nouvelle-version-du-langage-Cplusplus-Cplusplus17-est-finalisee-quelles-sont-les-nouveautes-introduites/">C&#43;&#43;17</a></p>
+</li>
+<li>
+<p><a href="https://en.wikipedia.org/wiki/C%2B%2B17">C&#43;&#43;17 (en)</a></p>
+</li>
+</ul>
+</div>
+<div class="sect2">
+<h3 id="_le_type_byte">6.1. Le type byte</h3>
+<div class="paragraph">
+<p>En C&#43;&#43;17, <code>std::byte</code> (dans <code>&lt;cstddef&gt;</code>) représente un octet en mémoire.
+En C/C&#43;&#43;, on utilisait le type <code>char</code> ou <code>unsigned char</code>. Attention,
+<code>std::byte</code> n&#8217;est pas un type caractère et ni un type arithmétique.
+Seuls opérateurs au niveau du bit ont été surchargés :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>les opérateurs de décalage comme <code>&lt;&lt;</code>, <code>&gt;&gt;</code>, <code>&lt;&#8656;</code>, <code>&gt;&gt;=</code></p>
+</li>
+<li>
+<p>les opérateurs logiques comme <code>|</code>, <code>&amp;</code>, <code>^</code>, <code>~</code>, <code>|=</code>, <code>&amp;=</code>, <code>^=</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Le type <code>byte</code> n&#8217;est pas directement utilisable comme un entier sauf via
+la fonction <code>std::to_integer&lt;&gt;()</code>.</p>
+</div>
+<div class="paragraph">
+<p>Lien : <a href="https://en.cppreference.com/w/cpp/types/byte">std::byte</a></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-cpp hljs" data-lang="cpp">#include &lt;iostream&gt;
+#include &lt;cstddef&gt;
+
+using namespace std;
+
+// g++ -std=c++17 byte.cpp
+
+int main()
+{
+    byte b1{ 10 };
+    byte b2{ 21 };
+    cout &lt;&lt; "b1 = " &lt;&lt; to_integer&lt;int&gt;(b1) &lt;&lt; endl;
+    b2 &lt;&lt;= 1;
+    cout &lt;&lt; "b2 = " &lt;&lt; to_integer&lt;int&gt;(b2) &lt;&lt; endl;
+
+    byte b3 = b1 &amp; b2;
+    cout &lt;&lt; "b3 = b1 &amp; b2" &lt;&lt; endl;
+    cout &lt;&lt; "b3 = " &lt;&lt; to_integer&lt;int&gt;(b3) &lt;&lt; endl;
+
+    int i1 = to_integer&lt;int&gt;(b3);
+    cout &lt;&lt; "i1 = " &lt;&lt; i1 &lt;&lt; endl;
+
+    return 0;
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_stdinvoke">6.2. std::invoke</h3>
+<div class="paragraph">
+<p>En C&#43;&#43;17, la fonction <code>std::invoke</code> (dans <code>&lt;functional&gt;</code>) permet
+d&#8217;appeler une fonction ou une méthode en lui passant des arguments.</p>
+</div>
+<div class="paragraph">
+<p>Lien :
+<a href="https://en.cppreference.com/w/cpp/utility/functional/invoke">std::invoke</a></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-cpp hljs" data-lang="cpp">#include &lt;iostream&gt;
+#include &lt;string&gt;
+#include &lt;functional&gt;
+
+//$ g++ -std=c++17 invoke.cpp
+
+using namespace std;
+
+class Foo
+{
+    public:
+        Foo(const string&amp; str) : str(str) {}
+        void print(int n=1) const { for(int i = 0; i&lt;n; ++i) cout &lt;&lt; str &lt;&lt; '\n'; }
+    private:
+        string str;
+};
+
+void print(string str)
+{
+    cout &lt;&lt; "message : " &lt;&lt; str &lt;&lt; endl;
+}
+
+int main()
+{
+    // fonction
+    invoke(print, "Hello world!");
+
+    const Foo foo("Hello world!");
+
+    // méthode
+    invoke(&amp;Foo::print, foo, 2);
+
+    return 0;
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_stdoptional">6.3. std::optional</h3>
+<div class="paragraph">
+<p>En C&#43;&#43;17, le type <code>std::optional&lt;T&gt;</code> peut contenir une valeur ou pas. On
+utilise la méthode <code>has_value()</code> pour déterminer s&#8217;il y a une valeur
+dans l&#8217;objet et <code>value()</code> pour la récupérer.</p>
+</div>
+<div class="paragraph">
+<p>Lien : <a href="https://en.cppreference.com/w/cpp/utility/optional">std::optional</a></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-cpp hljs" data-lang="cpp">#include &lt;iostream&gt;
+#include &lt;string&gt;
+#include &lt;optional&gt;
+
+// $ g++ -std=c++17 optional.cpp
+
+using namespace std;
+
+class Article
+{
+    public:
+        Article(const string&amp; libelle) : libelle(libelle) {}
+        Article(const string&amp; libelle, optional&lt;double&gt; prix) : libelle(libelle), prix(prix) {}
+        string getLibelle() const { return libelle; }
+        optional&lt;double&gt; getPrix() const {
+            if(prix.has_value())
+                return prix;
+            else
+                return {};
+        }
+    private:
+        string libelle;
+        optional&lt;double&gt; prix;
+};
+
+int main()
+{
+    Article article1("De'Longhi Magnifica S", 295.0);
+    Article article2("Philips EP2220");
+
+    cout &lt;&lt; "Article " &lt;&lt; article1.getLibelle() &lt;&lt; endl;
+    auto prix1 = article1.getPrix();
+    if (prix1.has_value())
+    {
+        cout &lt;&lt; "  prix : " &lt;&lt; prix1.value() &lt;&lt; " euros" &lt;&lt; endl;
+    }
+    else
+    {
+        cout &lt;&lt; "  pas de prix pour cet article" &lt;&lt; endl;
+    }
+
+    cout &lt;&lt; "Article " &lt;&lt; article2.getLibelle() &lt;&lt; endl;
+    auto prix2 = article2.getPrix();
+    if (prix2.has_value())
+    {
+        cout &lt;&lt; "  prix : " &lt;&lt; prix2.value() &lt;&lt; " euros" &lt;&lt; endl;
+    }
+    else
+    {
+        cout &lt;&lt; "  pas de prix pour cet article" &lt;&lt; endl;
+    }
+
+    return 0;
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_stdany">6.4. std::any</h3>
+<div class="paragraph">
+<p>En C&#43;&#43;17, le type <code>std::any</code> peut contenir n&#8217;importe quel type ou aucune
+valeur. C&#8217;est l&#8217;équivalent d&#8217;un <code>void *</code> <em>type-safe</em>. On peut utiliser
+la méthode <code>has_value()</code> pour déterminer s&#8217;il y a une valeur. Il existe
+aussi <code>any_cast&lt;T&gt;()</code> pour réaliser des conversions vers des types <code>T</code>.
+<code>type()</code> retourne une référence sur le type <code>type_info</code>.</p>
+</div>
+<div class="paragraph">
+<p>Lien : <a href="https://en.cppreference.com/w/cpp/utility/any">std::any</a></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-cpp hljs" data-lang="cpp">#include &lt;iostream&gt;
+#include &lt;string&gt;
+#include &lt;any&gt;
+
+// $ g++ -std=c++17 any.cpp
+
+using namespace std;
+
+int main()
+{
+    any a = 1;
+    cout &lt;&lt; a.type().name() &lt;&lt; " -&gt; " &lt;&lt; any_cast&lt;int&gt;(a) &lt;&lt; '\n';
+
+    any s = string("Hello world!");
+    cout &lt;&lt; s.type().name() &lt;&lt; " -&gt; " &lt;&lt; any_cast&lt;string&gt;(s) &lt;&lt; '\n';
+
+    return 0;
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_c20">7. C&#43;&#43;20</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Liens :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://www.developpez.com/actu/270849/Cplusplus-20-la-specification-de-la-nouvelle-version-du-langage-Cplusplus-est-finalisee-un-tour-d-horizon-des-nouveautes-apportees/">C&#43;&#43;20</a></p>
+</li>
+<li>
+<p><a href="https://en.wikipedia.org/wiki/C%2B%2B20">C&#43;&#43;20 (en)</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_wikipédia">8. Wikipédia</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://fr.wikipedia.org/wiki/C%2B%2B11">C&#43;&#43;11</a></p>
+</li>
+<li>
+<p><a href="https://fr.wikipedia.org/wiki/C%2B%2B14">C&#43;&#43;14</a></p>
+</li>
+<li>
+<p><a href="https://en.wikipedia.org/wiki/C%2B%2B17">C&#43;&#43;17</a></p>
+</li>
+<li>
+<p><a href="https://en.wikipedia.org/wiki/C%2B%2B20">C&#43;&#43;20</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_voir_aussi">9. Voir aussi</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p><a href="http://h-deb.clg.qc.ca/Sujets/Divers--cplusplus/index.html">C&#43;&#43; -
+Sujets divers</a></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>La version PDF de ce document : <a href="https://raw.githubusercontent.com/tvaira/cpp-moderne/main/build/c++-moderne.pdf">c&#43;&#43;-moderne.pdf</a>.</p>
+</div>
+<hr>
+<div class="paragraph">
+<p>Site : <a href="http://tvaira.free.fr/">tvaira.free.fr</a></p>
+</div>
+</div>
+</div>
+</div>
+<div id="footer">
+<div id="footer-text">
+Version v1.6<br>
+</div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.3/highlight.min.js"></script>
+<script>
+if (!hljs.initHighlighting.called) {
+  hljs.initHighlighting.called = true
+  ;[].slice.call(document.querySelectorAll('pre.highlight > code')).forEach(function (el) { hljs.highlightBlock(el) })
+}
+</script>
+</body>
+</html>
