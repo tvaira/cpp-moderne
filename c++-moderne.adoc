@@ -1,4 +1,5 @@
 = {cpp} moderne
+:reproducible:
 :author: Thierry Vaira
 :email: tvaira@free.fr
 :revnumber: v1.6
@@ -24,6 +25,10 @@ endif::[]
 :icons: font
 
 :home: http://tvaira.free.fr/
+
+ifdef::backend-pdf[]
+{author} - <{email}> - version {revnumber} - {revdate}
+endif::[]
 
 == {cpp}
 
@@ -125,7 +130,7 @@ CONFIG += c++11
 
 == Les exemples
 
-http://tvaira.free.fr/dev/cours/c%2B%2B-moderne-src.zip[c{plus}{plus}-moderne-src.zip]
+https://github.com/tvaira/cpp-moderne
 
 == {cpp}11
 
@@ -2965,10 +2970,13 @@ Liens :
 Sujets divers]
 
 ifdef::backend-html5[]
-La version PDF de ce document : link:http://tvaira.free.fr/dev/cours/c%2B%2B-moderne.pdf[c{plus}{plus}-moderne.pdf].
+La version PDF de ce document : link:https://raw.githubusercontent.com/tvaira/cpp-moderne/main/build/c++-moderne.pdf[c{plus}{plus}-moderne.pdf].
 endif::[]
 
 ***
 
 Site : {home}[tvaira.free.fr]
 
+ifdef::backend-pdf[]
+{author} - <{email}> - version {revnumber} - {revdate}
+endif::[]

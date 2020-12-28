@@ -1,10 +1,10 @@
 % C++ moderne
 % Thierry Vaira <<tvaira@free.fr>>
-% 2020 (rev. 1.5)
+% 2020 (rev. 1.6)
 
-# C++ moderne (rev. 1.5)
+# C++ moderne
 
->Ce document en PDF : [c++-moderne.pdf](http://tvaira.free.fr/dev/cours/c++-moderne.pdf) 
+>Ce document en PDF : [c++-moderne.pdf](https://raw.githubusercontent.com/tvaira/cpp-moderne/main/build/c++-moderne.pdf) 
 
 ***
 
@@ -20,7 +20,7 @@ _Remarque :_ La bibliothèque standard du C++ (_C++ Standard Library_) est une b
 
 Dans l'index de popularité des langages [TIOBE](https://www.tiobe.com/tiobe-index/), le C représente 16,2 % (première place) et le C++ 7,6 % (quatrième place) en novembre 2020.
 
-![](/mnt/disk1/ressources/materielles/cpp-moderne/images/cover.png)
+![](./images/cover.png)
 
 Liens : 
 
@@ -75,7 +75,7 @@ CONFIG += c++11
 
 ## Les exemples
 
-[c++-moderne-src.zip](http://tvaira.free.fr/dev/cours/c++-moderne-src.zip) 
+[https://github.com/tvaira/cpp-moderne](https://github.com/tvaira/cpp-moderne)
 
 ## C++11
 
