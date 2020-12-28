@@ -21,6 +21,6 @@ $(TARGETDIR):
 .PHONY: clean
 
 clean:
-	rm -f *.html *.pdf
+	rm -f $(TARGETDIR)/*.html $(TARGETDIR)/*.pdf
 
 rebuild: clean all
