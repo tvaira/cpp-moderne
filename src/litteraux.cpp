@@ -55,7 +55,7 @@ Temperature operator-(Temperature t)
 
 int main()
 {
-    complex<double> n = (2.0 + 3.0i) * 4;
+    complex<double> n = (2.0 + 3.0i) * 4.;
 
     cout << "n = (2 + 3i) x 4" << endl;
     cout << "n = " << n << endl;
