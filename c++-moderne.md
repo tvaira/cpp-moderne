@@ -1131,7 +1131,7 @@ int main()
 }
 ```
 
-_Remarque :_ `override` permet d'énoncer que l'on fait une surcharge et le compilateur en assurera le contrôle ! Il est donc fortement conseillé d'utiliser systèmatiquement `override`.
+_Remarque :_ `override` permet d'énoncer que l'on fait une redéfinition et le compilateur en assurera le contrôle ! Il est donc fortement conseillé d'utiliser systèmatiquement `override`.
 
 Inversement, le spécificateur `final` garantit que la méthode est virtuelle et spécifie qu'elle ne peut pas être remplacée par des classes dérivées.  Lorsqu'il est utilisé dans une définition de classe, `final` spécifie que cette classe ne peut pas être dérivée.
 
