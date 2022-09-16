@@ -2611,4 +2611,5 @@ Liens :
 
 ## Voir aussi
 
+* https://github.com/AnthonyCalandra/modern-cpp-features
 * [C++ - Sujets divers](http://h-deb.clg.qc.ca/Sujets/Divers--cplusplus/index.html)
